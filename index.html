@@ -1,107 +1,75 @@
-
-
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>For My Golu - Main</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kya Tum Meri Golu Ho?</title>
   <style>
     body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to right, lavender, #fbeeff);
-      margin: 0;
-      padding: 0;
-      overflow-x: hidden;
-    }
-    header {
-      text-align: center;
-      padding: 2rem;
-      font-size: 2rem;
-      color: #800080;
-      font-weight: bold;
-    }
-    .segment-btns {
+      margin: 0; padding: 0;
+      background-color: lavenderblush;
       display: flex;
-      flex-wrap: wrap;
+      flex-direction: column;
+      align-items: center;
       justify-content: center;
-      gap: 15px;
-      margin-bottom: 30px;
+      height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
     }
-    button.segment {
-      background-color: #dda0dd;
-      border: none;
+    h1 {
+      color: purple;
+      font-size: 2.5rem;
+    }
+    .btns {
+      margin-top: 30px;
+    }
+    button {
       padding: 12px 25px;
-      font-size: 1rem;
-      color: white;
-      border-radius: 25px;
+      margin: 10px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 10px;
       cursor: pointer;
-      transition: all 0.3s ease;
     }
-    button.segment:hover {
-      background-color: #ba55d3;
+    .yes {
+      background-color: mediumorchid;
+      color: white;
     }
-    .content {
-      text-align: center;
-      padding: 2rem;
-      font-size: 1.1rem;
-      color: #4b0082;
-      max-width: 700px;
-      margin: auto;
-      line-height: 1.8;
-      display: none;
+    .no {
+      background-color: lightgray;
+      color: black;
     }
-    .emojis {
+    .emoji {
       font-size: 2rem;
-      margin-top: 10px;
-    }
-    audio {
+      margin-top: 20px;
       display: none;
+      animation: floatUp 3s infinite;
+    }
+    @keyframes floatUp {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-100px); opacity: 0; }
     }
   </style>
 </head>
 <body>
-  <header>Happy Birthday Designer Sahiba 💜</header>  <div class="segment-btns">
-    <button class="segment" onclick="showContent('wish')">🎂 Birthday Wish</button>
-    <button class="segment" onclick="showContent('dreams')">💭 Golu ke Sapne</button>
-    <button class="segment" onclick="showContent('message')">💌 Special Message</button>
-    <button class="segment" onclick="showContent('moments')">❤️ Our Moments</button>
-    <button class="segment" onclick="showContent('favorites')">🍦 Your Favourites</button>
-  </div>  <div id="wish" class="content">
-    Happy B'day Designer Sahiba 🎂💜<br>
-    I hope ki aap apne sapne poore karo... aur un sapnon mein main bhi rahun ☺️<br>
-    May this year bring everything you dream of — and more. 🥺✨
-    <div class="emojis">🎉💖🎂🎈💐</div>
-  </div>  <div id="dreams" class="content">
-    Aap apne saare sapne poore karo aur apni bucket list bhi tick karo! 🌈<br>
-    Darna mat... mai hoon na aapke saath — hamesha! 🫶🏻
-    <div class="emojis">🌟📚🎒🧳🌍</div>
-  </div>  <div id="message" class="content">
-    Special Message 💌<br>
-    Golu... aapka wo ehem Dil waali baat... mai kabhi bhool nahi sakta 🥹<br>
-    Main aapko chaah kar bhi bhool nahi pa raha hoon... 😔<br>
-    Har roz jab shirt pehenta hoon aur upar waali button kholne lagta hoon... aap yaad aa jaati ho.<br>
-    Tab se wo button kholta hi nahi... kyunki ek choti si hansi aa jaati hai aapki yaadon se 💜
-    <div class="emojis">🥺👕💭💜</div>
-  </div>  <div id="moments" class="content">
-    Pehli prank call 10 Feb 🥲<br>
-    Pehli asli baat 11 April 📞 — jahan sab kuch badal gaya tha mere liye!<br>
-    Techfest ka wo din... jab yellow-green frock mein aap ek pari jaise lag rahi thi ✨<br>
-    Aur agle din jab pink pehena... meri do ankh bas nahi ho paayi 💗<br>
-    Kaash us waqt aapse baat kar paata... bas door se dekhte reh gaya 😔
-    <div class="emojis">💫👀👗🎀💭</div>
-  </div>  <div id="favorites" class="content">
-    Aapka favourite colour: Lavender 💜<br>
-    Favourite Ice Cream: Butterscotch 🍦<br>
-    Favourite Chehra: Obviously... aapka! 😅<br>
-    <div class="emojis">💜🍦✨☺️</div>
-  </div>  <audio autoplay loop>
-    <source src="song.mp3" type="audio/mp3">
-  </audio>  <script>
-    function showContent(id) {
-      const contents = document.querySelectorAll('.content');
-      contents.forEach(div => div.style.display = 'none');
-      document.getElementById(id).style.display = 'block';
+  <h1>Kya Tum Meri Golu Ho? 💜</h1>
+  <div class="btns">
+    <button class="yes" onclick="goToMain()">Yes</button>
+    <button class="no" onclick="showEmoji()">No</button>
+  </div>
+  <div class="emoji" id="emoji">🥺💖 Maan jao na Golu 💌✨</div>
+
+  <script>
+    function goToMain() {
+      window.location.href = "main.html";
     }
-  </script></body>
+
+    function showEmoji() {
+      const emoji = document.getElementById("emoji");
+      emoji.style.display = "block";
+      setTimeout(() => {
+        emoji.style.display = "none";
+      }, 3000);
+    }
+  </script>
+</body>
 </html>
