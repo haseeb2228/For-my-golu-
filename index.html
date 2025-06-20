@@ -1,106 +1,82 @@
 
-      
-      
-      
-  <!DOCTYPE html><html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>For My Golu 💜</title>
-  <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+  <title>Kya Tum Meri Golu Ho?</title>
   <style>
     body {
       margin: 0;
+      padding: 0;
+      background-color: lavenderblush;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to right, #e8dff5, #fbeeff);
-      overflow-x: hidden;
-    }.intro {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: #e9d3f5;
-  text-align: center;
-}
-
-.intro h1 {
-  font-family: 'Sacramento', cursive;
-  font-size: 4rem;
-  margin: 0;
-  color: #7e3ff2;
-}
-
-.intro h2 {
-  font-size: 2rem;
-  color: #a657ec;
-  margin-top: 1rem;
-}
-
-.content {
-  padding: 2rem;
-  max-width: 800px;
-  margin: 0 auto;
-  background: white;
-  border-radius: 2rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.section {
-  margin-bottom: 2rem;
-}
-
-.section h3 {
-  color: #7e3ff2;
-  margin-bottom: 0.5rem;
-}
-
-.emoji {
-  font-size: 1.5rem;
-}
-
-audio {
-  display: none;
-}
-
+      overflow: hidden;
+    }
+    h1 {
+      font-size: 2.5rem;
+      color: purple;
+      margin-bottom: 20px;
+    }
+    .btn-group {
+      display: flex;
+      gap: 20px;
+    }
+    button {
+      padding: 10px 25px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .yes {
+      background-color: mediumorchid;
+      color: white;
+    }
+    .no {
+      background-color: lightgray;
+      color: black;
+    }
+    .emoji-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 2rem;
+      display: none;
+      animation: float 3s infinite;
+    }
+    @keyframes float {
+      0% { transform: translate(-50%, -50%) translateY(0); opacity: 1; }
+      100% { transform: translate(-50%, -50%) translateY(-100px); opacity: 0; }
+    }
   </style>
 </head>
-<body><audio autoplay loop>
-  <source src="https://files.catbox.moe/wtvob4.mp3" type="audio/mp3">
-  Your browser does not support the audio element.
-</audio><section class="intro">
-  <h1>Ooo Designer Sahiba 👩🏻‍💻</h1>
-  <h2>Happy Birthday to My Golu 💜🎂</h2>
-</section><div class="content">
-  <div class="section">
-    <h3>Your Favourites 💜🍦</h3>
-    <p class="emoji">Favorite Color: Lavender / Purple 💜<br>
-    Favorite Ice Cream: Butterscotch 🍨</p>
-  </div>  <div class="section">
-    <h3>From Me to You ❤️</h3>
-    <p>
-      Mere Golu,<br><br>
-      Pyaar bolne waala nahi, karne waala hoon... aur ye birthday gift sirf ek gesture hai — tere liye mera dil roz design karta hai har ek khushi ki website. 🥺💖<br><br>
-      Main har waqt tere saath hoon — chaahe paas hoon ya door. Tu serious hai life ke liye, aur main serious hoon tujhse life banane ke liye. <br><br>
-      Tu best nahi, tu alag hai. Meri Golu, meri designer sahiba, meri duaon ka nateeja. 💫<br><br>
-      Allah kare teri har dua qubool ho, aur ek din... tujhe woh sab mile jo tu deserve karti hai. Aur shayad... usme main bhi hoon. 💍✨
-    </p>
-  </div>  <div class="section">
-    <h3>Special Memories 🥺</h3>
-    <p>
-      🫣 Pehli baar prank call 10 Feb ko... aur asli baat 11 April ko. Tabhi se ek awaaz dil mein bass gayi hai. <br><br>
-      ❤️ 16 April ko jab pehli baar mila tha tujhe — aankhon mein kuch alag si chamak thi, aur haathon ka woh halkasa sparsh — sab yaad hai mujhe. <br><br>
-      🌸 TechFest mein pehli baar jab tujhe dekha... yellow and green mein itni pyaari lag rahi thi ki aankhein hatt hi nahi rahi thi. Next day pink dress mein... uff Golu, dil chur liya tune. 💕
-    </p>
-  </div>  <div class="section">
-    <h3>Special Message 💌</h3>
-    <p>
-      Shayad tujhse door hoon abhi... par main chahta hoon tu khush rahe bina kisi guilt ke, bina kisi darr ke. <br>
-      Tera intezaar hai mujhe, bina kisi shikayat ke. <br>
-      Har dua mein tu hi tu... aur ek din tujhse milne ka, sab kuch halal rakhne ka iraada dil mein hai. <br><br>
-      Please kabhi ye mat samajhna ki maine haar maani hai... bas tu khush rahe, isi mein meri jeet hai. <br><br>
-      Main intezaar kar raha hoon... aur karta rahunga. Teri khushi, tera sapna, aur tu — sab kuch hai mere liye. ❤️‍🔥
-    </p>
-  </div>
-</div></body>
-  </html>
+<body>
+  <h1>Kya Tum Meri Golu Ho? 💜</h1>
+  <div class="btn-group">
+    <button class="yes" onclick="sayYes()">Yes</button>
+    <button class="no" onclick="sayNo()">No</button>
+  </div>  <div class="emoji-container" id="emoji">🥺💖🙏🏻💌✨</div>  <audio id="audio" autoplay>
+    <source src="song.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>  <script>
+    function sayYes() {
+      window.location.href = "main.html";
+    }
+
+    function sayNo() {
+      const emoji = document.getElementById('emoji');
+      emoji.style.display = 'block';
+      setTimeout(() => {
+        alert("Maan jao na Golu 💌");
+        emoji.style.display = 'none';
+      }, 3000);
+    }
+  </script></body>
+</html>
