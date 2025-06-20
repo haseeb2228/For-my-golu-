@@ -6,100 +6,83 @@
   <style>
     body {
       margin: 0;
+      padding: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to right, #f8eaff, #e8d3ff);
-      color: #4b0082;
+      background-color: lavender;
+      color: #333;
+      overflow-x: hidden;
     }
     header {
       text-align: center;
-      padding: 20px;
+      padding: 2rem;
+      background-color: #e6ccff;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
-    h1 {
+    header h1 {
+      margin: 0;
       font-size: 2.5rem;
+      color: rebeccapurple;
     }
     .section {
-      margin: 30px;
-      padding: 20px;
-      background-color: #ffffffcc;
+      max-width: 800px;
+      margin: 2rem auto;
+      background: white;
       border-radius: 15px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 1.5rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       position: relative;
     }
-    .btn {
-      display: inline-block;
-      margin: 10px;
-      padding: 10px 20px;
-      font-size: 1rem;
-      border: none;
-      border-radius: 10px;
-      background-color: mediumorchid;
-      color: white;
-      cursor: pointer;
+    .section h2 {
+      color: mediumvioletred;
+      margin-bottom: 1rem;
     }
     .emoji-float {
       position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
+      animation: float 4s infinite;
       font-size: 2rem;
-      animation: floatUp 3s infinite;
-      display: none;
     }
-    @keyframes floatUp {
-      0% { transform: translateX(-50%) translateY(0); opacity: 1; }
-      100% { transform: translateX(-50%) translateY(-100px); opacity: 0; }
+    @keyframes float {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-80px); opacity: 0; }
     }
-    footer {
-      text-align: center;
-      margin-top: 40px;
-      padding: 10px;
-      font-size: 0.9rem;
-    }
-    audio {
-      width: 100%;
-      margin-top: 20px;
+    .music-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: purple;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 12px;
+      font-size: 16px;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>🎨 Designer Sahiba ki Chhoti Si Digital Duniya 💜</h1>
-    <p>Happy Birthday Golu! I hope tum apne sapne poore karo... aur un sapno mein mai bhi rahun 💫</p>
+    <h1>Happy Birthday Designer Sahiba 🎂💜</h1>
+    <p>Ek choti si digital duniya sirf aap ke liye 💻✨</p>
   </header>  <div class="section">
-    <button class="btn" onclick="showMessage('firstMeet')">Pehli Nazar</button>
-    <div class="emoji-float" id="float-firstMeet">👀💛🌼</div>
-    <p id="firstMeet" style="display:none">Techfest ke dusre din jab maine tujhe pehli baar dekha yellow-green dress mein, bas dekhta hi reh gaya. Agle din jab pink dress mein aayi thi, meri do aankhon mein bas tu hi thi. Wo moment zindagi bhar yaad rahega.</p>
+    <h2>🎁 Special Message</h2>
+    <p>Mujhe pata hai aapka dil bahut ehem cheez hai, aur main kabhi bhool nahi sakta wo baatein jo aapne mujhe dil se boli. Har din shirt pehente waqt, jab upar wala button kholna hota hai, mujhe aap yaad aati hain — isiliye main kabhi wo button nahi kholta. Ek chhoti si yaad, ek muskaan le aati hai chehre pe 💜</p>
   </div>  <div class="section">
-    <button class="btn" onclick="showMessage('firstCall')">Pehli Call</button>
-    <div class="emoji-float" id="float-firstCall">📞💓🥺</div>
-    <p id="firstCall" style="display:none">10 Feb ko prank call se shuru hua sab... lekin asli baat hui 11 April ko. Us din teri awaaz sunkar lagaa, jaise kuch andar badal gaya. Pehli baar kisi ki baat sunkar itna sukoon mila tha.</p>
+    <h2>👀 TechFest Ke Din</h2>
+    <p>Pehla din tha techfest ka, jab aapko yellow-green dress mein dekha — lag hi nahi raha tha ki zameen par koi pari chal rahi hai 💫 Bas dekhta reh gaya, kuch kaam yaad nahi tha uss waqt. Dusre din pink dress mein aayi thi, aur main khud ko rok nahi paaya — aankhon se door lekin dil ke itne paas!</p>
   </div>  <div class="section">
-    <button class="btn" onclick="showMessage('specialMsg')">Dil Se</button>
-    <div class="emoji-float" id="float-specialMsg">❤️👕🙂</div>
-    <p id="specialMsg" style="display:none">Tera wo kehna ki mai shirt ka top button khula chhod deta hoon, ab mai hamesha wo button band rakhta hoon. Har roz tu yaad aati hai, uss baat ki ek choti si muskaan le aati hai chehre par.</p>
+    <h2>📞 Hamari Pehli Call</h2>
+    <p>10 Feb ko prank call hua tha, lekin asli baat humne 11 April ko ki thi. Tabse leke ab tak, tumhari awaaz ka nasha utara hi nahi 💕 Pehli call, pehla connection — aur uss din se dil tumhara fan ho gaya!</p>
   </div>  <div class="section">
-    <button class="btn" onclick="showMessage('hopeMsg')">Ummeed</button>
-    <div class="emoji-float" id="float-hopeMsg">🌠💌🤲🏻</div>
-    <p id="hopeMsg" style="display:none">Tum daro mat Golu, Allah tumhare saath hai... aur mai bhi. Tumhare har sapne mein, har dua mein, mai saath hoon. Tum intezaar kar sakti ho ya nahi, wo nahi poochunga, bas itna kahunga – mai karunga… har haal mein.</p>
-  </div>  <div class="section">
-    <button class="btn" onclick="showMessage('favThings')">Tumhare Rang aur Swad</button>
-    <div class="emoji-float" id="float-favThings">🍦💜🌸</div>
-    <p id="favThings" style="display:none">Tera favourite colour – lavender 💜 aur teri favourite ice cream – butterscotch 🍦. Har baar jab dekhun ya khaun, sirf tu yaad aati hai mujhe. Simple cheezen bhi tujhse khaas ban jaati hai.</p>
-  </div>  <div class="section">
-    <h3>💽 Golu Ke Liye Ek Gaana</h3>
-    <audio controls>
-      <source src="song.mp3" type="audio/mpeg">
-      Your browser does not support the audio tag.
-    </audio>
-  </div>  <footer>
-    <p>Designed with ❤️ by Haseeb only for Golu — My forever person.</p>
-  </footer>  <script>
-    function showMessage(id) {
-      const para = document.getElementById(id);
-      const emoji = document.getElementById("float-" + id);
-      para.style.display = 'block';
-      emoji.style.display = 'block';
-      setTimeout(() => emoji.style.display = 'none', 3000);
-    }
-  </script></body>
+    <h2>🌈 Wishes for Your Dreams</h2>
+    <p>Aapke sapne poore hoon, yehi dua hai har waqt. Chahta hoon ki un sapno mein main bhi ek chhoti si jagah paaun. Bucket list ho ya career, har manzil tak main aapke saath hoon, designer sahiba 💜</p>
+  </div>  <div class="emoji-float" style="top:10%; left:20%;">💖</div>
+  <div class="emoji-float" style="top:15%; left:60%; animation-delay: 1s;">💌</div>
+  <div class="emoji-float" style="top:30%; left:40%; animation-delay: 2s;">✨</div>
+  <div class="emoji-float" style="top:50%; left:70%; animation-delay: 3s;">🥺</div>
+  <div class="emoji-float" style="top:70%; left:30%; animation-delay: 4s;">🌸</div>  <audio id="bgmusic" autoplay loop>
+    <source src="song.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio><button class="music-button" onclick="document.getElementById('bgmusic').play()">Play Music 🎵</button>
+
+</body>
 </html>
