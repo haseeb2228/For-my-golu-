@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For My Golu - Main</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, lavender, #fbeeff);
+      margin: 0; padding: 20px;
+    }
+    header { text-align: center; font-size: 2rem; color: #800080; margin-bottom: 20px; }
+    .segment-btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
+    button.segment {
+      background-color: #dda0dd; border: none;
+      padding: 12px 25px;
+      font-size: 1rem; color: white;
+      border-radius: 25px; cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    button.segment:hover { background-color: #ba55d3; }
+    .content {
+      text-align: center;
+      padding: 2rem;
+      font-size: 1.1rem;
+      color: #4b0082;
+      max-width: 700px;
+      margin: auto;
+      line-height: 1.8;
+      display: none;
+      position: relative;
+    }
+    .emoji-float {
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      font-size: 2rem;
+      animation: floatUp 2s ease-out;
+    }
+    @keyframes floatUp {
+      0% { opacity: 1; transform: translateY(0); }
+      100% { opacity: 0; transform: translateY(-100px); }
+    }
+    audio { display: none; }
+  </style>
+</head>
+<body>
+
+  <header>Happy Birthday Designer Sahiba 💜</header>
+
+  <div class="segment-btns">
+    <button class="segment" onclick="show('wish')">🎂 Birthday Wish</button>
+    <button class="segment" onclick="show('dreams')">💭 Golu ke Sapne</button>
+    <button class="segment" onclick="show('message')">💌 Special Message</button>
+    <button class="segment" onclick="show('moments')">❤️ Our Moments</button>
+    <button class="segment" onclick="show('favorites')">🍦 Your Favourites</button>
+  </div>
+
+  <div id="wish" class="content">... 🔽 see below</div>
+  <div id="dreams" class="content">... 🔽</div>
+  <div id="message" class="content">... 🔽</div>
+  <div id="moments" class="content">... 🔽</div>
+  <div id="favorites" class="content">... 🔽</div>
+
+  <audio autoplay loop>
+    <source src="song.mp3" type="audio/mp3">
+  </audio>
+
+  <script>
+    const contents = {
+      wish: `Happy B'day Designer Sahiba 🎂💜<br>I hope ki aap apne sapne poore karo... aur un sapnon mein main bhi rahun ☺️<div class="emoji-float">🎉💖🎂</div>`,
+      dreams: `Aap apne saare sapne poore karo aur apni bucket list bhi tick karo! 🌈<div class="emoji-float">🌟📚</div>`,
+      message: `Special Message 💌<br>Golu... aapka wo ehem Dil waali baat... mai kabhi bhool nahi sakta 🥹<div class="emoji-float">🥺💜</div>`,
+      moments: `Pehli prank call 10 Feb... Pehli asli baat 11 April... TechFest yellow-green day & pink day 👗<div class="emoji-float">✨👀</div>`,
+      favorites: `Favourite colour: Lavender 💜<br>Ice cream: Butterscotch 🍦<div class="emoji-float">🍦💜</div>`,
+    };
+
+    function show(id) {
+      document.querySelectorAll('.content').forEach(c => c.style.display = 'none');
+      const div = document.getElementById(id);
+      div.innerHTML = contents[id];
+      div.style.display = 'block';
+    }
+  </script>
+</body>
+</html>
