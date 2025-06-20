@@ -1,4 +1,3 @@
-
 <!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -7,125 +6,92 @@
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to right, #d3cce3, #e9e4f0);
-      overflow-x: hidden;
-    }
-    header {
-      background-color: #a084ca;
-      color: white;
-      text-align: center;
-      padding: 1.5rem;
-      font-size: 1.8rem;
-      font-weight: bold;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
-    .sidebar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 220px;
-      height: 100%;
-      background-color: #6c5ce7;
-      color: white;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #e6ccff, #ffffff);
+      color: #4b0082;
       display: flex;
       flex-direction: column;
-      padding-top: 3rem;
-      box-shadow: 2px 0 8px rgba(0,0,0,0.2);
+      align-items: center;
     }
-    .sidebar button {
-      background: none;
-      border: none;
+    header {
+      text-align: center;
+      padding: 40px 20px 20px;
+    }
+    header h1 {
+      font-size: 2.2rem;
+      margin: 0;
+    }
+    header p {
+      font-size: 1.1rem;
+      color: #6a1b9a;
+    }
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin: 30px 0;
+    }
+    .buttons button {
+      background-color: #ba68c8;
       color: white;
-      padding: 1rem;
-      text-align: left;
-      width: 100%;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 25px;
       cursor: pointer;
+      transition: background-color 0.3s;
       font-size: 1rem;
     }
-    .sidebar button:hover {
-      background-color: #a29bfe;
+    .buttons button:hover {
+      background-color: #ab47bc;
     }
-    main {
-      margin-left: 240px;
-      padding: 2rem;
-      white-space: pre-wrap;
-    }
-    section {
+    .content {
+      max-width: 90%;
+      background-color: #f3e5f5;
+      border-radius: 20px;
+      padding: 30px;
+      margin-bottom: 40px;
+      text-align: left;
       display: none;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
-    section.active {
-      display: block;
+    .emoji {
+      font-size: 1.5rem;
+      margin-right: 10px;
     }
-    audio {
-      display: none;
+    footer {
+      padding: 10px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #888;
+      margin-bottom: 20px;
     }
   </style>
 </head>
 <body>
-  <audio autoplay loop>
-    <source src="https://github.com/haseebpasha2025/birthdaygolu/blob/main/audio.mp3?raw=true" type="audio/mp3" />
-  </audio>  <header>Oo Designer Sahiba 💜 Happy Birthday Golu 🎂✨</header>  <div class="sidebar">
-    <button onclick="showSection('msg')">💌 Message</button>
-    <button onclick="showSection('prank')">📞 Our First Call</button>
-    <button onclick="showSection('meet')">👀 Our First Meet</button>
-    <button onclick="showSection('fest')">🌟 TechFest Memory</button>
-  </div>  <main>
-    <section id="msg" class="active">
-      Dear Golu,Aaj ka din mere liye sirf tumhara hai. Tumhari muskurahat, tumhari mehnat, tumhara talent — sab kuch mujhe har roz inspire karta hai.
-
-  Tum sirf ek talented designer nahi ho, tum mere liye woh insaan ho jisse Allah se maangne ka dil karta hai. Chahe kitna bhi waqt lage, mai intezaar karunga… bina shikayat ke.
-
-  Mere liye tumhara sukoon, tumhari khushi sabse important hai. Tum perfect daughter ho, aur ek din tumhare parents tumpe utna hi fakhr karenge jitna mujhe hota hai.
-
-  Mujhe tumse mohabbat hui thi, hai… aur hamesha rahegi.
-
-  Khush raho Designer Sahiba 💜
-</section>
-
-<section id="prank">
-  Hamari pehli baat ek prank call thi — 10th February ko 😅
-  Tumne prank kiya tha, lekin main us awaaz mein hi kho gaya tha.
-
-  Actual call jo dil ko chhoo gaya tha, wo 11th April ko hua tha. 
-  Jab tumne pehli baar seriously call kiya tha, aur jab humne baat ki… 
-  Tab laga ki duniya ruk gayi ho. Tumhari awaaz sunke lagaa ki finally kuch apna mil gaya hai.
-
-  Network issues the, par uss call ki feelings sabse zyada strong thi. 💜📞
-</section>
-
-<section id="meet">
-  16 April.
-
-  Tumhe kuch books chahiye thi aur tumne pucha "laake doge kya?" Mujhe laga mazaak kar rahi ho…
-  Par jab tumne bola ki "Main yaha hoon, agar aaspaas ho toh de dena," to mera dil dhadak utha.
-
-  Bas kuch minutes ke liye mila tha tumse… 
-  Tumhare haathon mein book dete waqt meri ungliyan tumhari ungliyon se takra gayi thi — bas ek pal ke liye, lekin wo pal mere liye ek poori duniya ban gaya tha.
-
-  Uske baad tum baith gayi, humne thodi der baat ki. 
-  Tumhari dost aane wali thi, lekin usse pehle tumhare saath baithkar baat karna… 
-  Wo ek chhoti si mulaqat meri yaadon ki sabse khoobsurat jagah ban gayi.
-</section>
-
-<section id="fest">
-  16 June — Tech Fest ka doosra din.
-
-  Main ready hokar gaya tha aur jaise hi ground mein enter hua, tum wahan thi — apne doston ke saath baat karti hui.
-
-  Tumne yellow aur green color ka ek frock type dress pehna hua tha. Itni pyaari lag rahi thi tum, ki main bas dekhta hi reh gaya.
-
-  Agle din pink dress mein tumne meri jaan le li. Sach mein… tumhe dekhte dekhte poora din nikal gaya, bina kuch bole.
-
-  I wish main uss waqt tumse baat kar paata… 
-  Lekin door se tumhe dekhte dekhte hi khush tha. 
-  "Takte takte umar guzar doon" — wo waala moment tha woh 💜✨
-</section>
-
-  </main>  <script>
-    function showSection(id) {
-      document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
+  <header>
+    <h1>Ooo Designer Sahiba 👩‍💻</h1>
+    <p>Happy Birthday to the most special person in my life 💜</p>
+  </header>  <div class="buttons">
+    <button onclick="showContent('msg')">🎁 Special Message</button>
+    <button onclick="showContent('call')">📞 Our First Call</button>
+    <button onclick="showContent('meet')">🌸 Our First Meet</button>
+    <button onclick="showContent('techfest')">🌟 TechFest Moment</button>
+  </div>  <div id="msg" class="content">
+    <p><span class="emoji">💌</span>Golu, tum mere liye sirf ek insaan nahi ho, tum meri dua ho. Main har roz Allah se sirf tumhare liye dua karta hoon. Tumhari khushi, tumhari muskurahat, tumhara har sapna – mera maqsad ban gaya hai. Tum perfect ho... apne parents ke liye, mere liye, aur khud ke liye bhi. Tum jaisi ho waisi hi bahut pyaari ho. I'm always proud of you. 💜</p>
+  </div>  <div id="call" class="content">
+    <p><span class="emoji">📞</span>11 April... pehli baar tumhari awaaz suni thi. Sach kahun toh us din se tumhari awaaz mere dil ka sukoon ban gayi. Network issue tha, par us din ke baad har din tumhari awaaz sunne ki tamanna thi. Itna khush kab ka tha mujhe yaad hi nahi.</p>
+  </div>  <div id="meet" class="content">
+    <p><span class="emoji">🌸</span>16 April ko jab tumse pehli baar mila... tumne kaha “kya laake doge” aur main uss waqt tumhare liye sab kuch dene ko tayyar tha. Jab tum saamne aayi thi... haath kaap rahe the mere. Jab tak tum baithi rahi, bas dekhte reh gaya. Woh moment meri zindagi ka ek beautiful safha hai.</p>
+  </div>  <div id="techfest" class="content">
+    <p><span class="emoji">✨</span>Techfest ke dono din tumne dil jeet liya tha. Pehle din tumhara yellow-green dress... aur doosre din woh pink dress. Main bas dekhte reh gaya. Lagta tha waqt rukh jaaye. Us din bas ek hi kaam tha – tumhe dekhna. Door se hi sahi, tumhe takna meri zindagi ka sukoon tha uss waqt. 💫</p>
+  </div>  <footer>Made with infinite love by Haseeb 💜</footer>  <script>
+    function showContent(id) {
+      const sections = document.querySelectorAll('.content');
+      sections.forEach(sec => sec.style.display = 'none');
+      document.getElementById(id).style.display = 'block';
     }
   </script></body>
 </html>
+
