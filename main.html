@@ -1,88 +1,65 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>For My Golu - Main</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to right, lavender, #fbeeff);
-      margin: 0; padding: 20px;
-    }
-    header { text-align: center; font-size: 2rem; color: #800080; margin-bottom: 20px; }
-    .segment-btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
-    button.segment {
-      background-color: #dda0dd; border: none;
-      padding: 12px 25px;
-      font-size: 1rem; color: white;
-      border-radius: 25px; cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    button.segment:hover { background-color: #ba55d3; }
-    .content {
-      text-align: center;
-      padding: 2rem;
-      font-size: 1.1rem;
-      color: #4b0082;
-      max-width: 700px;
-      margin: auto;
-      line-height: 1.8;
-      display: none;
-      position: relative;
-    }
-    .emoji-float {
-      position: absolute;
-      top: -20px;
-      right: -20px;
-      font-size: 2rem;
-      animation: floatUp 2s ease-out;
-    }
-    @keyframes floatUp {
-      0% { opacity: 1; transform: translateY(0); }
-      100% { opacity: 0; transform: translateY(-100px); }
-    }
-    audio { display: none; }
-  </style>
+  <title>For My Golu</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <header>Happy Birthday Designer Sahiba 💜</header>
-
-  <div class="segment-btns">
-    <button class="segment" onclick="show('wish')">🎂 Birthday Wish</button>
-    <button class="segment" onclick="show('dreams')">💭 Golu ke Sapne</button>
-    <button class="segment" onclick="show('message')">💌 Special Message</button>
-    <button class="segment" onclick="show('moments')">❤️ Our Moments</button>
-    <button class="segment" onclick="show('favorites')">🍦 Your Favourites</button>
-  </div>
-
-  <div id="wish" class="content">... 🔽 see below</div>
-  <div id="dreams" class="content">... 🔽</div>
-  <div id="message" class="content">... 🔽</div>
-  <div id="moments" class="content">... 🔽</div>
-  <div id="favorites" class="content">... 🔽</div>
-
   <audio autoplay loop>
     <source src="song.mp3" type="audio/mp3">
-  </audio>
+    Your browser does not support the audio element.
+  </audio>  <main>
+    <section id="intro">
+      <h1>Happy Birthday Designer Sahiba 🎉</h1>
+      <p>Ek chhoti si digital duniya, sirf aapke liye ✨<br>
+      I hope aap apne sapne poore karein… aur un sapno mein main bhi kahin hoon 🥹💜</p>
+    </section><section id="special-message">
+  <h2>Special Message 💌</h2>
+  <p>
+    Aapka woh ehem dil waala dialogue — "dil bhar gaya haseeb, takleef ho rahi hai..." — woh mai kabhi bhool nahi sakta.
+    Aapko chah ke bhi bhool nahi pa raha. Roz jab shirt pehnta hoon, top button kholne jaata hoon,
+    aap yaad aate ho aur waise hi reh jaata hoon... ek hasi aa jaati hai chehre pe.
+    Jitni bhi garmi ho, wo button nahi kholta, kyunki aap yaad aate ho 🥺🫂
+  </p>
+</section>
 
-  <script>
-    const contents = {
-      wish: `Happy B'day Designer Sahiba 🎂💜<br>I hope ki aap apne sapne poore karo... aur un sapnon mein main bhi rahun ☺️<div class="emoji-float">🎉💖🎂</div>`,
-      dreams: `Aap apne saare sapne poore karo aur apni bucket list bhi tick karo! 🌈<div class="emoji-float">🌟📚</div>`,
-      message: `Special Message 💌<br>Golu... aapka wo ehem Dil waali baat... mai kabhi bhool nahi sakta 🥹<div class="emoji-float">🥺💜</div>`,
-      moments: `Pehli prank call 10 Feb... Pehli asli baat 11 April... TechFest yellow-green day & pink day 👗<div class="emoji-float">✨👀</div>`,
-      favorites: `Favourite colour: Lavender 💜<br>Ice cream: Butterscotch 🍦<div class="emoji-float">🍦💜</div>`,
-    };
+<section id="first-call">
+  <h2>Our First Call 📞</h2>
+  <p>
+    Pehli baar uski awaaz 11 April ko suni thi... us din ki khushi mai bhool nahi sakta.
+    Prank call to 10 Feb ko hua tha par asli pehli baat 11 April ko. 
+    Network issues ke beech bhi uski awaaz sunke dil bhar gaya tha. 
+    Bahut time ke baad aisa laga tha jaise zindagi mein kuch roshni aayi ho 💖
+  </p>
+</section>
 
-    function show(id) {
-      document.querySelectorAll('.content').forEach(c => c.style.display = 'none');
-      const div = document.getElementById(id);
-      div.innerHTML = contents[id];
-      div.style.display = 'block';
-    }
-  </script>
+<section id="first-meet">
+  <h2>First Meet 🌸</h2>
+  <p>
+    16 April — jab pehli baar mila tha. Usne message kiya tha ki wo nearby hai.
+    Jab mila, aankhon se sirf usi ko dekhta raha. Dil se us moment ko mehsoos kiya. 
+    Baithkar baat ki, uski dosti us waqt aur gehri lagne lagi. 
+    Jaane se pehle uske haath mein kuch seconds ke liye mera haath bhi tha… aur sab kuch bas ruk gaya tha 💫
+  </p>
+</section>
+
+<section id="techfest-moment">
+  <h2>That TechFest Look ✨</h2>
+  <p>
+    TechFest ka doosra din... jab use yellow-green frock mein dekha toh main wahin jam gaya. 
+    Aur agle din jab usne pink dress pehni... meri aankhein bas usi ko dekh rahi thi.
+    I wish us waqt baat kar pata... but door se dekhte rehna bhi us waqt sab kuch tha. 
+    Jaise wo moment kehta ho: use takte takte Umar guzaar doon 💘
+  </p>
+</section>
+
+<footer>
+  <p>💜 Your favorite color: Lavender / Purple<br>
+  🍦 Favorite Ice Cream: Butterscotch<br>
+  You're not just a designer… you're my whole inspiration 💫</p>
+</footer>
+
+  </main>
 </body>
 </html>
