@@ -1,109 +1,82 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>For My Golu</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>For My Golu ❤️</title>
   <style>
     body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: lavender;
-      color: #4B0082;
+      background-color: lavenderblush;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
       padding: 20px;
     }
-    h1, h2 {
-      text-align: center;
+    h1 {
+      color: purple;
+      font-size: 2.5rem;
     }
     .segment {
-      border: 2px solid #dda0dd;
-      border-radius: 20px;
-      padding: 15px;
-      margin: 20px 0;
-      background-color: #fff0f5;
-      position: relative;
-      overflow: hidden;
+      margin: 30px 0;
     }
-    .emoji-float {
-      position: absolute;
-      animation: float 5s infinite;
+    .float-emoji {
       font-size: 2rem;
-      opacity: 0.7;
+      animation: float 3s ease-in-out infinite;
+      opacity: 0;
+      transition: opacity 0.5s;
     }
     @keyframes float {
-      0% {transform: translateY(0);} 
-      100% {transform: translateY(-100px); opacity: 0;}
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0); }
     }
     button {
-      background-color: #e6e6fa;
-      border: none;
       padding: 10px 20px;
+      margin-top: 10px;
       font-size: 1rem;
+      border: none;
       border-radius: 10px;
+      background-color: mediumorchid;
+      color: white;
       cursor: pointer;
-      display: block;
-      margin: 10px auto;
     }
     audio {
-      display: block;
-      margin: 20px auto;
+      margin-top: 20px;
     }
   </style>
 </head>
 <body>
-  <h1>Happy Birthday Designer Sahiba 🎉💜</h1>
-  <h2>Ek choti si digital duniya... Sirf aapke liye 🌸</h2>  <div class="segment">
-    <h3>🎁 Special Message</h3>
-    <p>Mujhe aapka woh Dil waali baat yaad hai... aur sach kahun toh, main aapko chaah kar bhi bhool nahi paa raha hoon. Har roz jab shirt pehnta hoon, upar waala button kholne jaata hoon, toh aap yaad aa jaate ho... aur fir main waise hi pehn leta hoon. Ek choti si hasi aa jaati hai chehre par. Chahe jitni bhi garmi ho, woh button nahi kholta, kyunki aap yaad aa jaati ho 💜</p>
-  </div>  <div class="segment">
-    <h3>📞 Pehli Call</h3>
-    <p>Hamari pehli asli baat 11 April ko hui thi. Usse pehle, 10 February ko prank call aaya tha, par jab 11 April ko aapki awaaz suni… sach kahun toh dil wahi ruk gaya tha. Pehli baar kisi ki awaaz mein aise kho gaya tha. Thodi der hi baat hui thi, magar main bahut khush tha uss din… sach mein bahut dinon ke baad itna khush tha.</p>
-  </div>  <div class="segment">
-    <h3>🌸 TechFest Waala Din</h3>
-    <p>Tech fest ka doosra din tha. Main ready hoke gaya, jaise hi ground mein enter kiya, aap waha the apne doston ke saath. Pehle to pehchana nahi, lekin jaise hi dekha toh aankhein wahi ruk gayi. Aapne yellow aur green dress pehni thi — ekdam pyaari lag rahi thi. Sirf dekhte hi reh gaya tha. Agle din pink dress mein dekha... uss din laga duniya ki sabse khoobsurat ladki mere saamne hai. Kaash uss waqt baat hoti... sirf door se dekh kar guzara kiya tha 💖</p>
-  </div>  <div class="segment">
-    <h3>🎂 Sapne & Duaayein</h3>
-    <p>Mujhe puri ummeed hai ki aap apne saare sapne poore karenge. Aur main dua karta hoon ki un sapnon mein ek chhoti si jagah mere liye bhi ho. Aap jo bhi chaahti ho woh mile, aur jo bucket list hai woh bhi poori ho... aur usmein Jammu & Kashmir jaana bhi hai na ammi abbu ke saath — woh bhi ho in shaa Allah. Kabhi ghabraana mat, mai hamesha hoon — door sahi, lekin hamesha.</p>
-  </div>  <div class="segment">
-    <h3>🍦 Your Favourites</h3>
-    <p>Lavender & Purple — colours that remind me of your aura 💜 Aur butter scotch ice cream — jaise aapki sweetness. Yeh choti choti baatein mujhe hamesha yaad rehengi. Designer sahiba, aap sach mein ek masterpiece ho... ek soft, strong, aur beautiful soul 💫</p>
-  </div>  <div class="segment">
-    <h3>🎶 Music For You</h3>
-    <audio id="song" controls autoplay loop>
-      <source src="song.mp3" type="audio/mpeg">
-      Your browser does not support the audio tag.
-    </audio>
-  </div>  <script>
-    // Floating emojis for each segment
-    const emojis = ['💌', '💖', '🌸', '✨', '🥺', '🌟'];
-    document.querySelectorAll('.segment').forEach(segment => {
-      for (let i = 0; i < 5; i++) {
-        const span = document.createElement('span');
-        span.className = 'emoji-float';
-        span.innerText = emojis[Math.floor(Math.random() * emojis.length)];
-        span.style.left = Math.random() * 100 + '%';
-        span.style.top = Math.random() * 100 + '%';
-        segment.appendChild(span);
-      }
-    });
-  </script></body>
-  <audio id="audio" loop>
-  <source src="song.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
 
-<button onclick="document.getElementById('audio').play()" style="
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: purple;
-  color: white;
-  padding: 10px 20px;
-  font-size: 16px;
-  border-radius: 10px;
-  border: none;
-  cursor: pointer;
-  z-index: 1000;
-">
-  Play Song 🎶
-</button>
+  <h1>🎂 For My Golu 🎂</h1>
+
+  <div class="segment">
+    <h2>Designer Sahiba ke liye ek chhoti si digital duniya 💜</h2>
+    <p>Jisme har lafz mein pyaar, har rang mein yaadein, aur har button mein ek naya ehsaas chhupa hai.</p>
+  </div>
+
+  <div class="segment">
+    <h3>Special Message ✨</h3>
+    <button onclick="showEmojisAndPlay()">Click to reveal 💌</button>
+    <div class="float-emoji" id="emojis">💖🥺✨🎈🌸</div>
+    <p id="msg" style="display:none; margin-top:15px;">
+      Main samajh sakta hoon ke tumhara darr genuine hoga…<br>
+      Par jab koi tumse pyaar se baat kare, aur tum useh door dhakel do, to sirf tum nahi — uska bhi dil dukh jaata hai.<br>
+      Main bas itna kehna chahta hoon ki main yahan tha, hoon, aur rahunga...<br>
+      Lekin main bhi insaan hoon Golu, patthar nahi.
+    </p>
+  </div>
+
+  <audio id="song">
+    <source src="tu-jaane-na.mp3" type="audio/mp3" />
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    function showEmojisAndPlay() {
+      document.getElementById('emojis').style.opacity = '1';
+      document.getElementById('msg').style.display = 'block';
+      document.getElementById('song').play();
+    }
+  </script>
+
+</body>
 </html>
