@@ -1,8 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kya Tum Meri Golu Ho?</title>
   <style>
     body {
@@ -18,19 +17,16 @@
       overflow: hidden;
       position: relative;
     }
-
     h1 {
       font-size: 2.5rem;
       color: purple;
       margin-bottom: 20px;
       text-align: center;
     }
-
     .btn-group {
       display: flex;
       gap: 20px;
     }
-
     button {
       padding: 10px 25px;
       font-size: 1.2rem;
@@ -39,17 +35,14 @@
       cursor: pointer;
       transition: 0.3s;
     }
-
     .yes {
       background-color: mediumorchid;
       color: white;
     }
-
     .no {
       background-color: lightgray;
       color: black;
     }
-
     .emoji-container {
       position: absolute;
       top: 50%;
@@ -59,7 +52,6 @@
       display: none;
       animation: float 3s infinite;
     }
-
     @keyframes float {
       0% {
         transform: translate(-50%, -50%) translateY(0);
@@ -70,7 +62,6 @@
         opacity: 0;
       }
     }
-
     .rain {
       position: absolute;
       width: 100%;
@@ -78,7 +69,6 @@
       pointer-events: none;
       overflow: hidden;
     }
-
     .drop {
       width: 2px;
       height: 15px;
@@ -87,20 +77,18 @@
       top: -20px;
       animation: rain 1s linear infinite;
     }
-
     @keyframes rain {
       to {
         transform: translateY(100vh);
       }
     }
-
     .maanjao {
       margin-top: 20px;
       font-size: 1.2rem;
       color: #444;
       display: none;
       text-align: center;
-      max-width: 90%;
+      padding: 10px;
     }
   </style>
 </head>
@@ -110,49 +98,42 @@
     <button class="yes" onclick="sayYes()">Yes</button>
     <button class="no" onclick="sayNo()">No</button>
   </div>
-
   <div class="emoji-container" id="emoji">🥺💖🙏🏻💌✨</div>
   <div class="rain" id="rain"></div>
-  <div class="maanjao" id="text"></div>
-
-  <audio id="audio">
+  <div class="maanjao" id="text">
+    Phir se soch lo... Mere bina aap kaun se design karenge Designer Sahiba? 💔😅<br>
+    Maan jao na... warna website incomplete reh jaayegi 😭💔
+  </div>
+  <audio id="audio" loop>
     <source src="tu-jaane-na.mp3" type="audio/mp3" />
     Your browser does not support the audio element.
   </audio>
-
   <script>
-    let noClickCount = 0;
-
+    let noClickedOnce = false;
     function sayYes() {
       const audio = document.getElementById("audio");
       audio.play();
       window.location.href = "main.html";
     }
-
     function sayNo() {
-      noClickCount++;
-
+      if (!noClickedOnce) {
+        alert("Pakka? 😢");
+        noClickedOnce = true;
+        return;
+      }
+      startRain();
+      showEmoji();
+    }
+    function showEmoji() {
       const emoji = document.getElementById("emoji");
       const text = document.getElementById("text");
-
-      if (noClickCount === 1) {
-        text.innerHTML = "Pakka? 😟";
-        text.style.display = "block";
-        setTimeout(() => {
-          text.style.display = "none";
-        }, 3000);
-      } else {
-        startRain();
-        emoji.style.display = "block";
-        text.innerHTML = "Phir se soch lo... Mere bina aap kaun se design karenge Designer Sahiba? 💔😅<br>Maan jao na... warna website incomplete reh jaayegi 😭💔";
-        text.style.display = "block";
-        setTimeout(() => {
-          emoji.style.display = "none";
-          text.style.display = "none";
-        }, 5000);
-      }
+      emoji.style.display = "block";
+      text.style.display = "block";
+      setTimeout(() => {
+        emoji.style.display = "none";
+        text.style.display = "none";
+      }, 4000);
     }
-
     function startRain() {
       const rainContainer = document.getElementById("rain");
       for (let i = 0; i < 100; i++) {
