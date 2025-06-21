@@ -51,6 +51,7 @@
       font-size: 1.2rem;
       color: #444;
       display: none;
+      text-align: center;
     }
     @keyframes float {
       0% { transform: translate(-50%, -50%) translateY(0); opacity: 1; }
@@ -81,10 +82,10 @@
   </div>
   <div class="emoji-container" id="emoji">🥺💖🙏🏻💌✨</div>
   <div class="rain" id="rain"></div>
-  <div class="maanjao" id="text">Phir se soch lo... Mere bina aap kaun se design karenge Designer Sahiba? 💔😅<br>Maan jao na... warna website incomplete reh jaayegi 😭💔</div>
+  <div class="maanjao" id="text">Maan jao naa Golu 💌</div>
 
   <script>
-    let noClicked = 0;
+    let noClickCount = 0;
 
     function sayYes() {
       window.location.href = "main.html";
@@ -95,17 +96,28 @@
       showEmoji();
 
       const text = document.getElementById("text");
-      noClicked++;
-      if (noClicked >= 2) {
+      noClickCount++;
+
+      if (noClickCount === 1) {
+        text.innerText = "Pakka? 😟💔";
+      } else if (noClickCount === 2) {
         text.innerHTML = `Phir se soch lo... Mere bina aap kaun se design karenge Designer Sahiba? 💔😅<br>Maan jao na... warna website incomplete reh jaayegi 😭💔`;
-        text.style.display = "block";
+      } else if (noClickCount >= 3) {
+        text.innerHTML = `Aap toh mujhe 'No' bhi nahi bol sakti... 😭💔<br>Bas YES kardo na Designer Sahiba 💌`;
       }
+
+      text.style.display = "block";
+      setTimeout(() => {
+        text.style.display = "none";
+      }, 4000);
     }
 
     function showEmoji() {
       const emoji = document.getElementById("emoji");
       emoji.style.display = "block";
-      setTimeout(() => { emoji.style.display = "none"; }, 3000);
+      setTimeout(() => {
+        emoji.style.display = "none";
+      }, 3000);
     }
 
     function startRain() {
