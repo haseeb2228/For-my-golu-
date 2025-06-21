@@ -1,75 +1,162 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kya Tum Meri Golu Ho?</title>
   <style>
     body {
-      margin: 0; padding: 0;
+      margin: 0;
+      padding: 0;
       background-color: lavenderblush;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100vh;
-      font-family: 'Segoe UI', sans-serif;
-    }
-    h1 {
-      color: purple;
-      font-size: 2.5rem;
-    }
-    .btns {
-      margin-top: 30px;
-    }
-    button {
-      padding: 12px 25px;
-      margin: 10px;
-      font-size: 1.2rem;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-    }
-    .yes {
-      background-color: mediumorchid;
-      color: white;
-    }
-    .no {
-      background-color: lightgray;
-      color: black;
-    }
-    .emoji {
-      font-size: 2rem;
-      margin-top: 20px;
-      display: none;
-      animation: floatUp 3s infinite;
-    }
-    @keyframes floatUp {
-      0% { transform: translateY(0); opacity: 1; }
-      100% { transform: translateY(-100px); opacity: 0; }
-    }
+      overflow: hidden;
+      position: relative;
+    }h1 {
+  font-size: 2.5rem;
+  color: purple;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.btn-group {
+  display: flex;
+  gap: 20px;
+}
+
+button {
+  padding: 10px 25px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.yes {
+  background-color: mediumorchid;
+  color: white;
+}
+
+.no {
+  background-color: lightgray;
+  color: black;
+}
+
+.emoji-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  display: none;
+  animation: float 3s infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translate(-50%, -50%) translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) translateY(-100px);
+    opacity: 0;
+  }
+}
+
+.rain {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.drop {
+  width: 2px;
+  height: 15px;
+  background: #a9a9ff;
+  position: absolute;
+  top: -20px;
+  animation: rain 1s linear infinite;
+}
+
+@keyframes rain {
+  to {
+    transform: translateY(100vh);
+  }
+}
+
+.maanjao {
+  margin-top: 20px;
+  font-size: 1.1rem;
+  color: #444;
+  display: none;
+  padding: 0 20px;
+  text-align: center;
+}
+
   </style>
 </head>
 <body>
   <h1>Kya Tum Meri Golu Ho? 💜</h1>
-  <div class="btns">
-    <button class="yes" onclick="goToMain()">Yes</button>
-    <button class="no" onclick="showEmoji()">No</button>
+  <div class="btn-group">
+    <button class="yes" onclick="sayYes()">Yes</button>
+    <button class="no" onclick="sayNo()">No</button>
+    <button class="no" onclick="sayDoubleNo()">Do bhi!</button>
   </div>
-  <div class="emoji" id="emoji">🥺💖 Maan jao na Golu 💌✨</div>
-
-  <script>
-    function goToMain() {
+  <div class="emoji-container" id="emoji">🥺💖🙏🏻💌✨</div>
+  <div class="rain" id="rain"></div>
+  <div class="maanjao" id="text">
+    Phir se soch lo... Mere bina aap kaun se design karenge Designer Sahiba? 💔😅<br>
+    Maan jao na... warna website incomplete reh jaayegi 😭💔
+  </div>  <audio id="audio">
+    <source src="tu-jaane-na.mp3" type="audio/mp3" />
+    Your browser does not support the audio element.
+  </audio>  <script>
+    function sayYes() {
+      const audio = document.getElementById("audio");
+      audio.play();
       window.location.href = "main.html";
+    }
+
+    function sayNo() {
+      startRain();
+      showEmoji();
+    }
+
+    function sayDoubleNo() {
+      startRain();
+      showEmoji();
     }
 
     function showEmoji() {
       const emoji = document.getElementById("emoji");
+      const text = document.getElementById("text");
       emoji.style.display = "block";
+      text.style.display = "block";
       setTimeout(() => {
         emoji.style.display = "none";
-      }, 3000);
+        text.style.display = "none";
+      }, 5000);
     }
-  </script>
-</body>
+
+    function startRain() {
+      const rainContainer = document.getElementById("rain");
+      for (let i = 0; i < 100; i++) {
+        const drop = document.createElement("div");
+        drop.classList.add("drop");
+        drop.style.left = Math.random() * window.innerWidth + "px";
+        drop.style.animationDuration = Math.random() * 1 + 0.5 + "s";
+        rainContainer.appendChild(drop);
+        setTimeout(() => {
+          drop.remove();
+        }, 1000);
+      }
+    }
+  </script></body>
 </html>
