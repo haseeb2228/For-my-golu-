@@ -1,150 +1,75 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>For My Golu 💜</title>
+  <title>For My Golu</title>
   <style>
     body {
       margin: 0;
-      padding: 0;
-      background-color: lavenderblush;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      overflow-x: hidden;
-    }
-    header {
-      background-color: mediumorchid;
-      color: white;
       padding: 20px;
+      background-color: lavender;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #333;
+    }
+    h1 {
       text-align: center;
-      font-size: 2rem;
-    }
-    .ily {
-      position: fixed;
-      top: 10px;
-      right: 20px;
-      font-weight: bold;
       color: purple;
-      font-size: 1.2rem;
-    }
-    .button-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-      margin: 30px 0;
-    }
-    .btn {
-      background-color: #dda0dd;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 20px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    .btn:hover {
-      background-color: #ba55d3;
-      color: white;
     }
     .segment {
-      display: none;
+      background: white;
+      border-radius: 20px;
       padding: 20px;
-      margin: 10px auto;
+      margin: 20px auto;
       max-width: 800px;
-      background-color: white;
-      border-radius: 15px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       position: relative;
     }
-    .emojis {
-      font-size: 1.5rem;
+    .emoji-float {
       position: absolute;
-      top: 10px;
-      right: 15px;
+      top: -10px;
+      right: 10px;
+      font-size: 1.5rem;
     }
     audio {
-      display: none;
+      display: block;
+      margin: 20px auto;
+    }
+    .tag {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      background: purple;
+      color: white;
+      padding: 8px 12px;
+      border-radius: 15px;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
-  <header>Happy Birthday Designer Sahiba 🎉💜</header>
-  <div class="ily">ILY Golu 💜</div>
-
-  <div class="button-container">
-    <button class="btn" onclick="showSegment('special')">Special Message</button>
-    <button class="btn" onclick="showSegment('firstCall')">First Call</button>
-    <button class="btn" onclick="showSegment('firstMeet')">First Meet</button>
-    <button class="btn" onclick="showSegment('techfest')">TechFest Day</button>
-    <button class="btn" onclick="showSegment('p1Moment')">P1 Moment</button>
-    <button class="btn" onclick="showSegment('favourites')">Her Favourites</button>
-  </div>
-
-  <div class="segment" id="special">
-    <div class="emojis">💌🥺✨</div>
-    <p>Aapka woh ek ehem Dil waala message... "I don't think I have one anymore 😔" — us pal se lekar aaj tak main us baat ko bhool nahi paaya.
+  <h1>Happy Birthday Designer Sahiba 🎂💜</h1>
+  <audio controls loop>
+    <source src="tu-jaane-na.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>  <div class="segment">
+    <div class="emoji-float">✨💜</div>
+    <h2>Pehli Nazar...</h2>
+    <p>Pehli baar dekha tha aapko P1 mein — aap apne class ke bahar phone pe kisi se baat kar rahe the... I was like, “Goriye! Kinni goriye hai tu... Tu zameen pe chaand ki jodi hai!” Bas dekhta hi reh gaya... wo pal kabhi nahi bhool sakta. Aaj bhi yaad hai aapke expressions ❤️</p>
+  </div>  <div class="segment">
+    <div class="emoji-float">📞❤️</div>
+    <h2>Pehli Call...</h2>
+    <p>10 Feb ko prank call aaya tha, par asli pehli baar baat humne 11 April ko ki... aur bas aapki awaaz sunkar dil kahin kho gaya. Network issue tha, par phir bhi uss din ke baad kuch alag hi khushi thi. Aapke saath woh call mere liye priceless tha 💖</p>
+  </div>  <div class="segment">
+    <div class="emoji-float">🎪👗</div>
+    <h2>TechFest Ke Din...</h2>
+    <p>Doosre din jab aapko dekha, yellow-green outfit mein... dil keh raha tha bas aapko hi dekhta rahun. Next day jab pink dress mein aap aaye — I swear, itni khubsurat koi lag nahi sakti. "Use takte takte Umar guzaarun..." waala feel aa gaya tha uss din 💫</p>
+  </div>  <div class="segment">
+    <div class="emoji-float">❤️💬</div>
+    <h2>Special Message...</h2>
+    <p>Aapko yaad hai ek baar aapne mujhe bola tha, "Main ehem logon mein se hoon, mujhe baat karne se kuch feel hota hai..." Main aaj tak woh baat nahi bhool paaya... Kyunki uss din laga, main aapke dil ke thode kareeb hoon. Main har roz shirt pehente waqt upar waala button nahi kholta... kyunki aap yaad aate ho, aur ek muskaan aa jaati hai 😌
     <br><br>
-    Main aapko chaah kar bhi bhool nahi paa raha hoon. Har roz jab shirt pehenta hoon na... upar waala button nahi kholta, kyunki us moment pe aap yaad aa jaate ho. Jaise ek chhoti si muskaan aati hai mere chehre pe. Garmi ho ya kuch bhi... woh button nahi kholta, sirf aapki yaad mein.
-    <br><br>
-    Happy Birthday aapko — dua hai ke aapke saare sapne poore ho... aur un sapnon mein kahin main bhi hoon 🥺💜</p>
-  </div>
-
-  <div class="segment" id="firstCall">
-    <div class="emojis">📞💖🌙</div>
-    <p>10 February ko hua tha woh prank call... usko ignore karte hue, 11 April ko pehli baar aapki awaaz suni thi.
-    <br><br>
-    I was stunned... aapki awaaz sunke main literally kho gaya tha.
-    Woh thodi si choti si call thi, kuch network issue bhi tha... lekin mere liye woh duniya ki sabse khoobsurat baat thi. Bohot dino baad main dil se khush tha. Wo moment hamesha yaad rahega 💜</p>
-  </div>
-
-  <div class="segment" id="firstMeet">
-    <div class="emojis">🧕📚🥹</div>
-    <p>16 April tha. Aapko kuch book chahiye thi aur poochha tha ki laa doge kya?
-    Main soch raha tha ki shaayad bas aise hi bol rahi hain.
-    <br><br>
-    Phir aapne text kiya — "main yahaan hoon agar ho sake to de dena." Aur main daud ke gaya, aapko deke thodi der wahi ruka... bas aapko dekhta raha. Aapke saamne ruk kar, aapko observe kiya. Phir aapki friend aayi, aur main chala gaya... lekin woh pal kabhi nahi bhoolunga 💜</p>
-  </div>
-
-  <div class="segment" id="techfest">
-    <div class="emojis">🎨💛💖</div>
-    <p>Techfest ka doosra din tha. Jaise hi ground mein enter kiya, aap dikh gayi — yellow and green frock jaisa pehna tha.
-    <br><br>
-    Bas dekhta hi reh gaya... aur jab pink dress mein dekha... bas... meri do ankhon mein sirf aap hi thi. 
-    <br><br>
-    I wish uss waqt baat hoti... main milta, aur keh deta — "Tujhe takte takte Umar guzaar doon 💫"
-    <br>Woh moment... mere liye kisi film se kam nahi tha 🥺💜</p>
-  </div>
-
-  <div class="segment" id="p1Moment">
-    <div class="emojis">📱👀❤️</div>
-    <p>Pehli baar dekha tha aapko P1 ke bahar... aap phone pe kisi se baat kar rahe the.
-    <br><br>
-    Us waqt bas ek line dimaag mein aayi — "Goriye kinni goriye hai... tu zameen pe chaand ki jodi hai!"
-    <br><br>
-    Aapke wo expressions, wo andaz... abhi tak yaad hai mujhe 💜</p>
-  </div>
-
-  <div class="segment" id="favourites">
-    <div class="emojis">🍨📺🎨</div>
-    <p><strong>Aapki pasand:</strong><br>
-    <ul>
-      <li><strong>Lavender / Purple:</strong> Jaise aapka calm, soft aur graceful nature.</li>
-      <li><strong>Butterscotch Ice Cream:</strong> Bilkul aap jaise — meetha, soft aur har kisi ka favourite!</li>
-      <li><strong>Horror Movies:</strong> Toh phir... ek din aapke saath dekhna toh banta hai 😅💜</li>
-    </ul>
-    Aapki har pasand... mujhe aur zyada aapke kareeb laati hai 💜</p>
-  </div>
-
-  <audio autoplay loop>
-    <source src="tu-jaane-na.mp3" type="audio/mp3" />
-  </audio>
-
-  <script>
-    function showSegment(id) {
-      document.querySelectorAll('.segment').forEach(seg => seg.style.display = 'none');
-      document.getElementById(id).style.display = 'block';
-    }
-  </script>
-</body>
-</html>
+    Aap apne sapne poore karein... aur unmein kahin na kahin main bhi shamil rahun — bas yahi dua hai. Main chah kar bhi aapko bhool nahi sakta Designer Sahiba...
+    </p>
+  </div>  <div class="segment">
+    <div class="emoji-float">💜🍦</div>
+    <h2>Little Things I
