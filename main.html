@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -11,66 +11,57 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: lavender;
       color: #4b0082;
-    }
+    }h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
 
-    h1 {
-      text-align: center;
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-    }
+h3 {
+  text-align: center;
+  color: darkmagenta;
+  margin-top: 0;
+  font-weight: normal;
+}
 
-    h3 {
-      text-align: center;
-      color: darkmagenta;
-      margin-top: 0;
-      font-weight: normal;
-    }
+.corner-tag {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  font-size: 1.2rem;
+  color: hotpink;
+  font-weight: bold;
+}
 
-    .corner-tag {
-      position: fixed;
-      bottom: 10px;
-      right: 10px;
-      font-size: 1.2rem;
-      color: hotpink;
-      font-weight: bold;
-    }
+.section-button {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: mediumorchid;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+}
 
-    .section-button {
-      display: inline-block;
-      margin: 10px;
-      padding: 10px 20px;
-      background-color: mediumorchid;
-      color: white;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      font-size: 1rem;
-    }
+.content {
+  display: none;
+  margin-top: 20px;
+  background: #fff0f5;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
 
-    .content {
-      display: none;
-      margin-top: 20px;
-      background: #fff0f5;
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
+.show {
+  display: block;
+}
 
-    .show {
-      display: block;
-    }
   </style>
 </head>
-<body>
-
-  <h1>Happy Birthday Designer Sahiba! 🎉💜</h1>
-  <h3>Ek chhoti si digital duniya, sirf aap ke liye... 💻✨</h3>
-
-  <button class="section-button" onclick="showSection('memory1')">Techfest Memories 🌸</button>
-  <button class="section-button" onclick="showSection('memory2')">First Meet ✨</button>
-  <button class="section-button" onclick="showSection('memory3')">Pehli Nazar 💫</button>
-  <button class="section-button" onclick="showSection('special')">Special Message 💌</button>
-  <button class="section-button" onclick="showSection('favorites')">Golu's Magic 💖</button>
+<body>  <h1>Happy Birthday Designer Sahiba! 🎉💜</h1>
+  <h3>Ek chhoti si digital duniya, sirf aap ke liye... 💻✨</h3><button class="section-button" onclick="showSection('memory1')">Techfest Memories 🌸</button> <button class="section-button" onclick="showSection('memory2')">First Meet ✨</button> <button class="section-button" onclick="showSection('memory3')">Pehli Nazar 💫</button> <button class="section-button" onclick="showSection('special')">Special Message 📌</button> <button class="section-button" onclick="showSection('favorites')">Golu's Magic 💖</button> <button class="section-button" onclick="showSection('tiffin')">Tiffins 🍱</button> <button class="section-button" onclick="showSection('overthinking')">Dar aur Soch 😔</button>
 
   <div class="content" id="memory1">
     <p>
@@ -80,27 +71,21 @@
       Agle din aapne pink color mein dress pehna — I swear, itni khoobsurat ki bas dekhte reh gaya...
       "Use takte takte Umar guzaarun" — ye line uss din sach lag rahi thi...
     </p>
-  </div>
-
-  <div class="content" id="memory2">
+  </div>  <div class="content" id="memory2">
     <p>
       16 April — aapko ek book chahiye thi... aur ussi bahaane hum pehli baar mile. 
       2-3 minute hi sahi... par main bas aapko dekhkar andar tak hil gaya tha. 
       Uske baad baat karna, baithna, aur woh moment... kabhi bhool nahi sakta main. 
       Aapke expressions, wo calm voice — sab yaad hai mujhe...
     </p>
-  </div>
-
-  <div class="content" id="memory3">
+  </div>  <div class="content" id="memory3">
     <p>
       Pehli baar aapko P1 ke bahar dekha tha — aap phone par baat kar rahi thi kisi se.
       Main bas wahin se sochne laga... Goriye kinni goriye hai tu... 
       Tu zameen pe chand ki jodi hai tu 💫
       Tabhi se woh pal mere dil mein basa hua hai.
     </p>
-  </div>
-
-  <div class="content" id="special">
+  </div>  <div class="content" id="special">
     <p>
       Aapka woh "ehem dil" waali baat main kabhi nahi bhool sakta... sach mein.
       Aap meri life mein ek beautiful chapter ban chuki hain. Har roz jab shirt pehenta hoon,
@@ -108,32 +93,34 @@
       chhod deta hoon. Aapki yaadon mein ek muskurahat aa jaati hai. 🥺
       Aapke bina sab adhoora lagta hai... aur aap ho to sab complete.
     </p>
-  </div>
-
-  <div class="content" id="favorites">
+  </div>  <div class="content" id="favorites">
     <p>
       Aapke sapne — mujhe inspire karte hain.
       Aapki designing — mere liye art se bhi zyada khaas hai.
       Aapki simplicity — meri favourite cheez hai.
       Aapka possessive hona — mujhe safe feel karata hai.
-      Aur horror movies dekhna — aapke saath hi dekhna hai mujhe! 🖤
-      <br/><br/>
+      Aur horror movies dekhna — aapke saath hi dekhna hai mujhe! 🔟💚<br/><br/>
       My imagination that will turn into reality for sure... In shaa Allah. 🌙✨
     </p>
-  </div>
-
-  <div class="corner-tag">💜 ILY Golu 💜</div>
-
-  <audio id="audio" autoplay loop>
+  </div>  <div class="content" id="tiffin">
+    <p>
+      Aap roz tiffin skip kar deti hain — kyunki ya to pasand nahi hota, ya khaaya hi nahi jaata.  
+      Aur mujhe bas itna kehna hai... agar aap khaana nahi khaayengi, to mera dil bhi nahi lagega.  
+      Kisi din aapko apne haathon se khilaana hai mujhe — har ek bite mein khayal bhar ke. 🍱💜
+    </p>
+  </div>  <div class="content" id="overthinking">
+    <p>
+      Aapne kabhi kaha tha — "Main overthink karti hoon... kitabi keeda hoon... aur mujhe koi jhel nahi paata..."  
+      Par main kehna chahta hoon: Aap jaisa dil paana sabki kismat mein nahi hota.  
+      Aap duniya ke norms se ladti ho, aur main aapke saath hoon — har dar, har soch, har phase mein.  
+      Aap jaise ho, waise hi perfect ho mere liye. 💫  
+    </p>
+  </div>  <div class="corner-tag">💜 ILY Golu 💜</div>  <audio id="audio" autoplay loop>
     <source src="tu-jaane-na.mp3" type="audio/mp3">
-  </audio>
-
-  <script>
+  </audio>  <script>
     function showSection(id) {
       document.querySelectorAll('.content').forEach(el => el.classList.remove('show'));
       document.getElementById(id).classList.add('show');
     }
-  </script>
-
-</body>
+  </script></body>
 </html>
