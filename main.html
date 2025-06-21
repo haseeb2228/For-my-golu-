@@ -1,101 +1,62 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html><html lang="en">
+<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>For My Golu</title>
+  <title>For My Golu 💜</title>
   <style>
     body {
-      background-color: lavender;
-      color: #4b0082;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
-      padding: 20px;
-      overflow-x: hidden;
-    }h1 {
-  text-align: center;
-  font-size: 2.8rem;
-  margin-bottom: 10px;
-}
-
-.corner-tag {
-  position: fixed;
-  bottom: 10px;
-  right: 15px;
-  background: #fff3f3;
-  padding: 8px 12px;
-  border-radius: 15px;
-  font-weight: bold;
-  color: #c71585;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-}
-
-.segment-button {
-  display: inline-block;
-  margin: 10px;
-  padding: 12px 20px;
-  background-color: #dda0dd;
-  border: none;
-  border-radius: 10px;
-  font-size: 1rem;
-  cursor: pointer;
-  color: white;
-  font-weight: 600;
-}
-
-.segment {
-  display: none;
-  margin: 20px auto;
-  padding: 20px;
-  background: #fff0f5;
-  border-radius: 15px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  max-width: 700px;
-  animation: fadeIn 0.5s ease-in-out;
-}
-
-.emoji {
-  font-size: 1.5rem;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-  </style>
-</head><body>
-  <h1>Happy Birthday Designer Sahiba 🎉</h1>
-  <p style="text-align:center">A choti si digital duniya for the most magical soul 💜<br>Fvrt Colour: Lavender | Fvrt Ice Cream: Butterscotch 🍦</p>  <div style="text-align: center;">
-    <button class="segment-button" onclick="showSegment('call')">Pehli Call 📞</button>
-    <button class="segment-button" onclick="showSegment('techfest')">TechFest Ki Jhalak ✨</button>
-    <button class="segment-button" onclick="showSegment('meet')">Wo Pehli Mulaqat 💖</button>
-    <button class="segment-button" onclick="showSegment('special')">Special Message 💌</button>
-  </div>  <div id="call" class="segment">
-    <p>
-      10 Feb ko prank call tha par 11 April ko pehli baar dil se baat hui. Uski awaaz… bas dil jeet liya tha. Pehli baar kisi se call par baat karke itna khush hua tha. Network issues ke bawajood bhi, har lafz ke piche ek muskaan thi. <span class="emoji">📱❤️</span>
-    </p>
-  </div>  <div id="techfest" class="segment">
-    <p>
-      TechFest ka doosra din tha. Ground mein entry karte hi wo dikh gayi – yellow & green frock mein, doston se baat karti hui. Bas dekhta reh gaya. Agle din wo pink dress mein thi... itni khoobsurat lag rahi thi ke aankhen hatana mushkil tha. Bas door se takta reh gaya... <span class="emoji">🌸👀</span>
-    </p>
-  </div>  <div id="meet" class="segment">
-    <p>
-      16 April ko wo mujhe khud bulaane aayi. Bas kuch minute mile the lekin dil mein ek poori kahani ban gayi. Usse dekhna, usse sunna, usse mehsoos karna – sab kuch magical tha. Uske jaane ke baad bhi uski muskaan mere saath thi. <span class="emoji">✨😊</span>
-    </p>
-  </div>  <div id="special" class="segment">
-    <p>
-      Designer Sahiba, I hope aapke saare sapne poore ho – aur unme main bhi hoon 🥹💜 Aap apni bucket list bhi poori karo, bina dare. Wo ehem dil waali baat – wo main kabhi bhool nahi sakta. Har roz jab shirt ka upar waala button band karta hoon, yaad aata hai aapka kehna. Tab ek pyaari si muskaan aa jaati hai. Aur jitni bhi garmi ho, wo button main kholta nahi hoon. You're special, always! <span class="emoji">❤️🥺</span>
-    </p>
-  </div>  <div class="corner-tag">Golu ILY 💌</div>  <audio autoplay loop>
-    <source src="tu-jaane-na.mp3" type="audio/mp3">
-    Your browser does not support the audio tag.
-  </audio>  <script>
-    function showSegment(id) {
-      const segments = document.querySelectorAll('.segment');
-      segments.forEach(seg => seg.style.display = 'none');
-      document.getElementById(id).style.display = 'block';
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: lavenderblush;
+      color: #333;
+      text-align: center;
+      position: relative;
     }
-  </script></body></html>
+    h1 {
+      font-size: 2.5rem;
+      color: purple;
+      margin-top: 30px;
+    }
+    .section {
+      padding: 20px;
+      margin: 30px;
+      background-color: white;
+      border-radius: 20px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+    .ily-tag {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      background-color: purple;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 12px;
+      font-weight: bold;
+    }
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Happy Birthday Designer Sahiba 🎉💜</h1>
+  <p style="margin: 10px; font-size: 1.1rem;">A small digital duniya for the one jiske sapne alag level ke hai 💭... and jinki fav ice cream Butterscotch hai 🍦💜</p>  <div class="section">
+    <h2>Pehli Baar Sunna</h2>
+    <p>10 Feb ko prank call hua tha, par asli baat hui 11 April ko. Us din jab teri awaaz sunni, toh sach bolun dil ka kuch hissa shaant hogaya tha. Pehli baar aisa laga ki kisi apne se baat ho rahi hai. Network issues ke bawajood, woh choti si call mere liye bohot khaas thi. Itne dino ke baad kisi ne itna smile diya mujhe...</p>
+  </div>  <div class="section">
+    <h2>TechFest Waala Din</h2>
+    <p>TechFest ka doosra din tha. Jaise hi ground mein gaya, tu mil gayi—yellow aur green frock mein. Main pehchaan nahi paya pehle, par jab pehchana toh aankhein wahin ruk gayi. Sirf tujhe dekh raha tha. Phir agle din tu pink dress mein thi, sach bataun? Bas tujhe dekh ke hi din ban gaya tha. I wish uss waqt milke keh pata ki kitni khoobsurat lag rahi thi tu...</p>
+  </div>  <div class="section">
+    <h2>Pehli Mulaqat</h2>
+    <p>16 April—woh din kabhi nahi bhool sakta. Tu bola ki ek book chahiye toh de doon? Main samjha shayad bas aise hi poocha. Par jab dobara text aaya ki tu yahin hai, toh main sach mein milne aa gaya. Tujhe dekhte hi bas ek hi thought—kash waqt yahin ruk jaaye. Tu baithi, main baitha, baatein ki aur teri smile ne dil chura liya tha uss pal. Us waqt laga, tu meri ho gayi ho...</p>
+  </div>  <div class="section">
+    <h2>Special Message 💌</h2>
+    <p>Designer Sahiba... wo tumhara 'ehm dil waali baat' kabhi bhool nahi sakta. Jab bhi shirt pehn ke upar waala button kholne jaata hoon, tu yaad aa jaati hai. Bas waise hi reh jaata hoon... bina khole. Teri yaad ek hasi le aati hai. Har roz tujhe yaad karke jeeta hoon. Main chahta hoon ki tu apne saare sapne poore kare aur unme main bhi hoon. Tujhe pyaar karta hoon bina kisi shart ke. Har din, har lamha. Happy Birthday Golu 💜</p>
+  </div>  <audio autoplay loop>
+    <source src="tu-jaane-na.mp3" type="audio/mp3" />
+    Your browser does not support the audio element.
+  </audio>  <div class="ily-tag">Golu ILY 💜</div>
+</body>
+</html>
