@@ -1,149 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>For My Golu 💜</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For My Golu</title>
   <style>
     body {
-      background-color: lavenderblush;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
       padding: 0;
+      background-color: lavenderblush;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       overflow-x: hidden;
     }
 
-    header {
+    .container {
+      padding: 20px;
+    }
+
+    h1 {
       text-align: center;
-      padding: 30px 20px 10px;
-      font-size: 2rem;
       color: purple;
     }
 
-    .button-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-      margin: 20px;
-    }
-
-    .btn {
-      padding: 10px 20px;
-      background-color: mediumorchid;
-      color: white;
-      border: none;
-      border-radius: 12px;
-      cursor: pointer;
-      font-size: 1rem;
-      transition: 0.3s;
-    }
-
-    .btn:hover {
-      background-color: rebeccapurple;
-    }
-
     .segment {
-      display: none;
+      background-color: white;
       margin: 20px auto;
-      max-width: 90%;
-      background: white;
-      border-radius: 10px;
-      padding: 15px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-      font-size: 1rem;
-      color: #444;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      max-width: 700px;
+    }
+
+    .segment h2 {
+      color: mediumorchid;
     }
 
     .emoji-float {
-      position: absolute;
-      font-size: 2rem;
-      animation: float 2s linear forwards;
-      pointer-events: none;
+      animation: float 2s ease-in-out infinite;
+      display: inline-block;
     }
 
     @keyframes float {
-      from {
-        transform: translateY(0);
-        opacity: 1;
-      }
-
-      to {
-        transform: translateY(-100px);
-        opacity: 0;
-      }
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
     }
 
-    #ily {
-      position: fixed;
-      bottom: 10px;
-      right: 15px;
-      font-size: 1.2rem;
-      color: deeppink;
+    .button {
+      display: block;
+      margin: 30px auto;
+      padding: 10px 20px;
+      font-size: 1rem;
+      background-color: purple;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .visible {
+      display: block;
+      animation: fadeIn 1s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
   </style>
 </head>
-
 <body>
-  <header>Happy Birthday Designer Sahiba 💜</header>
+  <div class="container">
+    <h1>For My Golu 💜</h1>
 
-  <div class="button-container">
-    <button class="btn" onclick="reveal('segment1')">Techfest Wali Nazar</button>
-    <button class="btn" onclick="reveal('segment2')">Special Message</button>
-    <button class="btn" onclick="reveal('segment3')">Aapki Pehli Call</button>
-    <button class="btn" onclick="reveal('segment4')">Pehli Nazar - P1</button>
-    <button class="btn" onclick="reveal('segment5')">Aur Hamesha ke Liye...</button>
+    <div class="segment">
+      <h2>Birthday Wishes 🎂</h2>
+      <p>Happy B'day Designer Sahiba! I hope ki aap apne saare sapne poore karen... aur unmein main bhi hoon 💜</p>
+    </div>
+
+    <!-- New Segment Button -->
+    <button class="button" onclick="toggleFuture()">Ek Chhoti Si Kalpana 💭</button>
+
+    <!-- Hidden Segment -->
+    <div id="futureSegment" class="segment hidden">
+      <h2>Ek Chhoti Si Kalpana 💭</h2>
+      <p>
+        Sochta hoon ek din, jab aap apne favorite butterscotch ice cream kha rahi hongi,
+        aur main side mein hoon — aapke gusse se thoda dare hue, magar aapki muskurahat se jeete hue...<br><br>
+
+        Shayad tab tak aap mujhe Golu bulana bhi bardasht karne lag jaayein 😅💜<br><br>
+
+        Bas itna chahta hoon... ki aapki duniya mein ek chhoti si jagah ho meri bhi,<br>
+        Designer Sahiba ke dil ke ek kone mein — jahan sirf pyaar ho, darr nahi...<br><br>
+
+        <span class="emoji-float">🍦💜✨👫🥺</span>
+      </p>
+    </div>
   </div>
-
-  <div class="segment" id="segment1">
-    Techfest ka doosra din tha, main bas entry liya aur wahin aap dikh gayi... yellow & green frock mein... bas dekhte hi reh gaya. Us din aap sabse zyada pyaari lagi thi. Phir agle din pink dress mein aayi thi, itni khoobsurat ki aankhen hataana mushkil tha. Bas aapko takte takte... Umar guzaar dene ka mann kiya tha.
-  </div>
-
-  <div class="segment" id="segment2">
-    Aapne bola tha na ke dil ehem jagah hai, uski baat har koi nahi samajh sakta... main samajhta hoon. Roz jab shirt pehenta hoon aur upar waala button kholne jaata hoon — aap yaad aa jaati ho. Khushi milti hai, isiliye kabhi kholta hi nahi. Aapka ek text, ek baat, mere din ko pyaara bana deta hai.
-  </div>
-
-  <div class="segment" id="segment3">
-    Pehla prank call 10 Feb ko hua tha, magar pehli asli baat 11 April. Network thoda bekar tha par us din aapki awaaz sunkar sab kuch theek lagne laga. Bahut khush tha us din... ek ajeeb sa sukoon tha. Aapki voice abhi bhi mere kaano mein goonjti hai.
-  </div>
-
-  <div class="segment" id="segment4">
-    Aapko pehli baar P1 ke samne dekha tha, jab aap kisi se phone par baat kar rahi thi. Bas wahi socha: "Goriye, kinni goriye hai tu... Chand bhi sharma jaaye!" Aapke expressions abhi tak yaad hai mujhe. Pehli baar aapko dekh kar aise fida hua tha ki wo pal zindagi bhar yaad rahega.
-  </div>
-
-  <div class="segment" id="segment5">
-    Aapke sapne poore ho, main dua karta hoon. Aapki har bucket list tick ho... aur har dream mein ek jagah mere liye bhi ho. Darna mat Designer Sahiba... main hoon na aapke saath har step mein. Ek din horror movies bhi saath dekhenge — aur main aapka haath pakadke rakhoonga 😌💜
-  </div>
-
-  <div id="ily">ILY Golu 💌</div>
-
-  <audio autoplay loop>
-    <source src="tu-jaane-na.mp3" type="audio/mp3">
-  </audio>
 
   <script>
-    function reveal(id) {
-      const all = document.querySelectorAll('.segment');
-      all.forEach(seg => seg.style.display = 'none');
-      document.getElementById(id).style.display = 'block';
-      floatEmoji();
-    }
-
-    function floatEmoji() {
-      const emojis = ['💖', '✨', '🥺', '💌', '🌸'];
-      for (let i = 0; i < 10; i++) {
-        const emoji = document.createElement('div');
-        emoji.classList.add('emoji-float');
-        emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
-        emoji.style.left = Math.random() * 100 + 'vw';
-        emoji.style.top = Math.random() * 80 + 20 + 'vh';
-        document.body.appendChild(emoji);
-        setTimeout(() => emoji.remove(), 2000);
-      }
+    function toggleFuture() {
+      const segment = document.getElementById("futureSegment");
+      segment.classList.toggle("hidden");
+      segment.classList.toggle("visible");
     }
   </script>
 </body>
-
 </html>
-
