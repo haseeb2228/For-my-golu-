@@ -1,7 +1,8 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Kya Tum Meri Golu Ho?</title>
   <style>
     body {
@@ -20,8 +21,8 @@
     h1 {
       font-size: 2.5rem;
       color: purple;
-      margin-bottom: 20px;
       text-align: center;
+      margin-bottom: 20px;
     }
     .btn-group {
       display: flex;
@@ -33,16 +34,9 @@
       border: none;
       border-radius: 10px;
       cursor: pointer;
-      transition: 0.3s;
     }
-    .yes {
-      background-color: mediumorchid;
-      color: white;
-    }
-    .no {
-      background-color: lightgray;
-      color: black;
-    }
+    .yes { background-color: mediumorchid; color: white; }
+    .no { background-color: lightgray; color: black; }
     .emoji-container {
       position: absolute;
       top: 50%;
@@ -52,15 +46,15 @@
       display: none;
       animation: float 3s infinite;
     }
+    .maanjao {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      color: #444;
+      display: none;
+    }
     @keyframes float {
-      0% {
-        transform: translate(-50%, -50%) translateY(0);
-        opacity: 1;
-      }
-      100% {
-        transform: translate(-50%, -50%) translateY(-100px);
-        opacity: 0;
-      }
+      0% { transform: translate(-50%, -50%) translateY(0); opacity: 1; }
+      100% { transform: translate(-50%, -50%) translateY(-100px); opacity: 0; }
     }
     .rain {
       position: absolute;
@@ -77,19 +71,6 @@
       top: -20px;
       animation: rain 1s linear infinite;
     }
-    @keyframes rain {
-      to {
-        transform: translateY(100vh);
-      }
-    }
-    .maanjao {
-      margin-top: 20px;
-      font-size: 1.2rem;
-      color: #444;
-      display: none;
-      text-align: center;
-      padding: 10px;
-    }
   </style>
 </head>
 <body>
@@ -100,40 +81,33 @@
   </div>
   <div class="emoji-container" id="emoji">🥺💖🙏🏻💌✨</div>
   <div class="rain" id="rain"></div>
-  <div class="maanjao" id="text">
-    Phir se soch lo... Mere bina aap kaun se design karenge Designer Sahiba? 💔😅<br>
-    Maan jao na... warna website incomplete reh jaayegi 😭💔
-  </div>
-  <audio id="audio" loop>
-    <source src="tu-jaane-na.mp3" type="audio/mp3" />
-    Your browser does not support the audio element.
-  </audio>
+  <div class="maanjao" id="text">Phir se soch lo... Mere bina aap kaun se design karenge Designer Sahiba? 💔😅<br>Maan jao na... warna website incomplete reh jaayegi 😭💔</div>
+
   <script>
-    let noClickedOnce = false;
+    let noClicked = 0;
+
     function sayYes() {
-      const audio = document.getElementById("audio");
-      audio.play();
       window.location.href = "main.html";
     }
+
     function sayNo() {
-      if (!noClickedOnce) {
-        alert("Pakka? 😢");
-        noClickedOnce = true;
-        return;
-      }
       startRain();
       showEmoji();
+
+      const text = document.getElementById("text");
+      noClicked++;
+      if (noClicked >= 2) {
+        text.innerHTML = `Phir se soch lo... Mere bina aap kaun se design karenge Designer Sahiba? 💔😅<br>Maan jao na... warna website incomplete reh jaayegi 😭💔`;
+        text.style.display = "block";
+      }
     }
+
     function showEmoji() {
       const emoji = document.getElementById("emoji");
-      const text = document.getElementById("text");
       emoji.style.display = "block";
-      text.style.display = "block";
-      setTimeout(() => {
-        emoji.style.display = "none";
-        text.style.display = "none";
-      }, 4000);
+      setTimeout(() => { emoji.style.display = "none"; }, 3000);
     }
+
     function startRain() {
       const rainContainer = document.getElementById("rain");
       for (let i = 0; i < 100; i++) {
@@ -142,9 +116,7 @@
         drop.style.left = Math.random() * window.innerWidth + "px";
         drop.style.animationDuration = Math.random() * 1 + 0.5 + "s";
         rainContainer.appendChild(drop);
-        setTimeout(() => {
-          drop.remove();
-        }, 1000);
+        setTimeout(() => { drop.remove(); }, 1000);
       }
     }
   </script>
