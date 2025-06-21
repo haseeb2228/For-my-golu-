@@ -1,89 +1,101 @@
-<!DOCTYPE html><html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>For My Golu 💜</title>
+  <title>For My Golu</title>
   <style>
     body {
-      margin: 0;
-      padding: 0;
-      background-color: lavenderblush;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: lavender;
       color: #4b0082;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: start;
-      padding: 2rem;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 20px;
+      overflow-x: hidden;
     }h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: purple;
+  text-align: center;
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+}
+
+.corner-tag {
+  position: fixed;
+  bottom: 10px;
+  right: 15px;
+  background: #fff3f3;
+  padding: 8px 12px;
+  border-radius: 15px;
+  font-weight: bold;
+  color: #c71585;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.segment-button {
+  display: inline-block;
+  margin: 10px;
+  padding: 12px 20px;
+  background-color: #dda0dd;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
 }
 
 .segment {
-  background-color: #fff0f5;
-  padding: 1.5rem;
-  border-radius: 20px;
-  margin: 1rem 0;
-  width: 90%;
-  max-width: 800px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: 0.3s ease-in-out;
-}
-
-.segment:hover {
-  transform: scale(1.02);
-}
-
-audio {
-  margin-top: 2rem;
+  display: none;
+  margin: 20px auto;
+  padding: 20px;
+  background: #fff0f5;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 700px;
+  animation: fadeIn 0.5s ease-in-out;
 }
 
 .emoji {
-  font-size: 2rem;
-  margin-top: 1rem;
+  font-size: 1.5rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
   </style>
-</head>
-<body>
-  <h1>Happy Birthday Designer Sahiba 🎂💜</h1>  <div class="segment">
-    <h2>🌟 A Choti si Digital Duniya Just for You 🌟</h2>
+</head><body>
+  <h1>Happy Birthday Designer Sahiba 🎉</h1>
+  <p style="text-align:center">A choti si digital duniya for the most magical soul 💜<br>Fvrt Colour: Lavender | Fvrt Ice Cream: Butterscotch 🍦</p>  <div style="text-align: center;">
+    <button class="segment-button" onclick="showSegment('call')">Pehli Call 📞</button>
+    <button class="segment-button" onclick="showSegment('techfest')">TechFest Ki Jhalak ✨</button>
+    <button class="segment-button" onclick="showSegment('meet')">Wo Pehli Mulaqat 💖</button>
+    <button class="segment-button" onclick="showSegment('special')">Special Message 💌</button>
+  </div>  <div id="call" class="segment">
     <p>
-      Happy B'day Designer Sahiba! I hope ki aap apne sapne poore karen — aur un sapno mein main bhi rahun 💫.<br />
-      Aap apni bucket list poori karen, duniya dekhein... aur darna kya? Main toh hoon na! 🥹❤️
+      10 Feb ko prank call tha par 11 April ko pehli baar dil se baat hui. Uski awaaz… bas dil jeet liya tha. Pehli baar kisi se call par baat karke itna khush hua tha. Network issues ke bawajood bhi, har lafz ke piche ek muskaan thi. <span class="emoji">📱❤️</span>
     </p>
-  </div>  <div class="segment">
-    <h2>👀 Prank Call & Pehli Baat</h2>
+  </div>  <div id="techfest" class="segment">
     <p>
-      10 Feb ko aayi thi prank call, par asli baat hui thi 11 April ko... Aur us din main literally khud se door ho gaya tha. Uski awaaz... abhi tak mere kaanon mein goonjti hai. Thoda network issue bhi tha par dil se khushi thi... Itni ki main har roz sochta hoon uss call ke baare mein ❤️📞
+      TechFest ka doosra din tha. Ground mein entry karte hi wo dikh gayi – yellow & green frock mein, doston se baat karti hui. Bas dekhta reh gaya. Agle din wo pink dress mein thi... itni khoobsurat lag rahi thi ke aankhen hatana mushkil tha. Bas door se takta reh gaya... <span class="emoji">🌸👀</span>
     </p>
-  </div>  <div class="segment">
-    <h2>💛 Tech Fest Memories</h2>
+  </div>  <div id="meet" class="segment">
     <p>
-      Techfest ke doosre din jab maine tujhe dekha tha — yellow aur green frock jaisa kuch pehna tha... bas dekhte reh gaya. Ussi waqt laga ki "Yeh toh meri Golu hai". 😍 Agle din usne pink dress pehni thi, aur main bas door se dekh kar uss pal ko jeeta raha. Yehi soch ke ki ek din milke bol paunga... ki main tumse pyaar karta hoon.
+      16 April ko wo mujhe khud bulaane aayi. Bas kuch minute mile the lekin dil mein ek poori kahani ban gayi. Usse dekhna, usse sunna, usse mehsoos karna – sab kuch magical tha. Uske jaane ke baad bhi uski muskaan mere saath thi. <span class="emoji">✨😊</span>
     </p>
-  </div>  <div class="segment">
-    <h2>🫶 Special Message</h2>
+  </div>  <div id="special" class="segment">
     <p>
-      Designer Sahiba... aapki ek baat dil ko chhoo gayi thi — "wo ehem dil waali baat". <br />
-      Main chaahta hoon ki aap hamesha khush raho. Har roz jab shirt ka upar waala button kholne lagta hoon... yaad tumhari aati hai, isliye kholta hi nahi. Jo chehre pe muskurahat le aaye, wo yaad kaise bhoolun? 🥺
+      Designer Sahiba, I hope aapke saare sapne poore ho – aur unme main bhi hoon 🥹💜 Aap apni bucket list bhi poori karo, bina dare. Wo ehem dil waali baat – wo main kabhi bhool nahi sakta. Har roz jab shirt ka upar waala button band karta hoon, yaad aata hai aapka kehna. Tab ek pyaari si muskaan aa jaati hai. Aur jitni bhi garmi ho, wo button main kholta nahi hoon. You're special, always! <span class="emoji">❤️🥺</span>
     </p>
-  </div>  <div class="segment">
-    <h2>💜 Favourites</h2>
-    <p>
-      Lavender aur purple tumhare favourite colours hai na? Toh poori website mein wahi rang bhar diye. Aur haan... Butterscotch Ice Cream bhi yaad hai mujhe 🍨😄
-    </p>
-  </div>  <div class="segment">
-    <h2>🌈 Ending Note</h2>
-    <p>
-      Shayad main sabse best nahi hoon... par pyaar toh har pal tumse karta hoon. Mere iraade serious hain Golu, aur chahe jitna bhi gussa karo, door jao... main yahin hoon. <br />
-      Tumse pyaar kiya hai — bina kisi condition ke, bina kisi fear ke. 💕
-    </p>
-  </div>  <audio autoplay>
-    <source src="tu-jaane-na.mp3" type="audio/mp3" />
-    Your browser does not support the audio element.
-  </audio>  <div class="emoji">🥺💖✨🍰🌸</div>
-</body>
-</html>
+  </div>  <div class="corner-tag">Golu ILY 💌</div>  <audio autoplay loop>
+    <source src="tu-jaane-na.mp3" type="audio/mp3">
+    Your browser does not support the audio tag.
+  </audio>  <script>
+    function showSegment(id) {
+      const segments = document.querySelectorAll('.segment');
+      segments.forEach(seg => seg.style.display = 'none');
+      document.getElementById(id).style.display = 'block';
+    }
+  </script></body></html>
