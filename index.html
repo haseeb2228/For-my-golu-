@@ -3,93 +3,86 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Kya tum meri Golu ho? 💜</title>
+  <title>For My Golu 💜</title>
   <style>
     body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to right, lavender, thistle);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+      background-color: lavenderblush;
+      font-family: 'Segoe UI', sans-serif;
       text-align: center;
+      padding: 50px;
       color: #4b0082;
     }
 
     h1 {
       font-size: 2.5rem;
-      margin-bottom: 30px;
-      padding: 0 20px;
     }
 
-    .button-container {
-      display: flex;
-      gap: 20px;
+    .question {
+      margin-top: 30px;
+      font-size: 1.8rem;
     }
 
     .btn {
-      padding: 12px 25px;
+      margin: 20px;
+      padding: 12px 24px;
       font-size: 1.2rem;
-      background-color: mediumorchid;
-      color: white;
       border: none;
       border-radius: 10px;
       cursor: pointer;
       transition: 0.3s ease;
     }
 
-    .btn:hover {
-      background-color: darkmagenta;
+    .yes-btn {
+      background-color: mediumseagreen;
+      color: white;
+    }
+
+    .no-btn {
+      background-color: crimson;
+      color: white;
     }
 
     #message {
       margin-top: 30px;
-      font-size: 1.1rem;
-      color: darkred;
-      max-width: 300px;
+      font-size: 1.2rem;
+      color: darkmagenta;
+      white-space: pre-line;
     }
   </style>
 </head>
 <body>
+  <h1>Ek Sawaal... Sirf Aapke Liye 💜</h1>
+  <div class="question">Kya aap meri Golu ho? 🥺💌</div>
 
-  <h1>Kya tum meri Golu ho? 🥺💜</h1>
-
-  <div class="button-container">
-    <button class="btn" onclick="playMusicAndRedirect()">Yes 💌</button>
-    <button class="btn" onclick="handleNoClick()">No 😔</button>
-  </div>
+  <button class="btn yes-btn" onclick="playAudioAndRedirect()">Yes 💘</button>
+  <button class="btn no-btn" onclick="handleNo()">No 💔</button>
 
   <div id="message"></div>
 
-  <audio id="myAudio" src="tu-jaane-na.mp3"></audio>
+  <audio id="song" src="tu-jaane-na.mp3"></audio>
 
   <script>
     let noClickCount = 0;
 
-    function handleNoClick() {
-      const messageDiv = document.getElementById('message');
+    function playAudioAndRedirect() {
+      const audio = document.getElementById('song');
+      audio.play();
+      window.location.href = "main.html";
+    }
+
+    function handleNo() {
+      const messageBox = document.getElementById('message');
       noClickCount++;
 
       if (noClickCount === 1) {
-        messageDiv.textContent = "Pakka? Mere bina aap kaun se design karenge Designer Sahiba? 💔😅";
+        messageBox.innerText = "Phir se soch lo... Mere bina aap kaun se design karenge Designer Sahiba? 💔😅\nMaan jao na... warna website incomplete reh jaayegi 😭💔";
       } else if (noClickCount === 2) {
-        messageDiv.textContent = "Maan jao na... warna website incomplete reh jaayegi 😭💔";
+        messageBox.innerText = "Sach mein No? 😭\nAapke bina ye duniya adhuri lagti hai Designer Sahiba 💔\nPlease maan jao na...";
       } else {
-        messageDiv.textContent = "Tumhe toh haan hi kehna hai... maan bhi jaao naa 💜";
+        // Act like YES on 3rd click
+        playAudioAndRedirect();
       }
     }
-
-    function playMusicAndRedirect() {
-      const audio = document.getElementById("myAudio");
-      audio.play();
-      setTimeout(() => {
-        window.location.href = "main.html";
-      }, 1500); // delay for audio to start playing
-    }
   </script>
-
 </body>
 </html>
