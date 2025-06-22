@@ -3,92 +3,91 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>For My Golu 💜</title>
+  <title>Kya tum meri Golu ho? 💜</title>
   <style>
     body {
       margin: 0;
-      padding: 40px;
+      padding: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: lavenderblush;
-      color: #800080;
+      background: linear-gradient(to right, lavender, thistle);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
       text-align: center;
+      color: #4b0082;
     }
 
     h1 {
       font-size: 2.5rem;
-      margin-bottom: 10px;
+      margin-bottom: 30px;
+      padding: 0 20px;
     }
 
-    h3 {
-      font-weight: normal;
-      color: #a0522d;
-      margin-top: 0;
+    .button-container {
+      display: flex;
+      gap: 20px;
     }
 
-    #yesBtn, #noBtn {
+    .btn {
       padding: 12px 25px;
-      margin: 20px 15px;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
+      background-color: mediumorchid;
+      color: white;
       border: none;
-      border-radius: 8px;
+      border-radius: 10px;
       cursor: pointer;
       transition: 0.3s ease;
     }
 
-    #yesBtn {
-      background-color: mediumorchid;
-      color: white;
+    .btn:hover {
+      background-color: darkmagenta;
     }
 
-    #noBtn {
-      background-color: pink;
+    #message {
+      margin-top: 30px;
+      font-size: 1.1rem;
       color: darkred;
-    }
-
-    #noText {
-      margin-top: 25px;
-      font-weight: bold;
-      font-size: 1.2rem;
-      color: #800000;
+      max-width: 300px;
     }
   </style>
 </head>
 <body>
 
-  <h1>Designer Sahiba, Ek Sawaal Hai... 💌</h1>
-  <h3>Kya aap is chhoti si website ka hissa banna chahti hain? 😌</h3>
+  <h1>Kya tum meri Golu ho? 🥺💜</h1>
 
-  <button id="yesBtn" onclick="handleYesClick()">Yes</button>
-  <button id="noBtn" onclick="handleNoClick()">No</button>
+  <div class="button-container">
+    <button class="btn" onclick="playMusicAndRedirect()">Yes 💌</button>
+    <button class="btn" onclick="handleNoClick()">No 😔</button>
+  </div>
 
-  <p id="noText"></p>
+  <div id="message"></div>
+
+  <audio id="myAudio" src="tu-jaane-na.mp3"></audio>
 
   <script>
     let noClickCount = 0;
 
     function handleNoClick() {
+      const messageDiv = document.getElementById('message');
       noClickCount++;
 
       if (noClickCount === 1) {
-        document.getElementById("noText").innerText = "Pakka? Designer Sahiba? 💔";
+        messageDiv.textContent = "Pakka? Mere bina aap kaun se design karenge Designer Sahiba? 💔😅";
       } else if (noClickCount === 2) {
-        document.getElementById("noText").innerText = "Phir se soch lo... Mere bina aap kaun se design karenge Designer Sahiba? 💔😅";
+        messageDiv.textContent = "Maan jao na... warna website incomplete reh jaayegi 😭💔";
       } else {
-        const noBtn = document.getElementById("noBtn");
-        noBtn.innerText = "Yes";
-        noBtn.onclick = handleYesClick;
-        document.getElementById("noText").innerText = "Tumhe to haan hi kehna hai... Maan bhi jaao naa 🥺💜";
+        messageDiv.textContent = "Tumhe toh haan hi kehna hai... maan bhi jaao naa 💜";
       }
     }
 
-    function handleYesClick() {
-      // Music autoplay trick
-      const audio = new Audio("tu-jaane-na.mp3");
-      audio.loop = true;
+    function playMusicAndRedirect() {
+      const audio = document.getElementById("myAudio");
       audio.play();
       setTimeout(() => {
         window.location.href = "main.html";
-      }, 500); // Delay to allow music to start
+      }, 1500); // delay for audio to start playing
     }
   </script>
 
