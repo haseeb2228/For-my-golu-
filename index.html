@@ -3,134 +3,94 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Kya Tum Meri Golu Ho?</title>
+  <title>For My Golu 💜</title>
   <style>
     body {
       margin: 0;
-      padding: 0;
-      background-color: lavenderblush;
+      padding: 40px;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      position: relative;
+      background-color: lavenderblush;
+      color: #800080;
+      text-align: center;
     }
+
     h1 {
       font-size: 2.5rem;
-      color: purple;
-      text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
     }
-    .btn-group {
-      display: flex;
-      gap: 20px;
+
+    h3 {
+      font-weight: normal;
+      color: #a0522d;
+      margin-top: 0;
     }
-    button {
-      padding: 10px 25px;
-      font-size: 1.2rem;
+
+    #yesBtn, #noBtn {
+      padding: 12px 25px;
+      margin: 20px 15px;
+      font-size: 1.1rem;
       border: none;
-      border-radius: 10px;
+      border-radius: 8px;
       cursor: pointer;
+      transition: 0.3s ease;
     }
-    .yes { background-color: mediumorchid; color: white; }
-    .no { background-color: lightgray; color: black; }
-    .emoji-container {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 2rem;
-      display: none;
-      animation: float 3s infinite;
+
+    #yesBtn {
+      background-color: mediumorchid;
+      color: white;
     }
-    .maanjao {
-      margin-top: 20px;
+
+    #noBtn {
+      background-color: pink;
+      color: darkred;
+    }
+
+    #noText {
+      margin-top: 25px;
+      font-weight: bold;
       font-size: 1.2rem;
-      color: #444;
-      display: none;
-      text-align: center;
-    }
-    @keyframes float {
-      0% { transform: translate(-50%, -50%) translateY(0); opacity: 1; }
-      100% { transform: translate(-50%, -50%) translateY(-100px); opacity: 0; }
-    }
-    .rain {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      overflow: hidden;
-    }
-    .drop {
-      width: 2px;
-      height: 15px;
-      background: #a9a9ff;
-      position: absolute;
-      top: -20px;
-      animation: rain 1s linear infinite;
+      color: #800000;
     }
   </style>
 </head>
 <body>
-  <h1>Kya Tum Meri Golu Ho? 💜</h1>
-  <div class="btn-group">
-    <button class="yes" onclick="sayYes()">Yes</button>
-    <button class="no" onclick="sayNo()">No</button>
-  </div>
-  <div class="emoji-container" id="emoji">🥺💖🙏🏻💌✨</div>
-  <div class="rain" id="rain"></div>
-  <div class="maanjao" id="text">Maan jao naa Golu 💌</div>
+
+  <h1>Designer Sahiba, Ek Sawaal Hai... 💌</h1>
+  <h3>Kya aap is chhoti si website ka hissa banna chahti hain? 😌</h3>
+
+  <button id="yesBtn" onclick="handleYesClick()">Yes</button>
+  <button id="noBtn" onclick="handleNoClick()">No</button>
+
+  <p id="noText"></p>
 
   <script>
     let noClickCount = 0;
 
-    function sayYes() {
-      window.location.href = "main.html";
-    }
-
-    function sayNo() {
-      startRain();
-      showEmoji();
-
-      const text = document.getElementById("text");
+    function handleNoClick() {
       noClickCount++;
 
       if (noClickCount === 1) {
-        text.innerText = "Pakka? 😟💔";
+        document.getElementById("noText").innerText = "Pakka? Designer Sahiba? 💔";
       } else if (noClickCount === 2) {
-        text.innerHTML = `Phir se soch lo... Mere bina aap kaun se design karenge Designer Sahiba? 💔😅<br>Maan jao na... warna website incomplete reh jaayegi 😭💔`;
-      } else if (noClickCount >= 3) {
-        text.innerHTML = `Aap toh mujhe 'No' bhi nahi bol sakti... 😭💔<br>Bas YES kardo na Designer Sahiba 💌`;
+        document.getElementById("noText").innerText = "Phir se soch lo... Mere bina aap kaun se design karenge Designer Sahiba? 💔😅";
+      } else {
+        const noBtn = document.getElementById("noBtn");
+        noBtn.innerText = "Yes";
+        noBtn.onclick = handleYesClick;
+        document.getElementById("noText").innerText = "Tumhe to haan hi kehna hai... Maan bhi jaao naa 🥺💜";
       }
-
-      text.style.display = "block";
-      setTimeout(() => {
-        text.style.display = "none";
-      }, 4000);
     }
 
-    function showEmoji() {
-      const emoji = document.getElementById("emoji");
-      emoji.style.display = "block";
+    function handleYesClick() {
+      // Music autoplay trick
+      const audio = new Audio("tu-jaane-na.mp3");
+      audio.loop = true;
+      audio.play();
       setTimeout(() => {
-        emoji.style.display = "none";
-      }, 3000);
-    }
-
-    function startRain() {
-      const rainContainer = document.getElementById("rain");
-      for (let i = 0; i < 100; i++) {
-        const drop = document.createElement("div");
-        drop.classList.add("drop");
-        drop.style.left = Math.random() * window.innerWidth + "px";
-        drop.style.animationDuration = Math.random() * 1 + 0.5 + "s";
-        rainContainer.appendChild(drop);
-        setTimeout(() => { drop.remove(); }, 1000);
-      }
+        window.location.href = "main.html";
+      }, 500); // Delay to allow music to start
     }
   </script>
+
 </body>
 </html>
