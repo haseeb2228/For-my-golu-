@@ -1,4 +1,5 @@
-<!-- index.html (updated with intro redirect) --><!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -10,59 +11,98 @@
       text-align: center;
       padding: 50px;
       color: #4b0082;
-    }h1 {
-  font-size: 2.5rem;
-}
+    }
 
-.question {
-  margin-top: 30px;
-  font-size: 1.8rem;
-}
+    h1 {
+      font-size: 2.5rem;
+    }
 
-.btn {
-  margin: 20px;
-  padding: 12px 24px;
-  font-size: 1.2rem;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: 0.3s ease;
-}
+    .question {
+      margin-top: 30px;
+      font-size: 1.8rem;
+    }
 
-.yes-btn {
-  background-color: mediumseagreen;
-  color: white;
-}
+    .btn {
+      margin: 20px;
+      padding: 12px 24px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
 
-.no-btn {
-  background-color: crimson;
-  color: white;
-}
+    .yes-btn {
+      background-color: mediumseagreen;
+      color: white;
+    }
 
-#message {
-  margin-top: 30px;
-  font-size: 1.2rem;
-  color: darkmagenta;
-  white-space: pre-line;
-}
+    .no-btn {
+      background-color: crimson;
+      color: white;
+    }
 
+    #message {
+      margin-top: 30px;
+      font-size: 1.2rem;
+      color: darkmagenta;
+      white-space: pre-line;
+    }
+
+    #intro-section {
+      display: none;
+      margin-top: 40px;
+      font-size: 1.3rem;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .next-btn {
+      margin-top: 30px;
+      background-color: mediumorchid;
+      color: white;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
   </style>
 </head>
 <body>
-  <h1>Ek Sawaal... Sirf Aapke Liye 💜</h1>
-  <div class="question">Kya aap meri Golu ho? 🥺💌</div><button class="btn yes-btn" onclick="playAudioAndRedirect()">Yes 💘</button> <button class="btn no-btn" onclick="handleNo()">No 💔</button>
+  <div id="question-section">
+    <h1>Ek Sawaal... Sirf Aapke Liye 💜</h1>
+    <div class="question">Kya aap meri Golu ho? 🥺💌</div>
 
-  <div id="message"></div><audio id="song" src="tu-jaane-na.mp3"></audio>
+    <button class="btn yes-btn" onclick="showIntro()">Yes 💘</button>
+    <button class="btn no-btn" onclick="handleNo()">No 💔</button>
+
+    <div id="message"></div>
+  </div>
+
+  <div id="intro-section">
+    <h1>Chale apni digital duniya mein... 🌸</h1>
+    <p>
+      Jahan har yaad, har ehsaas sirf aapka hai 💌<br/>
+      Is safar mein aapki muskurahat, aapki pasand, aur aapke sapne — sab kuch yahaan hoga.<br/>
+      Har tukda pyaar se likha gaya hai... <strong>sirf aapke liye</strong> 💜
+    </p>
+    <button class="btn next-btn" onclick="goToMain()">Next ➤</button>
+  </div>
+
+  <audio id="bg-music" src="tu-jaane-na.mp3"></audio>
 
   <script>
     let noClickCount = 0;
 
-    function playAudioAndRedirect() {
-      const audio = document.getElementById('song');
+    function showIntro() {
+      document.getElementById("question-section").style.display = "none";
+      document.getElementById("intro-section").style.display = "block";
+      const audio = document.getElementById("bg-music");
       audio.play();
-      setTimeout(() => {
-        window.location.href = "intro.html";
-      }, 1500);
+    }
+
+    function goToMain() {
+      window.location.href = "main.html";
     }
 
     function handleNo() {
@@ -74,8 +114,9 @@
       } else if (noClickCount === 2) {
         messageBox.innerText = "Sach mein No? 😭\nAapke bina ye duniya adhuri lagti hai Designer Sahiba 💔\nPlease maan jao na...";
       } else {
-        playAudioAndRedirect();
+        showIntro();
       }
     }
-  </script></body>
+  </script>
+</body>
 </html>
