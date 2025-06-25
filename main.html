@@ -11,90 +11,91 @@
       background-color: lavender;
       color: #4b0082;
       overflow-x: hidden;
-    }h1 {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-}
-
-h3 {
-  text-align: center;
-  color: darkmagenta;
-  margin-top: 0;
-  font-weight: normal;
-}
-
-.corner-tag {
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  font-size: 1.2rem;
-  color: hotpink;
-  font-weight: bold;
-  z-index: 10;
-}
-
-.corner-wait {
-  position: fixed;
-  bottom: 10px;
-  left: 10px;
-  font-size: 1.2rem;
-  color: teal;
-  font-weight: bold;
-  z-index: 10;
-}
-
-.segment {
-  display: none;
-  background: #fff0f5;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  position: relative;
-  z-index: 1;
-  margin-bottom: 30px;
-}
-
-.show {
-  display: block;
-}
-
-.next-button {
-  display: block;
-  margin: 30px auto 0;
-  padding: 10px 20px;
-  background-color: mediumorchid;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  font-size: 1rem;
-  cursor: pointer;
-}
-
-.floating-heart {
-  position: fixed;
-  font-size: 1.5rem;
-  animation: float 6s infinite;
-  color: #ff69b4;
-  opacity: 0.7;
-  pointer-events: none;
-}
-
-@keyframes float {
-  0% { transform: translateY(0) translateX(0); opacity: 0.8; }
-  50% { opacity: 1; }
-  100% { transform: translateY(-100vh) translateX(30px); opacity: 0; }
-}
-
+    }
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+    h3 {
+      text-align: center;
+      color: darkmagenta;
+      margin-top: 0;
+      font-weight: normal;
+    }
+    .corner-tag {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      font-size: 1.2rem;
+      color: hotpink;
+      font-weight: bold;
+      z-index: 10;
+    }
+    .corner-wait {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      font-size: 1.2rem;
+      color: teal;
+      font-weight: bold;
+      z-index: 10;
+    }
+    .segment {
+      display: none;
+      background: #fff0f5;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      position: relative;
+      z-index: 1;
+      margin-bottom: 30px;
+      animation: fadeIn 1s ease-in-out;
+    }
+    .show {
+      display: block;
+    }
+    .next-button, .back-button {
+      display: inline-block;
+      margin: 30px 10px 0;
+      padding: 10px 20px;
+      background-color: mediumorchid;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    .floating-heart {
+      position: fixed;
+      font-size: 1.5rem;
+      animation: float 6s infinite;
+      color: #ff69b4;
+      opacity: 0.7;
+      pointer-events: none;
+    }
+    @keyframes float {
+      0% { transform: translateY(0) translateX(0); opacity: 0.8; }
+      50% { opacity: 1; }
+      100% { transform: translateY(-100vh) translateX(30px); opacity: 0; }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
   </style>
 </head>
 <body>
   <div class="corner-tag">💜 ILY Golu 💜</div>
-  <div class="corner-wait">⏳ Wait karlo na Golu... please 🥺</div>  <!-- Floating emojis -->  <div class="floating-heart" style="top:90%; left:20%;">💜</div>
+  <div class="corner-wait">⏳ Wait karlo na Golu... please 🥺</div>
+  <div class="floating-heart" style="top:90%; left:20%;">💜</div>
   <div class="floating-heart" style="top:95%; left:60%;">💜</div>
   <div class="floating-heart" style="top:100%; left:80%;">💜</div>
   <div class="floating-heart" style="top:105%; left:40%;">💜</div>
-  <div class="floating-heart" style="top:110%; left:30%;">💜</div>  <div id="segments"></div>  <script>
+  <div class="floating-heart" style="top:110%; left:30%;">💜</div>
+  <div id="segments"></div>
+  <audio id="bgm" autoplay></audio>
+  <script>
     const segments = [
       {
         title: "Pehli Nazar 💫",
@@ -142,35 +143,47 @@ h3 {
         title: "Mera Wada 🥺💍",
         text: `Main badlungaa nahi... main mukarungaa nahi... aur main aapko kabhi hurt nahi karunga.\nJo aapke dil mein darr hai na — uss darr ko main pyaar se mita dunga, waqt ke saath.\nBas thoda yaqeen, thoda waqt... aur poora pyaar ❤️\nMain aapka intezaar bhi karunga, aur aapko har mod par sambhalunga... In shaa Allah 💍🥺`,
         song: "tera-rasta.mp3",
-        buttonText: "Yahi tha mera dil se birthday surprise... 💌"
+        buttonText: "Phirse apni digital duniya dekhni hai? 🔁"
       }
-    ];
+    ];let current = 0;
+const bgm = document.getElementById("bgm");
 
-    let current = 0;
+function renderSegment(index) {
+  const container = document.getElementById("segments");
+  container.innerHTML = "";
 
-    function renderSegment(index) {
-      const container = document.getElementById("segments");
-      container.innerHTML = "";
+  const seg = document.createElement("div");
+  seg.className = "segment show";
+  seg.innerHTML = `
+    <h1>${segments[index].title}</h1>
+    <p>${segments[index].text.replace(/\n/g, '<br>')}</p>
+    <div>
+      ${index > 0 ? `<button class="back-button" onclick="prevSegment()">⬅️ Peeche jaayein</button>` : ""}
+      ${index < segments.length - 1 ? `<button class="next-button" onclick="nextSegment()">${segments[index].buttonText}</button>` : `<button class="next-button" onclick="goToFirst()">${segments[index].buttonText}</button>`}
+    </div>
+  `;
+  container.appendChild(seg);
+  bgm.src = segments[index].song;
+  bgm.play();
+}
 
-      const seg = document.createElement("div");
-      seg.className = "segment show";
-      seg.innerHTML = `
-        <h1>${segments[index].title}</h1>
-        <p>${segments[index].text.replace(/\n/g, '<br>')}</p>
-        <audio autoplay controls>
-          <source src="${segments[index].song}" type="audio/mp3">
-        </audio>
-        ${index < segments.length - 1 ? `<button class="next-button" onclick="nextSegment()">${segments[index].buttonText}</button>` : ""}
-      `;
-      container.appendChild(seg);
-    }
+function nextSegment() {
+  current++;
+  renderSegment(current);
+}
 
-    function nextSegment() {
-      current++;
-      renderSegment(current);
-    }
+function prevSegment() {
+  current--;
+  renderSegment(current);
+}
 
-    // Start with first segment
-    renderSegment(current);
-  </script></body>
+function goToFirst() {
+  current = 0;
+  renderSegment(current);
+}
+
+renderSegment(current);
+
+  </script>
+</body>
 </html>
