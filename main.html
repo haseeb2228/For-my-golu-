@@ -1,4 +1,3 @@
-
 <!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -45,31 +44,31 @@ h3 {
   z-index: 10;
 }
 
-.section-button {
-  display: inline-block;
-  margin: 10px;
-  padding: 10px 20px;
-  background-color: mediumorchid;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 1rem;
-}
-
-.content {
+.segment {
   display: none;
-  margin-top: 20px;
   background: #fff0f5;
   padding: 20px;
   border-radius: 15px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
   position: relative;
   z-index: 1;
+  margin-bottom: 30px;
 }
 
 .show {
   display: block;
+}
+
+.next-button {
+  display: block;
+  margin: 30px auto 0;
+  padding: 10px 20px;
+  background-color: mediumorchid;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
 }
 
 .floating-heart {
@@ -82,49 +81,96 @@ h3 {
 }
 
 @keyframes float {
-  0% {
-    transform: translateY(0) translateX(0);
-    opacity: 0.8;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-100vh) translateX(30px);
-    opacity: 0;
-  }
+  0% { transform: translateY(0) translateX(0); opacity: 0.8; }
+  50% { opacity: 1; }
+  100% { transform: translateY(-100vh) translateX(30px); opacity: 0; }
 }
 
   </style>
 </head>
 <body>
-  <h1>Happy Birthday Designer Sahiba! 🎉💜</h1>
-  <h3>Ek chhoti si digital duniya, sirf aap ke liye... 💻✨</h3><button class="section-button" onclick="showSection('memory3', 'goriye.mp3')">Pehli Nazar 💫</button> <button class="section-button" onclick="showSection('memory1', 'use-takte.mp3')">Techfest Memories 🌸</button> <button class="section-button" onclick="showSection('favorites', 'i-love-you.mp3')">Golu's Magic 💖</button> <button class="section-button" onclick="showSection('uskeFav', 'mai-tera.mp3')">Uske Favourites 🌷</button> <button class="section-button" onclick="showSection('special', 'hona-tha-pyaar.mp3')">Special Message 📌</button> <button class="section-button" onclick="showSection('overthinking', 'nadaaniya.mp3')">Dar aur Soch 😔</button> <button class="section-button" onclick="showSection('tiffin', 'tu-hi-tohai.mp3')">Tiffins 🍱</button> <button class="section-button" onclick="showSection('meraWada', 'tera-rasta.mp3')">Mera Wada 🥺💍</button>
-
-  <div class="content" id="memory1">...</div>
-  <div class="content" id="memory2">...</div>
-  <div class="content" id="memory3">...</div>
-  <div class="content" id="special">...</div>
-  <div class="content" id="favorites">...</div>
-  <div class="content" id="tiffin">...</div>
-  <div class="content" id="overthinking">...</div>
-  <div class="content" id="uskeFav">...</div>
-  <div class="content" id="meraWada">...</div>  <div class="corner-tag">💜 ILY Golu 💜</div>
-  <div class="corner-wait">⏳ Wait karlo na Golu... please 🥺</div>  <div class="floating-heart" style="top:90%; left:20%;">💜</div>
+  <div class="corner-tag">💜 ILY Golu 💜</div>
+  <div class="corner-wait">⏳ Wait karlo na Golu... please 🥺</div>  <!-- Floating emojis -->  <div class="floating-heart" style="top:90%; left:20%;">💜</div>
   <div class="floating-heart" style="top:95%; left:60%;">💜</div>
   <div class="floating-heart" style="top:100%; left:80%;">💜</div>
   <div class="floating-heart" style="top:105%; left:40%;">💜</div>
-  <div class="floating-heart" style="top:110%; left:30%;">💜</div>  <audio id="audio" autoplay>
-    <source id="audioSource" src="tu-jaane-na.mp3" type="audio/mp3">
-  </audio>  <script>
-    function showSection(id, song) {
-      document.querySelectorAll('.content').forEach(el => el.classList.remove('show'));
-      document.getElementById(id).classList.add('show');
-      const audio = document.getElementById("audio");
-      const source = document.getElementById("audioSource");
-      source.src = song;
-      audio.load();
-      audio.play();
+  <div class="floating-heart" style="top:110%; left:30%;">💜</div>  <div id="segments"></div>  <script>
+    const segments = [
+      {
+        title: "Pehli Nazar 💫",
+        text: `Pehli baar aapko P1 ke bahar dekha tha — aap phone par baat kar rahi thi kisi se.\nMain bas wahin se sochne laga... Goriye kinni goriye hai tu... Tu zameen pe chand ki jodi hai tu 💫\nTabhi se woh pal mere dil mein basa hua hai.`,
+        song: "goriye.mp3",
+        buttonText: "Aur bhi yaadein hain... ➡️"
+      },
+      {
+        title: "Techfest Memories 🌸",
+        text: `Techfest ka doosra din tha, main ready hokar gaya tha... aur jaise hi ground mein enter hua, aap wahin thein, doston ke saath.\nPehle to pehchaana nahi... lekin jaise hi dekha — bas shock mein reh gaya. 💛💚\nAapne yellow aur green ka ek frock jaisa pehna tha, itni pyaari lag rahi thi ke aankhein hatt hi nahi rahi thi.\nAgle din aapne pink color mein dress pehna — I swear, itni khoobsurat ki bas dekhte reh gaya...\n"Use takte takte Umar guzaarun" — ye line uss din sach lag rahi thi...`,
+        song: "use-takte.mp3",
+        buttonText: "Aage chalein Golu ke jaadu tak? ✨"
+      },
+      {
+        title: "Golu's Magic 💖",
+        text: `Aapke sapne — mujhe inspire karte hain.\nAapki designing — mere liye art se bhi zyada khaas hai.\nAapki simplicity — meri favourite cheez hai.\nAapka possessive hona — mujhe safe feel karata hai.\nAur horror movies dekhna — aapke saath hi dekhna hai mujhe! 🔟💚\n\nMy imagination that will turn into reality for sure... In shaa Allah. 🌙✨`,
+        song: "i-love-you.mp3",
+        buttonText: "Chalein jaanne ki Golu ko kya pasand hai? 🌷"
+      },
+      {
+        title: "Uske Favourites 🌷",
+        text: `Lavender jaise khushbudar aur soothing, aapka fav colour meri duniya ka rang ban gaya hai 💜\nAur butterscotch ice cream? Jaise aap ho — soft, meethi, aur sabse alag 🍨\nHar chhoti chhoti pasand aapki — mujhe har din aapke aur kareeb le jaati hai... 🌷`,
+        song: "mai-tera.mp3",
+        buttonText: "Ek khaas message aapke liye... 📩"
+      },
+      {
+        title: "Special Message 📌",
+        text: `Aapka woh "ehem dil" waali baat main kabhi nahi bhool sakta... sach mein.\nAap meri life mein ek beautiful chapter ban chuki hain. Har roz jab shirt pehenta hoon, upar waali button kholne jaata hoon... to aap yaad aa jaati hain — isiliye main bina khole chhod deta hoon.\nAapki yaadon mein ek muskurahat aa jaati hai. 🥺\nAapke bina sab adhoora lagta hai... aur aap ho to sab complete.`,
+        song: "hona-tha-pyaar.mp3",
+        buttonText: "Kabhi kabhi dar bhi lagta hai na... 💭"
+      },
+      {
+        title: "Dar aur Soch 😔",
+        text: `Aapne kabhi kaha tha — \"Main overthink karti hoon... kitabi keeda hoon... aur mujhe koi jhel nahi paata...\"\nPar main kehna chahta hoon: Aap jaisa dil paana sabki kismat mein nahi hota.\nAap duniya ke norms se ladti ho, aur main aapke saath hoon — har dar, har soch, har phase mein.\nAap jaise ho, waise hi perfect ho mere liye. 💫`,
+        song: "nadaaniya.mp3",
+        buttonText: "Khaana khaaya Golu ne? 🍱"
+      },
+      {
+        title: "Tiffins 🍱",
+        text: `Aap roz tiffin skip kar deti hain — kyunki ya to pasand nahi hota, ya khaaya hi nahi jaata.\nAur mujhe bas itna kehna hai... agar aap khaana nahi khaayengi, to mera dil bhi nahi lagega.\nKisi din aapko apne haathon se khilaana hai mujhe — har ek bite mein khayal bhar ke. 🍱💜`,
+        song: "tu-hi-tohai.mp3",
+        buttonText: "Aakhri aur sabse pyaara wada... 💍"
+      },
+      {
+        title: "Mera Wada 🥺💍",
+        text: `Main badlungaa nahi... main mukarungaa nahi... aur main aapko kabhi hurt nahi karunga.\nJo aapke dil mein darr hai na — uss darr ko main pyaar se mita dunga, waqt ke saath.\nBas thoda yaqeen, thoda waqt... aur poora pyaar ❤️\nMain aapka intezaar bhi karunga, aur aapko har mod par sambhalunga... In shaa Allah 💍🥺`,
+        song: "tera-rasta.mp3",
+        buttonText: "Yahi tha mera dil se birthday surprise... 💌"
+      }
+    ];
+
+    let current = 0;
+
+    function renderSegment(index) {
+      const container = document.getElementById("segments");
+      container.innerHTML = "";
+
+      const seg = document.createElement("div");
+      seg.className = "segment show";
+      seg.innerHTML = `
+        <h1>${segments[index].title}</h1>
+        <p>${segments[index].text.replace(/\n/g, '<br>')}</p>
+        <audio autoplay controls>
+          <source src="${segments[index].song}" type="audio/mp3">
+        </audio>
+        ${index < segments.length - 1 ? `<button class="next-button" onclick="nextSegment()">${segments[index].buttonText}</button>` : ""}
+      `;
+      container.appendChild(seg);
     }
+
+    function nextSegment() {
+      current++;
+      renderSegment(current);
+    }
+
+    // Start with first segment
+    renderSegment(current);
   </script></body>
 </html>
