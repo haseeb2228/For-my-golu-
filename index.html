@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- index.html (updated with intro redirect) --><!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -11,55 +10,49 @@
       text-align: center;
       padding: 50px;
       color: #4b0082;
-    }
+    }h1 {
+  font-size: 2.5rem;
+}
 
-    h1 {
-      font-size: 2.5rem;
-    }
+.question {
+  margin-top: 30px;
+  font-size: 1.8rem;
+}
 
-    .question {
-      margin-top: 30px;
-      font-size: 1.8rem;
-    }
+.btn {
+  margin: 20px;
+  padding: 12px 24px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
 
-    .btn {
-      margin: 20px;
-      padding: 12px 24px;
-      font-size: 1.2rem;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: 0.3s ease;
-    }
+.yes-btn {
+  background-color: mediumseagreen;
+  color: white;
+}
 
-    .yes-btn {
-      background-color: mediumseagreen;
-      color: white;
-    }
+.no-btn {
+  background-color: crimson;
+  color: white;
+}
 
-    .no-btn {
-      background-color: crimson;
-      color: white;
-    }
+#message {
+  margin-top: 30px;
+  font-size: 1.2rem;
+  color: darkmagenta;
+  white-space: pre-line;
+}
 
-    #message {
-      margin-top: 30px;
-      font-size: 1.2rem;
-      color: darkmagenta;
-      white-space: pre-line;
-    }
   </style>
 </head>
 <body>
   <h1>Ek Sawaal... Sirf Aapke Liye 💜</h1>
-  <div class="question">Kya aap meri Golu ho? 🥺💌</div>
+  <div class="question">Kya aap meri Golu ho? 🥺💌</div><button class="btn yes-btn" onclick="playAudioAndRedirect()">Yes 💘</button> <button class="btn no-btn" onclick="handleNo()">No 💔</button>
 
-  <button class="btn yes-btn" onclick="playAudioAndRedirect()">Yes 💘</button>
-  <button class="btn no-btn" onclick="handleNo()">No 💔</button>
-
-  <div id="message"></div>
-
-  <audio id="song" src="tu-jaane-na.mp3"></audio>
+  <div id="message"></div><audio id="song" src="tu-jaane-na.mp3"></audio>
 
   <script>
     let noClickCount = 0;
@@ -67,7 +60,9 @@
     function playAudioAndRedirect() {
       const audio = document.getElementById('song');
       audio.play();
-      window.location.href = "main.html";
+      setTimeout(() => {
+        window.location.href = "intro.html";
+      }, 1500);
     }
 
     function handleNo() {
@@ -79,10 +74,8 @@
       } else if (noClickCount === 2) {
         messageBox.innerText = "Sach mein No? 😭\nAapke bina ye duniya adhuri lagti hai Designer Sahiba 💔\nPlease maan jao na...";
       } else {
-        // Act like YES on 3rd click
         playAudioAndRedirect();
       }
     }
-  </script>
-</body>
+  </script></body>
 </html>
