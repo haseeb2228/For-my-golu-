@@ -1,3 +1,4 @@
+
 <!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -24,24 +25,39 @@ h3 {
   font-weight: normal;
 }
 
-.corner-tag, .corner-wait {
+.corner-tag {
   position: fixed;
+  top: 10px;
+  right: 10px;
   font-size: 1.2rem;
+  color: hotpink;
   font-weight: bold;
   z-index: 10;
 }
-.corner-tag {
-  top: 10px;
-  right: 10px;
-  color: hotpink;
-}
+
 .corner-wait {
+  position: fixed;
   bottom: 10px;
   left: 10px;
+  font-size: 1.2rem;
   color: teal;
+  font-weight: bold;
+  z-index: 10;
 }
 
-.segment {
+.section-button {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: mediumorchid;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.content {
   display: none;
   margin-top: 20px;
   background: #fff0f5;
@@ -51,27 +67,9 @@ h3 {
   position: relative;
   z-index: 1;
 }
-.segment.active {
-  display: block;
-}
 
-.next-btn {
-  margin-top: 20px;
+.show {
   display: block;
-  padding: 10px 20px;
-  font-size: 1rem;
-  border: none;
-  border-radius: 10px;
-  background-color: mediumorchid;
-  color: white;
-  cursor: pointer;
-}
-
-.quote {
-  margin-top: 15px;
-  font-style: italic;
-  color: #800080;
-  text-align: center;
 }
 
 .floating-heart {
@@ -84,83 +82,49 @@ h3 {
 }
 
 @keyframes float {
-  0% { transform: translateY(0) translateX(0); opacity: 0.8; }
-  50% { opacity: 1; }
-  100% { transform: translateY(-100vh) translateX(30px); opacity: 0; }
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) translateX(30px);
+    opacity: 0;
+  }
 }
 
   </style>
 </head>
 <body>
   <h1>Happy Birthday Designer Sahiba! 🎉💜</h1>
-  <h3>Ek chhoti si digital duniya, sirf aap ke liye... 💻✨</h3>  <div class="corner-tag">💜 ILY Golu 💜</div>
-  <div class="corner-wait">⏳ Wait karlo na Golu... please 🥺</div>  <div id="segments">
-    <div class="segment active" data-song="Goriye.mp3">
-      <p>Pehli baar aapko P1 ke bahar dekha tha — aap phone par baat kar rahi thi kisi se. Main bas wahin se sochne laga... Goriye kinni goriye hai tu... Tu zameen pe chand ki jodi hai tu 💫 Tabhi se woh pal mere dil mein basa hua hai.</p>
-      <div class="quote">Mann bhara? Chalo agla tukda pyaar ka dekhte hain 💌</div>
-      <button class="next-btn">Next</button>
-    </div><div class="segment" data-song="use-takte.mp3">
-  <p>Techfest ka doosra din tha, main ready hokar gaya tha... aur jaise hi ground mein enter hua, aap wahin thein, doston ke saath. Pehle to pehchaana nahi... lekin jaise hi dekha — bas shock mein reh gaya. 💛💚</p>
-  <div class="quote">Kya yaadein zinda ho gayi? Toh chaliye aage 💫</div>
-  <button class="next-btn">Next</button>
-</div>
+  <h3>Ek chhoti si digital duniya, sirf aap ke liye... 💻✨</h3><button class="section-button" onclick="showSection('memory3', 'goriye.mp3')">Pehli Nazar 💫</button> <button class="section-button" onclick="showSection('memory1', 'use-takte.mp3')">Techfest Memories 🌸</button> <button class="section-button" onclick="showSection('favorites', 'i-love-you.mp3')">Golu's Magic 💖</button> <button class="section-button" onclick="showSection('uskeFav', 'mai-tera.mp3')">Uske Favourites 🌷</button> <button class="section-button" onclick="showSection('special', 'hona-tha-pyaar.mp3')">Special Message 📌</button> <button class="section-button" onclick="showSection('overthinking', 'nadaaniya.mp3')">Dar aur Soch 😔</button> <button class="section-button" onclick="showSection('tiffin', 'tu-hi-tohai.mp3')">Tiffins 🍱</button> <button class="section-button" onclick="showSection('meraWada', 'tera-rasta.mp3')">Mera Wada 🥺💍</button>
 
-<div class="segment" data-song="i-love-you.mp3">
-  <p>Aapke sapne — mujhe inspire karte hain. Aapki designing — mere liye art se bhi zyada khaas hai. Aapki simplicity — meri favourite cheez hai. Aapka possessive hona — mujhe safe feel karata hai.</p>
-  <div class="quote">Aur bhi yaadein baaki hain... ready? 💖</div>
-  <button class="next-btn">Next</button>
-</div>
-
-<div class="segment" data-song="mai-tera.mp3">
-  <p>Lavender jaise khushbudar aur soothing, aapka fav colour meri duniya ka rang ban gaya hai 💜 Butterscotch ice cream? Jaise aap ho — soft, meethi, aur sabse alag 🍨</p>
-  <div class="quote">Chaliye Golu ki favourite duniya se... emotions ki taraf 🥺</div>
-  <button class="next-btn">Next</button>
-</div>
-
-<div class="segment" data-song="hona-tha-pyaar.mp3">
-  <p>Aapka "ehem dil" waala dialogue, shirt ke button ke saath yaad aata hai. Aapke bina sab adhoora lagta hai... aur aap ho to sab complete.</p>
-  <div class="quote">Dil bhar gaya? Toh aage chalo... aur gehraayi mein 🩷</div>
-  <button class="next-btn">Next</button>
-</div>
-
-<div class="segment" data-song="nadaaniya.mp3">
-  <p>Aapne kaha tha — "Main overthink karti hoon..." Par main kehna chahta hoon: Aap jaisa dil sabki kismat mein nahi hota. Main aapke saath hoon — har dar, har soch, har phase mein.</p>
-  <div class="quote">Aur bhi khayalon ka safar baaki hai... ready Golu? 🧠💜</div>
-  <button class="next-btn">Next</button>
-</div>
-
-<div class="segment" data-song="tu-hi-tohai.mp3">
-  <p>Aap roz tiffin skip kar deti hain — aur mujhe bas itna kehna hai... agar aap khaana nahi khaayengi, to mera dil bhi nahi lagega. Kisi din apne haathon se khilaana hai mujhe 🍱💜</p>
-  <div class="quote">Aakhri pyaar bhari kasam baaki hai... chaliye 💍</div>
-  <button class="next-btn">Next</button>
-</div>
-
-<div class="segment" data-song="tera-rasta.mp3">
-  <p>Main badlungaa nahi... main mukarungaa nahi... aur main aapko kabhi hurt nahi karunga. Jo aapke dil mein darr hai na — uss darr ko main pyaar se mita dunga... In shaa Allah 💍🥺</p>
-  <div class="quote">Ye tha mera wada... ab bas aapki muskaan chahiye 🥺💖</div>
-</div>
-
-  </div>  <!-- Floating emojis -->  <div class="floating-heart" style="top:90%; left:20%;">💜</div>
+  <div class="content" id="memory1">...</div>
+  <div class="content" id="memory2">...</div>
+  <div class="content" id="memory3">...</div>
+  <div class="content" id="special">...</div>
+  <div class="content" id="favorites">...</div>
+  <div class="content" id="tiffin">...</div>
+  <div class="content" id="overthinking">...</div>
+  <div class="content" id="uskeFav">...</div>
+  <div class="content" id="meraWada">...</div>  <div class="corner-tag">💜 ILY Golu 💜</div>
+  <div class="corner-wait">⏳ Wait karlo na Golu... please 🥺</div>  <div class="floating-heart" style="top:90%; left:20%;">💜</div>
   <div class="floating-heart" style="top:95%; left:60%;">💜</div>
   <div class="floating-heart" style="top:100%; left:80%;">💜</div>
   <div class="floating-heart" style="top:105%; left:40%;">💜</div>
-  <div class="floating-heart" style="top:110%; left:30%;">💜</div>  <audio id="bg-audio" autoplay loop>
-    <source src="Goriye.mp3" type="audio/mp3">
+  <div class="floating-heart" style="top:110%; left:30%;">💜</div>  <audio id="audio" autoplay>
+    <source id="audioSource" src="tu-jaane-na.mp3" type="audio/mp3">
   </audio>  <script>
-    const segments = document.querySelectorAll('.segment');
-    const audio = document.getElementById('bg-audio');
-    const nextButtons = document.querySelectorAll('.next-btn');
-
-    nextButtons.forEach((btn, idx) => {
-      btn.addEventListener('click', () => {
-        segments[idx].classList.remove('active');
-        if (segments[idx + 1]) {
-          segments[idx + 1].classList.add('active');
-          const newSong = segments[idx + 1].dataset.song;
-          audio.src = newSong;
-          audio.play();
-        }
-      });
-    });
+    function showSection(id, song) {
+      document.querySelectorAll('.content').forEach(el => el.classList.remove('show'));
+      document.getElementById(id).classList.add('show');
+      const audio = document.getElementById("audio");
+      const source = document.getElementById("audioSource");
+      source.src = song;
+      audio.load();
+      audio.play();
+    }
   </script></body>
 </html>
