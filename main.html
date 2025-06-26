@@ -1,3 +1,4 @@
+<!-- START OF FINAL CODE -->
 <!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -94,62 +95,111 @@
   <div class="floating-heart" style="top:105%; left:40%;">💜</div>
   <div class="floating-heart" style="top:110%; left:30%;">💜</div>
   <div id="segments"></div>
-  <audio id="bgm" autoplay></audio>
+  <audio id="bgm" autoplay loop></audio>
   <script>
     const segments = [
-      // previous segments here ...
+      {
+        title: "Pehli Nazar 💫",
+        text: `Pehli baar aapko P1 ke bahar dekha tha — aap phone par baat kar rahi thi kisi se.\nMain bas wahin se sochne laga... Goriye kinni goriye hai tu... Tu zameen pe chand ki jodi hai tu 💫\nTabhi se woh pal mere dil mein basa hua hai.`,
+        song: "goriye.mp3",
+        buttonText: "Aur bhi yaadein hain... ➡️"
+      },
       {
         title: "Pehli Call 📞",
-        text: `10th February... woh pehli prank call thi, mazaak mazaak mein dil ka connection ban gaya tha.
-Uske baad 11th February ki wo asli call — aapki awaz pehli baar dil mein utar gayi thi.
-Aapki awaaz mein ek sukoon hai, ek magic hai... jaise har lafz mein ek ehsaas chhupa ho.
-Tabhi toh us din ke baad se... wo call sirf ek baat nahi thi, ek yaad ban gayi.Har baar jab aapki awaaz sunta hoon, to dil bas kehta hai — "Kash ye call kabhi band na ho..." 🥺📞, song: "tera-hone-laga.mp3", buttonText: "Golu ke darr ke baare mein... 💭" }, { title: "Perfect Daughter 👩‍👧", text: Main jaanta hoon... aapko dar hai ke kahin aap apne parents ka bharosa na tod dein, unko let down na kardein. Par Golu... aap perfect ho — ek achhi beti, ek zimmedar insaan, ek strong aur samajhdaar ladki.
+        text: `10th February... woh pehli prank call thi, mazaak mazaak mein dil ka connection ban gaya tha.\nUske baad 11th February ki wo asli call — aapki awaaz pehli baar dil mein utar gayi thi.\nAapki awaaz mein ek sukoon hai, ek magic hai... jaise har lafz mein ek ehsaas chhupa ho.\nTabhi toh us din ke baad se... wo call sirf ek baat nahi thi, ek yaad ban gayi.\nHar baar jab aapki awaaz sunta hoon, to dil bas kehta hai — "Kash ye call kabhi band na ho..." ☹️📞`,
+        song: "tera-hone-laga.mp3",
+        buttonText: "Chalein Techfest ke yaadon mein? 🎡"
+      },
+      {
+        title: "Techfest Memories 🌸",
+        text: `Techfest ka doosra din tha, main ready hokar gaya tha... aur jaise hi ground mein enter hua, aap wahin thein, doston ke saath.\nPehle to pehchaana nahi... lekin jaise hi dekha — bas shock mein reh gaya. 💛💚\nAapne yellow aur green ka ek frock jaisa pehna tha, itni pyaari lag rahi thi ke aankhein hatt hi nahi rahi thi.\nAgle din aapne pink color mein dress pehna — I swear, itni khoobsurat ki bas dekhte reh gaya...\n"Use takte takte Umar guzaarun" — ye line uss din sach lag rahi thi...`,
+        song: "use-takte.mp3",
+        buttonText: "Aage chalein Golu ke jaadu tak? ✨"
+      },
+      {
+        title: "Golu's Magic 💖",
+        text: `Aapke sapne — mujhe inspire karte hain.\nAapki designing — mere liye art se bhi zyada khaas hai.\nAapki simplicity — meri favourite cheez hai.\nAapka possessive hona — mujhe safe feel karata hai.\nAur horror movies dekhna — aapke saath hi dekhna hai mujhe! 🔟💚\n\nMy imagination that will turn into reality for sure... In shaa Allah. 🌙✨`,
+        song: "i-love-you.mp3",
+        buttonText: "Chalein jaanne ki Golu ko kya pasand hai? 🌷"
+      },
+      {
+        title: "Uske Favourites 🌷",
+        text: `Lavender jaise khushbudar aur soothing, aapka fav colour meri duniya ka rang ban gaya hai 💜\nAur butterscotch ice cream? Jaise aap ho — soft, meethi, aur sabse alag 🍨\nHar chhoti chhoti pasand aapki — mujhe har din aapke aur kareeb le jaati hai... 🌷`,
+        song: "mai-tera.mp3",
+        buttonText: "Ek khaas message aapke liye... 📩"
+      },
+      {
+        title: "Special Message 📌",
+        text: `Aapka woh "ehem dil" waali baat main kabhi nahi bhool sakta... sach mein.\nAap meri life mein ek beautiful chapter ban chuki hain. Har roz jab shirt pehenta hoon, upar waali button kholne jaata hoon... to aap yaad aa jaati hain — isiliye main bina khole chhod deta hoon.\nAapki yaadon mein ek muskurahat aa jaati hai. 🥺\nAapke bina sab adhoora lagta hai... aur aap ho to sab complete.`,
+        song: "hona-tha-pyaar.mp3",
+        buttonText: "Kabhi kabhi dar bhi lagta hai na... 💭"
+      },
+      {
+        title: "Dar aur Soch 😔",
+        text: `Aapne kabhi kaha tha — "Main overthink karti hoon... kitabi keeda hoon... aur mujhe koi jhel nahi paata..."\nPar main kehna chahta hoon: Aap jaisa dil paana sabki kismat mein nahi hota.\nAap duniya ke norms se ladti ho, aur main aapke saath hoon — har dar, har soch, har phase mein.\nAap jaise ho, waise hi perfect ho mere liye. 💫`,
+        song: "nadaaniya.mp3",
+        buttonText: "Khaana khaaya Golu ne? 🍱"
+      },
+      {
+        title: "Tiffins 🍱",
+        text: `Aap roz tiffin skip kar deti hain — kyunki ya to pasand nahi hota, ya khaaya hi nahi jaata.\nAur mujhe bas itna kehna hai... agar aap khaana nahi khaayengi, to mera dil bhi nahi lagega.\nKisi din aapko apne haathon se khilaana hai mujhe — har ek bite mein khayal bhar ke. 🍱💜`,
+        song: "tu-hi-tohai.mp3",
+        buttonText: "Aakhri aur sabse pyaara wada... 💍"
+      },
+      {
+        title: "Mera Wada 🥺💍",
+        text: `Main badlungaa nahi... main mukarungaa nahi... aur main aapko kabhi hurt nahi karunga.\nJo aapke dil mein darr hai na — uss darr ko main pyaar se mita dunga, waqt ke saath.\nBas thoda yaqeen, thoda waqt... aur poora pyaar ❤️\nMain aapka intezaar bhi karunga, aur aapko har mod par sambhalunga... In shaa Allah 💍🥺`,
+        song: "tera-rasta.mp3",
+        buttonText: "Ek aur dil se baat... 🤍"
+      },
+      {
+        title: "Perfect Daughter 🫶🏽",
+        text: `Main jaanta hoon... aapko dar hai ke kahin aap apne parents ka bharosa na tod dein, unko let down na kardein.\nPar Golu... aap perfect ho — ek achhi beti, ek zimmedar insaan, ek strong aur samajhdaar ladki.\nAur agar kabhi aapko apne parents ko batana ho, samjhaana ho — main hamesha aapke saath hoon.\n\n✨ Promise Note: Chahe kuch bhi ho jaaye, main wahi rahunga jo aaj hoon.\nKaisi bhi situation aaye, kitni bhi mushkilein ho — main kabhi nahi chhodunga.\nAur agar aapko paane ke liye aapke Ammi-Abbu ke pair choohne pad gaye — to main bina soch jhuk jaaunga.\nUnke saamne sirf ek ladka nahi, ek sachcha rishta jhukega... aur mujhe fakhr hoga uss jhukti nazar par.\n\nKyuki aapko halal tareeke se apna banana hai — izzat aur duaon ke saath. 💍🕊️`,
+        song: "perfect.mp3",
+        buttonText: "Phirse apni digital duniya dekhni hai? 🔁"
+      }
+    ];
 
-Aur agar kabhi aapko apne parents ko batana ho, samjhaana ho — main hamesha aapke saath hoon.
+    let current = 0;
+    const bgm = document.getElementById("bgm");
 
-✨ Promise Note: Chahe kuch bhi ho jaaye, main wahi rahunga jo aaj hoon. Kaisi bhi situation aaye, kitni bhi mushkilein ho — main kabhi nahi chhodunga. Aur agar aapko paane ke liye aapke Ammi-Abbu ke pair chhoone pad gaye — to main bina soch jhuk jaaunga. Unke saamne sirf ek ladka nahi, ek sachcha rishta jhukega... aur mujhe fakhr hoga uss jhukti nazar par.
+    function renderSegment(index) {
+      const container = document.getElementById("segments");
+      container.innerHTML = "";
 
-Kyuki aapko halal tareeke se apna banana hai — izzat aur duaon ke saath. 💍🕊️`, song: "perfect.mp3", buttonText: "Phirse apni digital duniya dekhni hai? 🔁" } ];
+      const seg = document.createElement("div");
+      seg.className = "segment show";
+      seg.innerHTML = `
+        <h1>${segments[index].title}</h1>
+        <p>${segments[index].text.replace(/\n/g, '<br>')}</p>
+        <div>
+          ${index > 0 ? `<button class="back-button" onclick="prevSegment()">⬅️ Peeche jaayein</button>` : ""}
+          ${index < segments.length - 1
+            ? `<button class="next-button" onclick="nextSegment()">${segments[index].buttonText}</button>`
+            : `<button class="next-button" onclick="goToFirst()">${segments[index].buttonText}</button>`}
+        </div>
+      `;
+      container.appendChild(seg);
+      bgm.src = segments[index].song;
+      bgm.play();
+    }
 
-let current = 0;
-const bgm = document.getElementById("bgm");
+    function nextSegment() {
+      current++;
+      renderSegment(current);
+    }
 
-function renderSegment(index) {
-  const container = document.getElementById("segments");
-  container.innerHTML = "";
+    function prevSegment() {
+      current--;
+      renderSegment(current);
+    }
 
-  const seg = document.createElement("div");
-  seg.className = "segment show";
-  seg.innerHTML = `
-    <h1>${segments[index].title}</h1>
-    <p>${segments[index].text.replace(/\n/g, '<br>')}</p>
-    <div>
-      ${index > 0 ? `<button class="back-button" onclick="prevSegment()">⬅️ Peeche jaayein</button>` : ""}
-      ${index < segments.length - 1 ? `<button class="next-button" onclick="nextSegment()">${segments[index].buttonText}</button>` : `<button class="next-button" onclick="goToFirst()">${segments[index].buttonText}</button>`}
-    </div>
-  `;
-  container.appendChild(seg);
-  bgm.src = segments[index].song;
-  bgm.play();
-}
+    function goToFirst() {
+      current = 0;
+      renderSegment(current);
+    }
 
-function nextSegment() {
-  current++;
-  renderSegment(current);
-}
-
-function prevSegment() {
-  current--;
-  renderSegment(current);
-}
-
-function goToFirst() {
-  current = 0;
-  renderSegment(current);
-}
-
-renderSegment(current);
-
+    renderSegment(current);
   </script>
 </body>
 </html>
