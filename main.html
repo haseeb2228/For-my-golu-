@@ -260,47 +260,46 @@ Lekin duaon mein toh aap humesha mere saath ho 💌`,
   song: "tera-banjaunga.mp3",
   buttonText: "Phir se apni duniya mein laut chalein... 💫"
 }
-[
-    let current = 0;
-    const bgm = document.getElementById("bgm");
+  ];
 
-    function renderSegment(index) {
-      const container = document.getElementById("segments");
-      container.innerHTML = "";
+  let current = 0;
+  const bgm = document.getElementById("bgm");
 
-      const seg = document.createElement("div");
-      seg.className = "segment show";
-      seg.innerHTML = `
-        <h1>${segments[index].title}</h1>
-        <p>${segments[index].text.replace(/\n/g, '<br>')}</p>
-        <div>
-          ${index > 0 ? `<button class="back-button" onclick="prevSegment()">⬅️ Peeche jaayein</button>` : ""}
-          ${index < segments.length - 1
-            ? `<button class="next-button" onclick="nextSegment()">${segments[index].buttonText}</button>`
-            : `<button class="next-button" onclick="goToFirst()">${segments[index].buttonText}</button>`}
-        </div>
-      `;
-      container.appendChild(seg);
-      bgm.src = segments[index].song;
-      bgm.play();
-    }
+  function renderSegment(index) {
+    const container = document.getElementById("segments");
+    container.innerHTML = "";
 
-    function nextSegment() {
-      current++;
-      renderSegment(current);
-    }
+    const seg = document.createElement("div");
+    seg.className = "segment show";
+    seg.innerHTML = `
+      <h1>${segments[index].title}</h1>
+      <p>${segments[index].text.replace(/\n/g, '<br>')}</p>
+      <div>
+        ${index > 0 ? `<button class="back-button" onclick="prevSegment()">⬅️ Peeche jaayein</button>` : ""}
+        ${index < segments.length - 1
+          ? `<button class="next-button" onclick="nextSegment()">${segments[index].buttonText}</button>`
+          : `<button class="next-button" onclick="goToFirst()">${segments[index].buttonText}</button>`}
+      </div>
+    `;
+    container.appendChild(seg);
+    bgm.src = segments[index].song;
+    bgm.play();
+  }
 
-    function prevSegment() {
-      current--;
-      renderSegment(current);
-    }
-
-    function goToFirst() {
-      current = 0;
-      renderSegment(current);
-    }
-
+  function nextSegment() {
+    current++;
     renderSegment(current);
-  </script>
-</body>
-</html>
+  }
+
+  function prevSegment() {
+    current--;
+    renderSegment(current);
+  }
+
+  function goToFirst() {
+    current = 0;
+    renderSegment(current);
+  }
+
+  renderSegment(current);
+</script>
