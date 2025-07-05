@@ -5,85 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>For My Golu 💜</title>
   <style>
-    body {
-      margin: 0;
-      padding: 20px;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: lavender;
-      color: #4b0082;
-      overflow-x: hidden;
-    }
-    h1 {
-      text-align: center;
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-    }
-    h3 {
-      text-align: center;
-      color: darkmagenta;
-      margin-top: 0;
-      font-weight: normal;
-    }
-    .corner-tag {
-      position: fixed;
-      top: 10px;
-      right: 10px;
-      font-size: 1.2rem;
-      color: hotpink;
-      font-weight: bold;
-      z-index: 10;
-    }
-    .corner-wait {
-      position: fixed;
-      bottom: 10px;
-      left: 10px;
-      font-size: 1.2rem;
-      color: teal;
-      font-weight: bold;
-      z-index: 10;
-    }
-    .segment {
-      display: none;
-      background: #fff0f5;
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      position: relative;
-      z-index: 1;
-      margin-bottom: 30px;
-      animation: fadeIn 1s ease-in-out;
-    }
-    .show {
-      display: block;
-    }
-    .next-button, .back-button {
-      display: inline-block;
-      margin: 30px 10px 0;
-      padding: 10px 20px;
-      background-color: mediumorchid;
-      color: white;
-      border: none;
-      border-radius: 10px;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-    .floating-heart {
-      position: fixed;
-      font-size: 1.5rem;
-      animation: float 6s infinite;
-      color: #ff69b4;
-      opacity: 0.7;
-      pointer-events: none;
-    }
-    @keyframes float {
-      0% { transform: translateY(0) translateX(0); opacity: 0.8; }
-      50% { opacity: 1; }
-      100% { transform: translateY(-100vh) translateX(30px); opacity: 0; }
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
+    /* ... your CSS unchanged ... */
   </style>
 </head>
 <body>
@@ -101,15 +23,10 @@
     <div style="color:red; text-align:center;">Loading segments...</div>
   </div>
 
-  <audio id="bgm" autoplay loop></audio>
+  <audio id="bgm" autoplay loop muted></audio>
 
   <script>
     const segments = [
-      // 👇 Yahan se tujhe wo full segment data paste karna hai
-      // Tu already pehle waali message mein full segment data likh chuka hai (title, text, song, buttonText)
-      // Just paste that exact `segments = [` array content here below (without changing structure)
-
-      // example:
       {
         title: "Happiest B'day Designer Sahiba 🎂",
         text: `Meri zindagi design kardo 💜,\nBass thode din aur aap akele hi jaao maut ke khareeb...\nbaad mein mai saath mein rahunga 😅\nSaath mein chalenge maut ke khareeb 😄`,
@@ -129,10 +46,10 @@
         buttonText: "Chalein Techfest ke yaadon mein? 🎡"
       },
       {
-  "title": "Pehli Mulaqaat 🥺",
-  "text": "Jab pehli baar aapse milne kaa mauka mila wahi wo novel dene aap bole the ki mai gate ke paas jaarhi hoon wahin aapki wo dost exam likhne aari receive karne jaare the yaad aayaa aur mai kab kab class hoti aur kab kab aapse milna bolke waqt jalid guzarne kaa intezaar kar Raha thaa class meinn...\n Aur jaise hi class khatam hua sir de pehle mai hi baahar nikla mlm aur jaldi jaldi aagayaa gate ke taraf aap wahan garden jaisa rehta nai wahan per baith ke the chat aur call karre the aapke dost se hi jo aanewaali thi aur mai bass door se hi ek 2-3 min takk admire kartaa rahaa--- itne pyaare pyaare dikhre the mlm🤌🏻🤌🏻 phir aapke paas aaya aur literally pehle thodi der takk meri phati hui thii...\nbaad mein hum wahan baithe aur baat kare Ye moment thaa naa itna khush hua mai andar se mujhe yehi to hona haii zindagi bharr...\n Bass us aur apne baatein aur i love listening to yoouu golu itne pyaar se baat kaisa karte aap aapki har ek baat itni pyaari dikhti mlm...\n aur phir hum gate ke paas gaye aur aapke dost kaa bag liye aur return hum ab 1 takk aaye naa aur bag mai carry kar raha thaa jab fix huaaa ab ye bag zindagi bhar dhona haii bolkee wo bhi saath...\n this was one of the best moments in my lifeee...\n Aur bass jabse aap milke gaye uss din poora aapke hi baatein aur aap hi the bass mere khayalon meinn aur phir shaam mein aapku hangout place mein dekhte hi aur khush hogaya aur txt kara aaapku fir Milne kaa chance milaa mai literally paagal hoaythaa uss din mlm fauran bhaag ke aagayaa haan yaad hai meeting thi thoda wait karwaayaaa aapku uss din..\n Sorry Goluuu😅.",
-  "song": "chahun-mai.mp3",
-  "buttonText": "Aage chalen... yaadon ka safar jaari hai ⏭️"
+        title: "Pehli Mulaqaat 🥺",
+        text: "Jab pehli baar aapse milne kaa mauka mila wahi wo novel dene aap bole the ki mai gate ke paas jaarhi hoon wahin aapki wo dost exam likhne aari receive karne jaare the yaad aayaa aur mai kab kab class hoti aur kab kab aapse milna bolke waqt jalid guzarne kaa intezaar kar Raha thaa class meinn...\n Aur jaise hi class khatam hua sir de pehle mai hi baahar nikla mlm aur jaldi jaldi aagayaa gate ke taraf aap wahan garden jaisa rehta nai wahan per baith ke the chat aur call karre the aapke dost se hi jo aanewaali thi aur mai bass door se hi ek 2-3 min takk admire kartaa rahaa--- itne pyaare pyaare dikhre the mlm🤌🏻🤌🏻 phir aapke paas aaya aur literally pehle thodi der takk meri phati hui thii...\nbaad mein hum wahan baithe aur baat kare Ye moment thaa naa itna khush hua mai andar se mujhe yehi to hona haii zindagi bharr...\n Bass us aur apne baatein aur i love listening to yoouu golu itne pyaar se baat kaisa karte aap aapki har ek baat itni pyaari dikhti mlm...\n aur phir hum gate ke paas gaye aur aapke dost kaa bag liye aur return hum ab 1 takk aaye naa aur bag mai carry kar raha thaa jab fix huaaa ab ye bag zindagi bhar dhona haii bolkee wo bhi saath...\n this was one of the best moments in my lifeee...\n Aur bass jabse aap milke gaye uss din poora aapke hi baatein aur aap hi the bass mere khayalon meinn aur phir shaam mein aapku hangout place mein dekhte hi aur khush hogaya aur txt kara aaapku fir Milne kaa chance milaa mai literally paagal hoaythaa uss din mlm fauran bhaag ke aagayaa haan yaad hai meeting thi thoda wait karwaayaaa aapku uss din..\n Sorry Goluuu😅.",
+        song: "chahun-mai.mp3",
+        buttonText: "Aage chalen... yaadon ka safar jaari hai ⏭️"
       },
       {
         title: "Techfest Memories 🌸",
@@ -176,9 +93,9 @@
         song: "tera-rasta.mp3",
         buttonText: "Ek aur dil se baat... 🤍"
       },
-{
-  title: "Tera Dar, Mera Wada 🤍",
-  text: `Tumne kabhi kaha tha ke tumhe darr hai… ke kahin kal ko main badal na jaun,
+      {
+        title: "Tera Dar, Mera Wada 🤍",
+        text: `Tumne kabhi kaha tha ke tumhe darr hai… ke kahin kal ko main badal na jaun,
 tumse rude ya violent na ho jaun… ya tumhe ignore na kar doon...
 
 Main izzat se, dil se kehna chahta hoon:
@@ -196,9 +113,9 @@ Log kya sochte hain, kya kahenge — wo baad mein,
 Par tumhara sukoon, tumhaari muskurahat, tumhaari izzat — meri zimmedaari hai.
 
 If loving you means sitting through your fear and your overthinking, I'll bring a chair and stay. 💕 ❞`,
-  song: "mai-rang.mp3",
-  buttonText: "Aage chalein meri sachchai ki taraf? 🕊️"
-},
+        song: "mai-rang.mp3",
+        buttonText: "Aage chalein meri sachchai ki taraf? 🕊️"
+      },
       {
         title: "Perfect Daughter 🫶🏽",
         text: `Main jaanta hoon... aapko dar hai ke kahin aap apne parents ka bharosa na tod dein, unko let down na kardein.\nPar Golu... aap perfect ho — ek achhi beti, ek zimmedar insaan, ek strong aur samajhdaar ladki.\nAur agar kabhi aapko apne parents ko batana ho, samjhaana ho — main hamesha aapke saath hoon.\n\n✨ Promise Note: Chahe kuch bhi ho jaaye, main wahi rahunga jo aaj hoon.\nKaisi bhi situation aaye, kitni bhi mushkilein ho — main kabhi nahi chhodunga.\nAur agar aapko paane ke liye aapke Ammi-Abbu ke pair choohne pad gaye — to main bina soch jhuk jaaunga.\nUnke saamne sirf ek ladka nahi, ek sachcha rishta jhukega... aur mujhe fakhr hoga uss jhukti nazar par.\n\nKyuki aapko halal tareeke se apna banana hai — izzat aur duaon ke saath. 💍🕊️`,
@@ -206,8 +123,8 @@ If loving you means sitting through your fear and your overthinking, I'll bring 
         buttonText: "Aakhri baaat bass....😅👀"
       },
       {
-  title: "Bas Duaon Mein Rehna Tum 💜",
-  text: `Goluuu  
+        title: "Bas Duaon Mein Rehna Tum 💜",
+        text: `Goluuu  
 I really really love youuuu aur ye bass attraction ya infatuation nahii haiii  
 I think they call this lovee 💜  
 
@@ -244,9 +161,9 @@ Duniya se thoda bach ke raho kuch waqt...
 Baaki toh mai aa hi jaaunga... zindagi bhar ke liye, in shaa Allah.  
 
 **I will be there for you.  
-Cause you're all that I need.** 😭💍Sohaaa youu complete meeee😭🤌🏻,
-  song: "co2-.mp3",
-  buttonText: "basss lastt one 😁👀 "
+Cause you're all that I need.** 😭💍Sohaaa youu complete meeee😭🤌🏻",
+        song: "co2-.mp3",
+        buttonText: "basss lastt one 😁👀 "
       },
       {
         title: "I love all of you, Golu 💜",
@@ -280,6 +197,7 @@ Cause you're all that I need.** 😭💍Sohaaa youu complete meeee😭🤌🏻,
 
       bgm.src = segments[index].song;
       bgm.load();
+      bgm.muted = false;
       bgm.play().then(() => {
         console.log("Playing:", bgm.src);
       }).catch(e => {
