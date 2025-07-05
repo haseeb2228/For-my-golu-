@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -88,24 +89,33 @@
 <body>
   <div class="corner-tag">💜 ILY Golu 💜</div>
   <div class="corner-wait">⏳ Wait karlo na Golu... please 🥺</div>
+
+  <!-- Floating hearts -->
   <div class="floating-heart" style="top:90%; left:20%;">💜</div>
   <div class="floating-heart" style="top:95%; left:60%;">💜</div>
   <div class="floating-heart" style="top:100%; left:80%;">💜</div>
   <div class="floating-heart" style="top:105%; left:40%;">💜</div>
   <div class="floating-heart" style="top:110%; left:30%;">💜</div>
-  <div id="segments"></div>
+
+  <div id="segments">
+    <div style="color:red; text-align:center;">Loading segments...</div>
+  </div>
+
   <audio id="bgm" autoplay loop></audio>
+
   <script>
     const segments = [
+      // 👇 Yahan se tujhe wo full segment data paste karna hai
+      // Tu already pehle waali message mein full segment data likh chuka hai (title, text, song, buttonText)
+      // Just paste that exact `segments = [` array content here below (without changing structure)
+
+      // example:
       {
-  title: "Happiest B'day Designer Sahiba 🎂",
-  text: `Meri zindagi design kardo 💜,  
-Bass thode din aur aap akele hi jaao maut ke khareeb...  
-baad mein mai saath mein rahunga 😅  
-Saath mein chalenge maut ke khareeb 😄`,
-  song: "o-meri-laila.mp3",
-  buttonText: "Chalein pehli yaadon ki taraf... 💫"
-},
+        title: "Happiest B'day Designer Sahiba 🎂",
+        text: `Meri zindagi design kardo 💜,\nBass thode din aur aap akele hi jaao maut ke khareeb...\nbaad mein mai saath mein rahunga 😅\nSaath mein chalenge maut ke khareeb 😄`,
+        song: "o-meri-laila.mp3",
+        buttonText: "Chalein pehli yaadon ki taraf... 💫"
+      },
       {
         title: "Pehli Nazar 💫",
         text: `Pehli baar aapko P1 mein class ke bahar dekha tha — aap phone par baat kar rahi thi kisi se.\nMain bas wahin se sochne laga... Goriye kinni goriye hai tu... Tu zameen pe chand ki jodi hai tu 💫\nTabhi se woh pal mere dil mein basa hua hai.`,
@@ -239,79 +249,66 @@ Cause you're all that I need.** 😭💍Sohaaa youu complete meeee😭🤌🏻,
   buttonText: "basss lastt one 😁👀 "
       },
       {
-  title: "I love all of you, Golu 💜",
-  text: `Sohaaa  
-I am in love with you matlab  
-Bass aapse yaa aapke chehre se pyaar nahi karta maii... it includes *all of you.*  
-Jaise ki aapke insecurities, aapki hasii, aapki khushi, aapki bucket list, aapke dreams, aapka darr, aapki soch, aapke flaws — har wo cheez jo aapko aap banati hai.  
-Aur un sab mein aapke Ammi, Abbu, Bhaiya, aur Didi bhi aate hain 😅  
-  
-Main ye wada karta hoon Sohaa,  
-Agar kabhi hum dono mein jhagra bhi ho jaaye (jo main hone nahi dunga In shaa Allah)...  
-toh bhi main hamesha pehla insaan banunga jo sorry bolega —  
-Chahe galti meri ho ya na ho, kyunki ego se zyada aap zaroori ho Golu 💜  
-  
-Main har dua mein aapka naam sabse pehle rakhta hoon.  
-Apne liye dua baad mein... pehle aapke liye.  
-Kyunki main chahta hoon aap muskurate raho, safe raho, khush raho —  
-chahe mere saath ho ya nahi,  
-Lekin duaon mein toh aap humesha mere saath ho 💌`,
-  song: "tera-banjaunga.mp3",
-  buttonText: "Phir se apni duniya mein laut chalein... 💫"
-}
-  ];
-  
-  let current = 0;
-const bgm = document.getElementById("bgm");
+        title: "I love all of you, Golu 💜",
+        text: `Sohaaa\nI am in love with you matlab\nBass aapse yaa aapke chehre se pyaar nahi karta maii... it includes *all of you.*\n...aur main woh insaan banne ki koshish karunga —\njise aapke parents apna kahe sakein.\n**I will be there for you.\nCause you're all that I need.** 😭💍Sohaaa youu complete meeee😭🤌🏻`,
+        song: "tera-banjaunga.mp3",
+        buttonText: "Phir se apni duniya mein laut chalein... 💫"
+      }
+    ];
 
-function renderSegment(index) {
-  const container = document.getElementById("segments");
-  if (!container) return;
-  container.innerHTML = "";
+    let current = 0;
+    const bgm = document.getElementById("bgm");
 
-  const seg = document.createElement("div");
-  seg.className = "segment show";
-  seg.innerHTML = `
-    <h1>${segments[index].title}</h1>
-    <p>${segments[index].text.replace(/\n/g, '<br>')}</p>
-    <div>
-      ${index > 0 ? `<button class="back-button" onclick="prevSegment()">⬅️ Peeche jaayein</button>` : ""}
-      ${index < segments.length - 1
-        ? `<button class="next-button" onclick="nextSegment()">${segments[index].buttonText}</button>`
-        : `<button class="next-button" onclick="goToFirst()">${segments[index].buttonText}</button>`}
-    </div>
-  `;
-  container.appendChild(seg);
-  bgm.src = segments[index].song;
-  bgm.load();
-  bgm.play().catch(e => {
-    console.warn("Audio autoplay blocked:", e);
-  });
-}
+    function renderSegment(index) {
+      const container = document.getElementById("segments");
+      if (!container) return;
+      container.innerHTML = "";
 
-function nextSegment() {
-  if (current < segments.length - 1) {
-    current++;
-    renderSegment(current);
-  }
-}
+      const seg = document.createElement("div");
+      seg.className = "segment show";
+      seg.innerHTML = `
+        <h1>${segments[index].title}</h1>
+        <p>${segments[index].text.replace(/\n/g, '<br>')}</p>
+        <div>
+          ${index > 0 ? `<button class="back-button" onclick="prevSegment()">⬅️ Peeche jaayein</button>` : ""}
+          ${index < segments.length - 1
+            ? `<button class="next-button" onclick="nextSegment()">${segments[index].buttonText}</button>`
+            : `<button class="next-button" onclick="goToFirst()">${segments[index].buttonText}</button>`}
+        </div>
+      `;
+      container.appendChild(seg);
 
-function prevSegment() {
-  if (current > 0) {
-    current--;
-    renderSegment(current);
-  }
-}
+      bgm.src = segments[index].song;
+      bgm.load();
+      bgm.play().then(() => {
+        console.log("Playing:", bgm.src);
+      }).catch(e => {
+        console.warn("Audio autoplay blocked:", e);
+      });
+    }
 
-function goToFirst() {
-  current = 0;
-  renderSegment(current);
-}
+    function nextSegment() {
+      if (current < segments.length - 1) {
+        current++;
+        renderSegment(current);
+      }
+    }
 
-document.addEventListener("DOMContentLoaded", () => {
-  renderSegment(current);
-});
+    function prevSegment() {
+      if (current > 0) {
+        current--;
+        renderSegment(current);
+      }
+    }
 
+    function goToFirst() {
+      current = 0;
+      renderSegment(current);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      renderSegment(current);
+    });
   </script>
 </body>
 </html>
