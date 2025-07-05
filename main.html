@@ -1,92 +1,6 @@
 <!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>For My Golu 💜</title>
-  <style>
-    body {
-      background-color: #fef6ff;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 20px;
-      color: #333;
-    }
-    h1 {
-      color: #7e22ce;
-      text-align: center;
-    }
-    .segment {
-      max-width: 600px;
-      margin: 0 auto;
-      background: #fff;
-      padding: 20px;
-      border-radius: 20px;
-      box-shadow: 0 0 20px rgba(126, 34, 206, 0.2);
-      margin-bottom: 20px;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 0.6s ease forwards;
-    }
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    button {
-      background-color: #9333ea;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 12px;
-      cursor: pointer;
-      font-size: 16px;
-      margin: 10px 5px;
-    }
-    .corner-tag, .corner-wait {
-      position: fixed;
-      background: rgba(255,255,255,0.8);
-      padding: 6px 12px;
-      border-radius: 10px;
-      font-weight: bold;
-      z-index: 99;
-    }
-    .corner-tag {
-      top: 10px;
-      left: 10px;
-    }
-    .corner-wait {
-      top: 10px;
-      right: 10px;
-    }
-    .floating-heart {
-      position: absolute;
-      font-size: 24px;
-      animation: float 4s ease-in-out infinite;
-    }
-    @keyframes float {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-      100% { transform: translateY(0); }
-    }
-  </style>
-</head>
-<body>
-  <div class="corner-tag">💜 ILY Golu 💜</div>
-  <div class="corner-wait">⏳ Wait karlo na Golu... please 🥺</div>  <!-- Floating hearts -->  <div class="floating-heart" style="top:90%; left:20%;">💜</div>
-  <div class="floating-heart" style="top:95%; left:60%;">💜</div>
-  <div class="floating-heart" style="top:100%; left:80%;">💜</div>
-  <div class="floating-heart" style="top:105%; left:40%;">💜</div>
-  <div class="floating-heart" style="top:110%; left:30%;">💜</div>  <div id="segments">
-    <div style="color:red; text-align:center;">Loading segments...</div>
-  </div><audio id="bgm" autoplay loop muted></audio>
-
-  <script>
-    const segments = [
-      <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>For My Golu 💜</title>
   <style>
@@ -183,7 +97,7 @@
   <audio id="bgm" autoplay loop></audio>
   <script>
     const segments = [
-    {
+      {
   title: "Happiest B'day Designer Sahiba 🎂",
   text: `Meri zindagi design kardo 💜,  
 Bass thode din aur aap akele hi jaao maut ke khareeb...  
@@ -346,98 +260,57 @@ Lekin duaon mein toh aap humesha mere saath ho 💌`,
   buttonText: "Phir se apni duniya mein laut chalein... 💫"
 }
   ];
+    ];let current = 0;
+const bgm = document.getElementById("bgm");
 
-  let current = 0;
-  const bgm = document.getElementById("bgm");
+function renderSegment(index) {
+  const container = document.getElementById("segments");
+  if (!container) return;
+  container.innerHTML = "";
 
-  function renderSegment(index) {
-    const container = document.getElementById("segments");
-    container.innerHTML = "";
+  const seg = document.createElement("div");
+  seg.className = "segment show";
+  seg.innerHTML = `
+    <h1>${segments[index].title}</h1>
+    <p>${segments[index].text.replace(/\n/g, '<br>')}</p>
+    <div>
+      ${index > 0 ? `<button class="back-button" onclick="prevSegment()">⬅️ Peeche jaayein</button>` : ""}
+      ${index < segments.length - 1
+        ? `<button class="next-button" onclick="nextSegment()">${segments[index].buttonText}</button>`
+        : `<button class="next-button" onclick="goToFirst()">${segments[index].buttonText}</button>`}
+    </div>
+  `;
+  container.appendChild(seg);
+  bgm.src = segments[index].song;
+  bgm.load();
+  bgm.play().catch(e => {
+    console.warn("Audio autoplay blocked:", e);
+  });
+}
 
-    const seg = document.createElement("div");
-    seg.className = "segment show";
-    seg.innerHTML = `
-      <h1>${segments[index].title}</h1>
-      <p>${segments[index].text.replace(/\n/g, '<br>')}</p>
-      <div>
-        ${index > 0 ? `<button class="back-button" onclick="prevSegment()">⬅️ Peeche jaayein</button>` : ""}
-        ${index < segments.length - 1
-          ? `<button class="next-button" onclick="nextSegment()">${segments[index].buttonText}</button>`
-          : `<button class="next-button" onclick="goToFirst()">${segments[index].buttonText}</button>`}
-      </div>
-    `;
-    container.appendChild(seg);
-    bgm.src = segments[index].song;
-    bgm.play();
-  }
-
-  function nextSegment() {
+function nextSegment() {
+  if (current < segments.length - 1) {
     current++;
-    renderSegment(current)
+    renderSegment(current);
+  }
+}
 
-  function prevSegment() {
+function prevSegment() {
+  if (current > 0) {
     current--;
     renderSegment(current);
   }
+}
 
-  function goToFirst() {
-    current = 0;
-    renderSegment(current);
-  }
-
+function goToFirst() {
+  current = 0;
   renderSegment(current);
-</script
-    ]; 
+}
 
-    let current = 0;
-    const bgm = document.getElementById("bgm");
+document.addEventListener("DOMContentLoaded", () => {
+  renderSegment(current);
+});
 
-    function renderSegment(index) {
-      const container = document.getElementById("segments");
-      if (!container) return;
-      container.innerHTML = "";
-
-      const seg = document.createElement("div");
-      seg.className = "segment show";
-      seg.innerHTML = `
-        <h1>${segments[index].title}</h1>
-        <p>${segments[index].text.replace(/\n/g, '<br>')}</p>
-        <div>
-          ${index > 0 ? `<button onclick=\"prevSegment()\">⬅️ Peeche jaayein</button>` : ""}
-          ${index < segments.length - 1
-            ? `<button onclick=\"nextSegment()\">${segments[index].buttonText}</button>`
-            : `<button onclick=\"goToFirst()\">${segments[index].buttonText}</button>`}
-        </div>
-      `;
-      container.appendChild(seg);
-
-      bgm.src = segments[index].song;
-      bgm.load();
-      bgm.muted = false;
-      bgm.play().catch(e => console.warn("Audio autoplay blocked:", e));
-    }
-
-    function nextSegment() {
-      if (current < segments.length - 1) {
-        current++;
-        renderSegment(current);
-      }
-    }
-
-    function prevSegment() {
-      if (current > 0) {
-        current--;
-        renderSegment(current);
-      }
-    }
-
-    function goToFirst() {
-      current = 0;
-      renderSegment(current);
-    }
-
-    document.addEventListener("DOMContentLoaded", () => {
-      renderSegment(current);
-    });
-  </script></body>
+  </script>
+</body>
 </html>
