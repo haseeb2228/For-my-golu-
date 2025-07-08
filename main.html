@@ -4,46 +4,80 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>For My Golu 💜</title>
+  <!-- Google Fonts Import -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       padding: 20px;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: lavender;
+      font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
       color: #4b0082;
       overflow-x: hidden;
+      min-height: 100vh;
     }
     h1 {
       text-align: center;
-      font-size: 2.5rem;
+      font-size: 3rem;
+      font-family: 'Dancing Script', cursive;
+      letter-spacing: 1px;
       margin-bottom: 10px;
+      text-shadow: 1px 2px 8px #fff0f5;
+    }
+    .corner-box {
+      position: fixed;
+      z-index: 20;
+      max-width: 90vw;
+      background: rgba(255,255,255,0.92);
+      border-radius: 22px;
+      box-shadow: 0 4px 22px 0 rgba(90, 40, 120, 0.17);
+      padding: 12px 28px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      letter-spacing: 0.5px;
+      border: 2px solid #e0c3fc;
+      backdrop-filter: blur(6px);
+      transition: box-shadow 0.2s;
     }
     .corner-tag {
-      position: fixed;
-      top: 10px;
-      right: 10px;
-      font-size: 1.2rem;
+      top: 18px;
+      right: 18px;
       color: hotpink;
-      font-weight: bold;
-      z-index: 10;
+      box-shadow: 0 2px 12px 0 #ffd1e9;
     }
     .corner-wait {
-      position: fixed;
-      bottom: 10px;
-      left: 10px;
-      font-size: 1.2rem;
+      bottom: 18px;
+      left: 18px;
       color: teal;
-      font-weight: bold;
-      z-index: 10;
+      box-shadow: 0 2px 12px 0 #c1f0f5;
     }
     .segment {
       display: none;
-      background: #fff0f5;
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      margin-bottom: 30px;
+      background: rgba(255, 240, 245, 0.96);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.20);
+      backdrop-filter: blur(6px);
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      padding: 32px 24px;
+      margin-bottom: 38px;
       animation: fadeIn 1s ease-in-out;
+      transition: box-shadow 0.2s;
+      max-width: 650px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .segment h1 {
+      font-size: 2.2rem;
+      margin-bottom: 18px;
+      font-family: 'Dancing Script', cursive;
+      font-weight: 700;
+      text-decoration: underline wavy #a4508b33;
+      text-underline-offset: 8px;
     }
     .show {
       display: block;
@@ -51,94 +85,181 @@
     .next-button, .back-button {
       display: inline-block;
       margin: 30px 10px 0;
-      padding: 10px 20px;
-      background-color: mediumorchid;
+      padding: 12px 28px;
+      background: linear-gradient(90deg, #a4508b 0%, #5f0a87 100%);
       color: white;
       border: none;
-      border-radius: 10px;
-      font-size: 1rem;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      font-weight: bold;
       cursor: pointer;
+      box-shadow: 0 4px 14px 0 rgba(90, 40, 120, 0.15);
+      transition: transform 0.1s, background 0.2s, color 0.2s;
+      outline: none;
+      letter-spacing: 0.5px;
+    }
+    .next-button:hover, .back-button:hover {
+      transform: scale(1.05);
+      background: linear-gradient(90deg, #f7971e 0%, #ffd200 100%);
+      color: #4b0082;
     }
     .floating-heart {
       position: fixed;
-      font-size: 1.5rem;
+      font-size: 2.1rem;
       animation: float 6s infinite;
       color: #ff69b4;
       opacity: 0.7;
       pointer-events: none;
+      filter: drop-shadow(0 2px 8px #fff0f5);
+      transform: rotate(calc(10deg * var(--i)));
     }
+    .floating-heart:nth-child(3) { animation-duration: 7s; font-size: 2.5rem; }
+    .floating-heart:nth-child(4) { animation-duration: 5.8s; font-size: 1.8rem; }
+    .floating-heart:nth-child(5) { animation-duration: 6.3s; font-size: 2.2rem; }
+    .floating-heart:nth-child(6) { animation-duration: 7.2s; font-size: 2.3rem; }
     @keyframes float {
-      0% { transform: translateY(0) translateX(0); opacity: 0.8; }
+      0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0.8; }
+      25% { transform: translateY(-20vh) translateX(10px) rotate(8deg); }
       50% { opacity: 1; }
-      100% { transform: translateY(-100vh) translateX(30px); opacity: 0; }
+      75% { transform: translateY(-70vh) translateX(22px) rotate(-8deg);}
+      100% { transform: translateY(-100vh) translateX(30px) rotate(0deg); opacity: 0; }
     }
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
     }
+    @media (max-width: 600px) {
+      h1 { font-size: 2rem; }
+      .segment { padding: 18px 7px; }
+      .next-button, .back-button { font-size: 1rem; padding: 10px 18px; }
+      .corner-box { font-size: 1rem; padding: 7px 14px; }
+    }
+    .segment p {
+      font-size: 1.17rem;
+      line-height: 1.8;
+      margin: 18px 0 0 0;
+      letter-spacing: 0.01em;
+      white-space: pre-line;
+      text-align: left;
+    }
   </style>
 </head>
 <body>
-  <div class="corner-tag">💜 ILY Golu 💜</div>
-  <div class="corner-wait">⏳ Wait karlo na Golu... please 🥺</div>
+  <div class="corner-box corner-tag">💜 ILY Golu 💜</div>
+  <div class="corner-box corner-wait">⏳ Wait karlo na Golu... please 🥺</div>
 
   <!-- Floating hearts -->
-  <div class="floating-heart" style="top:90%; left:20%;">💜</div>
-  <div class="floating-heart" style="top:95%; left:60%;">💜</div>
-  <div class="floating-heart" style="top:100%; left:80%;">💜</div>
-  <div class="floating-heart" style="top:105%; left:40%;">💜</div>
-  <div class="floating-heart" style="top:110%; left:30%;">💜</div>
+  <div class="floating-heart" style="top:90%; left:20%; --i:1;">💜</div>
+  <div class="floating-heart" style="top:95%; left:60%; --i:2;">💜</div>
+  <div class="floating-heart" style="top:100%; left:80%; --i:3;">💜</div>
+  <div class="floating-heart" style="top:105%; left:40%; --i:4;">💜</div>
+  <div class="floating-heart" style="top:110%; left:30%; --i:5;">💜</div>
 
   <div id="segments"></div>
 
   <audio id="bgm" autoplay loop></audio>
 
   <script>
+    // Helper: Format text into paragraphs with gaps
+    function formatText(text) {
+      return text
+        .split(/\n\s*\n/) // Paragraphs
+        .map(paragraph =>
+          `<p>${paragraph.trim().replace(/\n/g, '<br>')}</p>`
+        ).join('');
+    }
+
     const segments = [
       {
         title: "Happiest B'day Designer Sahiba 🎂",
-        text: `Meri zindagi design kardo 💜,\nBass thode din aur aap akele hi jaao maut ke khareeb...\nbaad mein mai saath mein rahunga 😅\nSaath mein chalenge maut ke khareeb 😄\nSohaa
-It’s been 4 years since I fell for you…\n
-Aur har guzarta din mujhe thoda aur tumse pyaar karne pe majboor karta hai.\n
+        text: `Meri zindagi design kardo 💜,
 
-I’m still falling for you…\n
-Thoda thoda, roz thoda zyada...\n
-Jaise dil keh raha ho —\n
+Bass thode din aur aap akele hi jaao maut ke khareeb...
+baad mein mai saath mein rahunga 😅
+Saath mein chalenge maut ke khareeb 😄
+
+Sohaa
+It’s been 4 years since I fell for you…
+
+Aur har guzarta din mujhe thoda aur tumse pyaar karne pe majboor karta hai.
+
+I’m still falling for you…
+Thoda thoda, roz thoda zyada...
+Jaise dil keh raha ho —
 "Fall again... she’s still worth it." 💜`,
         song: "o-meri-laila.mp3",
         buttonText: "Chalein pehli yaadon ki taraf... 💫"
       },
       {
         title: "Pehli Nazar 💫",
-        text: `Pehli baar aapko P1 mein class ke bahar dekha tha — aap phone par baat kar rahi thi kisi se.\nMain bas wahin se sochne laga... Goriye kinni goriye hai tu... Tu zameen pe chand ki jodi hai tu 💫\nTabhi se woh pal mere dil mein basa hua hai.`,
+        text: `Pehli baar aapko P1 mein class ke bahar dekha tha — aap phone par baat kar rahi thi kisi se.
+Main bas wahin se sochne laga... Goriye kinni goriye hai tu... Tu zameen pe chand ki jodi hai tu 💫
+Tabhi se woh pal mere dil mein basa hua hai.`,
         song: "goriye.mp3",
         buttonText: "Aur bhi yaadein hain... ➡️"
       },
       {
         title: "Pehli Call 📞",
-        text: `10th February... woh pehli prank call thi, mazaak mazaak mein dil ka connection ban gaya tha.\nUske baad 11th February ki wo asli call — aapki awaaz pehli baar dil mein utar gayi thi.\nAapki awaaz mein ek sukoon hai, ek magic hai... jaise har lafz mein ek ehsaas chhupa ho.\nTabhi toh us din ke baad se... wo call sirf ek baat nahi thi, ek yaad ban gayi.\nHar baar jab aapki awaaz sunta hoon, to dil bas kehta hai — "Kash ye call kabhi band na ho..." ☹️📞`,
+        text: `10th February... woh pehli prank call thi, mazaak mazaak mein dil ka connection ban gaya tha.
+Uske baad 11th February ki wo asli call — aapki awaaz pehli baar dil mein utar gayi thi.
+
+Aapki awaaz mein ek sukoon hai, ek magic hai... jaise har lafz mein ek ehsaas chhupa ho.
+Tabhi toh us din ke baad se... wo call sirf ek baat nahi thi, ek yaad ban gayi.
+
+Har baar jab aapki awaaz sunta hoon, to dil bas kehta hai — "Kash ye call kabhi band na ho..." ☹️📞`,
         song: "tera-hone-laga.mp3",
         buttonText: "Chalein Techfest ke yaadon mein? 🎡"
       },
       {
         title: "Pehli Mulaqaat 🥺",
-        text: `Jab pehli baar aapse milne kaa mauka mila wahi wo novel dene aap bole the ki mai gate ke paas jaarhi hoon wahin aapki wo dost exam likhne aari receive karne jaare the yaad aayaa \n aur mai kab kab class hoti aur kab kab aapse milna bolke waqt jalid guzarne kaa intezaar kar Raha thaa \n class meinn...\n Aur jaise hi class khatam hua sir de pehle mai hi baahar nikla mlm aur jaldi jaldi aagayaa gate ke taraf\n  aap wahan garden jaisa rehta nai wahan per baith ke the chat aur call karre the aapke dost se hi jo aanewaali thi \n aur mai bass door se hi ek 2-3 min takk admire kartaa rahaa--- itne pyaare pyaare dikhre the mlm🤌🏻🤌🏻 \n phir aapke paas aaya aur literally pehle thodi der takk meri phati hui thii... \nbaad mein hum wahan baithe aur baat kare Ye moment thaa naa itna khush hua mai andar se mujhe yehi to hona haii zindagi bharr...\n Bass us aur apne baatein aur i love listening to yoouu golu itne pyaar se baat kaisa karte aap\n  aapki har ek baat itni pyaari dikhti mlm...\n aur phir hum gate ke paas gaye aur aapke dost kaa bag liye aur return hum ab 1 takk aaye naa aur bag mai carry kar raha thaa\n jab fix huaaa ab ye bag zindagi bhar dhona haii bolkee wo bhi saath mein....\n this was one of the best moments in my lifeee...😭\n Aur bass jabse aap milke gaye uss din poora aapke hi baatein aur aap hi the bass mere khayalon meinn \n aur phir shaam mein aapku hangout place mein dekhte hi aur khush hogaya aur txt kara aaapku \n fir Milne kaa chance milaa mai literally paagal hoaythaa uss din mlm \n fauran bhaag ke aagayaa haan yaad hai meeting thi thoda wait karwaayaaa aapku uss din..\n Sorry Goluuu😅`,
+        text: `Jab pehli baar aapse milne kaa mauka mila wahi wo novel dene aap bole the ki mai gate ke paas jaarhi hoon wahin aapki wo dost exam likhne aari receive karne jaare the yaad aayaa 
+aur mai kab kab class hoti aur kab kab aapse milna bolke waqt jalid guzarne kaa intezaar kar Raha thaa class meinn...
+
+Aur jaise hi class khatam hua sir de pehle mai hi baahar nikla mlm aur jaldi jaldi aagayaa gate ke taraf aap wahan garden jaisa rehta nai wahan per baith ke the chat aur call karre the aapke dost se hi jo aanewaali thi aur mai bass door se hi ek 2-3 min takk admire kartaa rahaa--- itne pyaare pyaare dikhre the mlm🤌🏻🤌🏻 
+
+phir aapke paas aaya aur literally pehle thodi der takk meri phati hui thii... baad mein hum wahan baithe aur baat kare Ye moment thaa naa itna khush hua mai andar se mujhe yehi to hona haii zindagi bharr...
+
+Bass us aur apne baatein aur i love listening to yoouu golu itne pyaar se baat kaisa karte aap aapki har ek baat itni pyaari dikhti mlm...
+
+aur phir hum gate ke paas gaye aur aapke dost kaa bag liye aur return hum ab 1 takk aaye naa aur bag mai carry kar raha thaa jab fix huaaa ab ye bag zindagi bhar dhona haii bolkee wo bhi saath mein....
+
+this was one of the best moments in my lifeee...😭
+
+Aur bass jabse aap milke gaye uss din poora aapke hi baatein aur aap hi the bass mere khayalon meinn aur phir shaam mein aapku hangout place mein dekhte hi aur khush hogaya aur txt kara aaapku fir Milne kaa chance milaa mai literally paagal hoaythaa uss din mlm fauran bhaag ke aagayaa haan yaad hai meeting thi thoda wait karwaayaaa aapku uss din..
+
+Sorry Goluuu😅`,
         song: "chahun-mai.mp3",
         buttonText: "Aage chalen... yaadon ka safar jaari hai ⏭️"
       },
       {
         title: "Techfest Memories 🌸",
-        text: `Techfest ka doosra din tha, main ready hokar gaya tha... aur jaise hi ground mein enter hua, aap wahin thein, doston ke saath.\nPehle to pehchaana nahi... lekin jaise hi dekha — bas shock mein reh gaya. 💛💚\nAapne yellow aur green ka ek frock pehna tha, agle din pink color...\n"Use takte takte Umar guzaarun" — ye line sach lag rahi thi...\n aur mai ground ko bhi aapku dekhne ke liye hi aaya thaa mlm aap ke aage peechhe hi ghoom raha thaa mlm\n bass aapku dekhne 👀😭`,
+        text: `Techfest ka doosra din tha, main ready hokar gaya tha... aur jaise hi ground mein enter hua, aap wahin thein, doston ke saath.
+
+Pehle to pehchaana nahi... lekin jaise hi dekha — bas shock mein reh gaya. 💛💚
+
+Aapne yellow aur green ka ek frock pehna tha, agle din pink color...
+
+"Use takte takte Umar guzaarun" — ye line sach lag rahi thi...
+
+aur mai ground ko bhi aapku dekhne ke liye hi aaya thaa mlm aap ke aage peechhe hi ghoom raha thaa mlm bass aapku dekhne 👀😭`,
         song: "use-takte.mp3",
         buttonText: "Aage chalein Golu ke jaadu tak? ✨"
       },
       {
         title: "Golu's Magic 💖",
-        text: `Aapke sapne — mujhe inspire karte hain.\nAapki designing — mere liye art se bhi zyada khaas hai.\nAapki simplicity — meri favourite cheez hai.\nAapka possessive hona — mujhe safe feel karata hai.\nAur horror movies dekhna — aapke saath hi dekhna hai mujhe! 🔟💚\nMy imagination that will turn into reality... In shaa Allah. 🌙✨ 
-        
-        Sohaa... ek baar aapne bola tha, yaad hai?
-"Jab mai smile karta hoon, meri aankhon mein ek spark aata hai."\n
-Par sach toh yeh hai golu — wo spark, wo glow sirf aapki wajah se hota hai.\n
+        text: `Aapke sapne — mujhe inspire karte hain.
+Aapki designing — mere liye art se bhi zyada khaas hai.
+Aapki simplicity — meri favourite cheez hai.
+Aapka possessive hona — mujhe safe feel karata hai.
+Aur horror movies dekhna — aapke saath hi dekhna hai mujhe! 🔟💚
+
+My imagination that will turn into reality... In shaa Allah. 🌙✨ 
+
+Sohaa... ek baar aapne bola tha, yaad hai?
+"Jab mai smile karta hoon, meri aankhon mein ek spark aata hai."
+
+Par sach toh yeh hai golu — wo spark, wo glow sirf aapki wajah se hota hai.
+
 Aapka saath, aapki hansi, aur aapse juda har cheez — bas wahi meri aankhon ki roshni ban jaati hai.
 Wo noor jo mere chehre pe dikhta hai… wo Allah ne sirf aap se jod rakha hai golu... 💜`,
         song: "i-love-you.mp3",
@@ -146,32 +267,73 @@ Wo noor jo mere chehre pe dikhta hai… wo Allah ne sirf aap se jod rakha hai go
       },
       {
         title: "Uske Favourites 🌷",
-        text: `Lavender jaise khushbudar aur soothing, aapka fav colour meri duniya ka rang ban gaya hai 💜\nAur butterscotch ice cream? Jaise aap ho — soft, meethi, aur sabse alag 🍨\nAbse aapke jo bhi favourites hai, wo sab meri favourites hai...\nAur in sab mein sabse zyada favorite ho aap 😭`,
+        text: `Lavender jaise khushbudar aur soothing, aapka fav colour meri duniya ka rang ban gaya hai 💜
+
+Aur butterscotch ice cream? Jaise aap ho — soft, meethi, aur sabse alag 🍨
+
+Abse aapke jo bhi favourites hai, wo sab meri favourites hai...
+
+Aur in sab mein sabse zyada favorite ho aap 😭`,
         song: "mai-tera.mp3",
         buttonText: "Ek khaas message aapke liye... 📩"
       },
       {
         title: "Special Message 📌",
-        text: `Aapka woh "ehem dil" waali baat main kabhi nahi bhool sakta... sach mein.\nAap meri life mein ek beautiful chapter ban chuki hain. Har roz jab shirt pehenta hoon, upar waali button kholne jaata hoon... to aap yaad aa jaati hain - isiliye main bina khole chhod deta hoon.\nAapki yaadon mein ek muskurahat aa jaati hai. \nAapke bina sab adhoora lagta hai... aur aap ho to sab complete.I want to show you that not everyone leaves I'll be the person that stays Through your ups and downs.❤️\n sohaa mai ye nahi kahunga ki mai best hun\n  but aapke liye i will become the best mann for youuu😭 \n aap jo pyaar deserve karte mai wo dene ki aur insaan banne ki poori koshish karunga 😭\n aur haan PYAAR KARNA IMP NAHI...\n PYAAR KARTE REHNA IMP HAII!
-        \n aur mai PYAAR KAR CHUKA HUN....\n KAR RAHA HUNN\n KARTE RAHUNGA....`,
+        text: `Aapka woh "ehem dil" waali baat main kabhi nahi bhool sakta... sach mein.
+
+Aap meri life mein ek beautiful chapter ban chuki hain. Har roz jab shirt pehenta hoon, upar waali button kholne jaata hoon... to aap yaad aa jaati hain - isiliye main bina khole chhod deta hoon.
+
+Aapki yaadon mein ek muskurahat aa jaati hai. 
+
+Aapke bina sab adhoora lagta hai... aur aap ho to sab complete.
+
+I want to show you that not everyone leaves I'll be the person that stays Through your ups and downs.❤️
+
+sohaa mai ye nahi kahunga ki mai best hun
+but aapke liye i will become the best mann for youuu😭 
+aap jo pyaar deserve karte mai wo dene ki aur insaan banne ki poori koshish karunga 😭
+
+aur haan PYAAR KARNA IMP NAHI...
+PYAAR KARTE REHNA IMP HAII!
+
+aur mai PYAAR KAR CHUKA HUN....
+KAR RAHA HUNN
+KARTE RAHUNGA....`,
         song: "hona-tha-pyaar.mp3",
         buttonText: "Kabhi kabhi dar bhi lagta hai na... 💭"
       },
       {
         title: "Dar aur Soch 😔",
-        text: `Aapne kabhi kaha tha - "Main overthink karti hoon... kitabi keeda hoon... aur mujhe koi jhel nahi paata..."\nPar main kehna chahta hoon: Aap jaisa dil paana sabki kismat mein nahi hota.\nAap duniya ke norms se ladti ho, aur main aapke saath hoon - har dar, har soch, har phase mein.\nAap jaise ho, waise hi perfect ho mere liye. 💫 \n Aur aapne ek baar kaha thaa ki mai bhadkaunga aapke parents ku ki aapki beti aisa karti thi waisa Karti\n pehle ye nikaal do aap dimaag se soha haan paana hai magar aisa nahii izzat ke saath mai bad hojaaungaa magar aapko bad hone nahi dungaa paagal😭\n aapse zyada aapki chinta mujhe rheti aapki aur mai aapke baare mein aisa karsaktun bolke kaisa sonchre aap🥲 \n aur sab ladke ek jaise nahi hote and i will prove you thissss`,
+        text: `Aapne kabhi kaha tha - "Main overthink karti hoon... kitabi keeda hoon... aur mujhe koi jhel nahi paata..."
+
+Par main kehna chahta hoon: Aap jaisa dil paana sabki kismat mein nahi hota.
+
+Aap duniya ke norms se ladti ho, aur main aapke saath hoon - har dar, har soch, har phase mein.
+
+Aap jaise ho, waise hi perfect ho mere liye. 💫 
+
+Aur aapne ek baar kaha thaa ki mai bhadkaunga aapke parents ku ki aapki beti aisa karti thi waisa Karti
+pehle ye nikaal do aap dimaag se soha haan paana hai magar aisa nahii izzat ke saath mai bad hojaaungaa magar aapko bad hone nahi dungaa paagal😭
+
+aapse zyada aapki chinta mujhe rheti aapki aur mai aapke baare mein aisa karsaktun bolke kaisa sonchre aap🥲 
+
+aur sab ladke ek jaise nahi hote and i will prove you thissss`,
         song: "tere-iraday1.mp3",
         buttonText: "Khaana khaaya Golu ne? 🍱"
       },
       {
         title: "Tiffins 🍱",
-        text: `Aap roz tiffin skip kar deti hain — kyunki ya to pasand nahi hota.\nAur agar aap khaana nahi khaayengi, to mera dil bhi nahi lagega.\nKisi din aapko apne haathon se khilaana hai mujhe — har ek bite mein khayal bhar ke. 🍱💜`,
+        text: `Aap roz tiffin skip kar deti hain — kyunki ya to pasand nahi hota.
+
+Aur agar aap khaana nahi khaayengi, to mera dil bhi nahi lagega.
+
+Kisi din aapko apne haathon se khilaana hai mujhe — har ek bite mein khayal bhar ke. 🍱💜`,
         song: "tu-hi-tohai.mp3",
         buttonText: "Aur bhi baatein hai Golu ke liye 💌 "
       },
       {
-  title: "Nakhre... Ghussa... Aur Sirf Tum 💜",
-  text: `Soha...  
+        title: "Nakhre... Ghussa... Aur Sirf Tum 💜",
+        text: `Soha...  
 Aapne ek baar kaha tha —  
 "I am not someone who can be handled easily... and I can't handle people too."  
 
@@ -191,32 +353,100 @@ baaki duniya ko main sambhal loonga.
 
 *Because you are not a task to be handled...*  
 **You are a blessing to be cherished.** 🫶🏽`,
-  song: "maand.mp3",
-  buttonText: "Aakhri aur sabse pyaara wada... 💍"
+        song: "maand.mp3",
+        buttonText: "Aakhri aur sabse pyaara wada... 💍"
       },
       {
         title: "Mera Wada 🥺💍",
-        text: `Main badlungaa nahi... main mukarungaa nahi... \n aur main aapko kabhi hurt nahi karunga.\nJo aapke dil mein darr hai na - uss darr ko main pyaar se mita dunga, waqt ke saath.\nBas thoda yaqeen, thoda waqt... aur poora pyaar \nMain aapka intezaar bhi karunga, aur aapko har mod par sambhalunga... In shaa Allah💍🥺 \n\nAap bas meri kamyabi ke liye dua karna Golu...\nAur main wada karta hoon - ek din rishta leke aapke ghar tak aaunga, \nsirf apni mohabbat nahi... apna sachcha irada aur kamyabi dono lekar. \n\nJaise lehr baar baar kinare pe laut aati hai,\n*like the wave, I will come back to you - even if you push me away. 🌊💜* \n 
-        
-        Aur kya aap nizambad kahan hai aur Gadwal kahan hai bolte rhete distance doesn't matter in love golu aur utna zyada bhi door nahi haii lo bass 6 ghante kaa safar and we never know kahan rehte ki ee could be in hyd or we could be in nizambad also we never know but jahan bhi hoo i won't let you feel like you are far from your parents..., Aur haan aapke ammi ke standards bahutt high hai naa Inshallah mai unhe Match karne ki poori koshish karungaaa....\n Bass aaap dua karte rehnaa goluuu 😭`,
+        text: `Main badlungaa nahi... main mukarungaa nahi... 
+aur main aapko kabhi hurt nahi karunga.
+
+Jo aapke dil mein darr hai na - uss darr ko main pyaar se mita dunga, waqt ke saath.
+Bas thoda yaqeen, thoda waqt... aur poora pyaar 
+
+Main aapka intezaar bhi karunga, aur aapko har mod par sambhalunga... In shaa Allah💍🥺 
+
+Aap bas meri kamyabi ke liye dua karna Golu...
+Aur main wada karta hoon - ek din rishta leke aapke ghar tak aaunga, 
+sirf apni mohabbat nahi... apna sachcha irada aur kamyabi dono lekar. 
+
+Jaise lehr baar baar kinare pe laut aati hai,
+*like the wave, I will come back to you - even if you push me away. 🌊💜* 
+
+Aur kya aap nizambad kahan hai aur Gadwal kahan hai bolte rhete distance doesn't matter in love golu aur utna zyada bhi door nahi haii lo bass 6 ghante kaa safar and we never know kahan rehte ki ee could be in hyd or we could be in nizambad also we never know but jahan bhi hoo i won't let you feel like you are far from your parents..., Aur haan aapke ammi ke standards bahutt high hai naa Inshallah mai unhe Match karne ki poori koshish karungaaa....
+
+Bass aaap dua karte rehnaa goluuu 😭`,
         song: "tera-rasta.mp3",
         buttonText: "Ek aur dil se baat... 🤍"
       },
       {
         title: "Tera Dar, Mera Wada 🤍",
-        text: `Tumne kabhi kaha tha ke tumhe darr hai....\n ke kahin kal ko main badal na jaun, \n tumse rude ya violent na ho jaun ya tumhe ignore na kar doon...\n  Main izzat se, dil se kehna chahta hoon: Tumein paane ki dua karta hoon Tumhaare liye apne aap ko behtar bana raha hoon, taake main tumhaare liye ek ache insaan, ache humsafar ban saku.\n Violence? Golu tumhare haathon se maar kha loonga, lekin tumpe kabhi haath uthane ka tasavvur bhi nahi kar sakta.\n Tumhaari izzat, tumhaari ahmiyat meri nazar mein kisi duniya ki baat se upar hai.\n Aur ignore? Jise itne pyaar se chaha ho, jise har dua mein yaad rakha ho, usko ignore karna mere bas ki baat hi nahi.\n Tumhare liye meri koshish kabhi kam nahi hogi.\n  Log kya sochte hain, kya kahenge - wo baad mein, Par tumhara sukoon, tumhaari muskurahat, tumhaari izzat - meri zimmedaari hai.🥺\nIf loving you means sitting through your fear and your overthinking, I'll bring a chair and stay.💕❞`,
+        text: `Tumne kabhi kaha tha ke tumhe darr hai....
+ke kahin kal ko main badal na jaun, 
+tumse rude ya violent na ho jaun ya tumhe ignore na kar doon...
+
+Main izzat se, dil se kehna chahta hoon: Tumein paane ki dua karta hoon Tumhaare liye apne aap ko behtar bana raha hoon, taake main tumhaare liye ek ache insaan, ache humsafar ban saku.
+
+Violence? Golu tumhare haathon se maar kha loonga, lekin tumpe kabhi haath uthane ka tasavvur bhi nahi kar sakta.
+
+Tumhaari izzat, tumhaari ahmiyat meri nazar mein kisi duniya ki baat se upar hai.
+
+Aur ignore? Jise itne pyaar se chaha ho, jise har dua mein yaad rakha ho, usko ignore karna mere bas ki baat hi nahi.
+
+Tumhare liye meri koshish kabhi kam nahi hogi.
+
+Log kya sochte hain, kya kahenge - wo baad mein, Par tumhara sukoon, tumhaari muskurahat, tumhaari izzat - meri zimmedaari hai.🥺
+
+If loving you means sitting through your fear and your overthinking, I'll bring a chair and stay.💕❞`,
         song: "mai-rang.mp3",
         buttonText: "Aage chalein meri sachchai ki taraf? 🕊️"
       },
       {
         title: "Perfect Daughter 🫶🏽",
-        text: ` Main jaanta hoon... aapko dar hai ke kahin aap apne parents ka bharosa na tod dein, unko let down na kardein.\nPar Golu... aap perfect ho - ek achhi beti, ek zimmedar insaan, ek strong aur samajhdaar ladki. \nAur agar kabhi aapko apne parents ko batana ho, samjhaana ho - main hamesha aapke saath hoon.✨\n\n Promise Note: Chahe kuch bhi ho jaaye, main wahi rahunga jo aaj hoon. \nKaisi bhi situation aaye, kitni bhi mushkilein ho – main kabhi nahi chhodunga.\nAur agar aapko paane ke liye aapke Ammi-Abbu ke pair choohne pad gaye - to main bina soch jhuk jaaunga.\nUnke saamne sirf ek ladka nahi, ek sachcha rishta jhukega... aur mujhe fakhr hoga uss jhukti nazar par.\n\nKyuki aapko halal tareeke se apna banana hai - izzat aur duaon ke saath.💍🕊️`,
+        text: `Main jaanta hoon... aapko dar hai ke kahin aap apne parents ka bharosa na tod dein, unko let down na kardein.
+
+Par Golu... aap perfect ho - ek achhi beti, ek zimmedar insaan, ek strong aur samajhdaar ladki. 
+
+Aur agar kabhi aapko apne parents ko batana ho, samjhaana ho - main hamesha aapke saath hoon.✨
+
+Promise Note: Chahe kuch bhi ho jaaye, main wahi rahunga jo aaj hoon. 
+Kaisi bhi situation aaye, kitni bhi mushkilein ho – main kabhi nahi chhodunga.
+
+Aur agar aapko paane ke liye aapke Ammi-Abbu ke pair choohne pad gaye - to main bina soch jhuk jaaunga.
+
+Unke saamne sirf ek ladka nahi, ek sachcha rishta jhukega... aur mujhe fakhr hoga uss jhukti nazar par.
+
+Kyuki aapko halal tareeke se apna banana hai - izzat aur duaon ke saath.💍🕊️`,
         song: "perfect.mp3",
         buttonText: "Aakhri baaat bass....😅👀"
       },
       {
         title: "Bas Duaon Mein Rehna Tum 💜",
-        text: ` Goluuu I really really love youuuu aur ye bass attraction ya infatuation nahii haiii aur naahi attachment \nI think they call this lovee💜 \n Mai aur Allah ke khareeb hotaa jaaraha hun aapke wajah se - like gaze lower karna, kabhi bhi koi ladki dikhe to aap yaad aajate ho, gaze lower karleta hoon.\n Haram se door rehne ki poori koshish karta hoon, tahajjud padhne ki koshish karta hoon aur khoob dua karta hoon - mere success ke liye, mere liye, aapke liye... ham dono ke liye... And this is what love means, I guess🌙💫. \n Aur holidays ke baad jo inauguration tha — aapko mess ke paas dekha thaa... seedha dekh nahi paaya lekin dil itna eager tha aapko dekhne ke liye... Aur dekho, aap khud hi saamne aa gaye itne khoobsurat, itne noor bhare ek baar ke liye mujhe lagaa Allah ne meri dua sun li.\n Magar uss waqt aapki hasi nahi dekhi thi to thoda udaas bhi hua... Lekin baad mein jab aap doston ke saath baat karke hass rahe the - bas uss ek jhalak se itna khush hua... One of the bestest moments in my lifeee😭💜\n Aapki wo side wali hasi... mujhe zindagi bhar yaad rahegi....\n Aur Golu 👀 \nKya aapko Allah pe bharosa nahi hai?\n Thoda to tawakkul rakho Allah pe... Mujh pe bharosa nahi to chalega - magar sab kuch karne waale Allah hi hain na? \n Wahi badlenge sab kuch - parents ke situations, sab kuch... parents ke dil bhi wahi badlate aur sab kuch sahi karne waale bhi wahi haii sab kuchh....Humara kaam sirf dua aur yakeen hai.\n Aur main... main chhodne waalon mein se nahi hoon. In shaa Allah waqt jaise jaise guzarta jaayega, mera pyaar aapke liye aur zyada gehra hoga. \n Aur main woh insaan banne ki koshish karunga - jise aapke parents apna kahe sakein. \n Deen aur duniya ko sambhalne waala banna hai mujhe. \n Aap jaise ho... waise hi best ho Golu💜 Duniya se thoda bach ke raho kuch waqt... Baaki toh mai aa hi jaaunga... zindagi bhar ke liye, in shaa Allah.\n I will be there for you. Cause you're all that I need🤌🏻😭** Sohaaa youu complete meeee😭😭`,
+        text: `Goluuu I really really love youuuu aur ye bass attraction ya infatuation nahii haiii aur naahi attachment 
+I think they call this lovee💜 
+
+Mai aur Allah ke khareeb hotaa jaaraha hun aapke wajah se - like gaze lower karna, kabhi bhi koi ladki dikhe to aap yaad aajate ho, gaze lower karleta hoon.
+
+Haram se door rehne ki poori koshish karta hoon, tahajjud padhne ki koshish karta hoon aur khoob dua karta hoon - mere success ke liye, mere liye, aapke liye... ham dono ke liye... And this is what love means, I guess🌙💫. 
+
+Aur holidays ke baad jo inauguration tha — aapko mess ke paas dekha thaa... seedha dekh nahi paaya lekin dil itna eager tha aapko dekhne ke liye... Aur dekho, aap khud hi saamne aa gaye itne khoobsurat, itne noor bhare ek baar ke liye mujhe lagaa Allah ne meri dua sun li.
+
+Magar uss waqt aapki hasi nahi dekhi thi to thoda udaas bhi hua... Lekin baad mein jab aap doston ke saath baat karke hass rahe the - bas uss ek jhalak se itna khush hua... One of the bestest moments in my lifeee😭💜
+
+Aapki wo side wali hasi... mujhe zindagi bhar yaad rahegi....
+
+Aur Golu 👀 
+Kya aapko Allah pe bharosa nahi hai?
+Thoda to tawakkul rakho Allah pe... Mujh pe bharosa nahi to chalega - magar sab kuch karne waale Allah hi hain na? 
+Wahi badlenge sab kuch - parents ke situations, sab kuch... parents ke dil bhi wahi badlate aur sab kuch sahi karne waale bhi wahi haii sab kuchh....Humara kaam sirf dua aur yakeen hai.
+
+Aur main... main chhodne waalon mein se nahi hoon. In shaa Allah waqt jaise jaise guzarta jaayega, mera pyaar aapke liye aur zyada gehra hoga. 
+
+Aur main woh insaan banne ki koshish karunga - jise aapke parents apna kahe sakein. 
+Deen aur duniya ko sambhalne waala banna hai mujhe. 
+Aap jaise ho... waise hi best ho Golu💜 Duniya se thoda bach ke raho kuch waqt... Baaki toh mai aa hi jaaunga... zindagi bhar ke liye, in shaa Allah.
+
+I will be there for you. Cause you're all that I need🤌🏻😭** Sohaaa youu complete meeee😭😭`,
         song: "co2-.mp3",
         buttonText: "basss lastt one 😁👀"
       },
@@ -239,53 +469,4 @@ Aur Golu,
 Main ye waada karta hoon:
 
 Agar kabhi hummein koi jhagda bhi ho jaaye (jo main hone hi nahi dunga In shaa Allah)...
-toh main hamesha pehla insaan banunga jo “Sorry” bolega —
-chahe galti meri ho ya na ho.
-
-Kyunki mere liye ego, self-respect... sab baad mein aata hai,
-aap sabse pehle ho.
-
-Aur meri duaon mein bhi —
-pehle aap aati ho, baad mein main.
-Main apne liye kam, aapke liye zyada maangta hoon har roz...
-Kyuki agar aap khush ho, toh mujhe aur kuch nahi chahiye. 🌙💫`,
-        song: "tera-banjaunga.mp3",
-        buttonText: "Phir se apni duniya mein laut chalein... 💫"
-      }
-    ];
-
-    let current = 0;
-    const bgm = document.getElementById("bgm");
-
-    function renderSegment(index) {
-      const container = document.getElementById("segments");
-      container.innerHTML = "";
-      const seg = document.createElement("div");
-      seg.className = "segment show";
-      seg.innerHTML = `
-        <h1>${segments[index].title}</h1>
-        <p>${segments[index].text.replace(/\n/g, '<br>')}</p>
-        <div>
-          ${index > 0 ? `<button class="back-button" onclick="prevSegment()">⬅️ Peeche jaayein</button>` : ""}
-          <button class="next-button" onclick="changeSegment(${ (index + 1) % segments.length })">
-            ${segments[index].buttonText}
-          </button>
-        </div>
-      `;
-      container.appendChild(seg);
-      bgm.src = segments[index].song;
-      bgm.load();
-      bgm.play().catch(e => console.warn("Audio autoplay blocked:", e));
-    }
-
-    function changeSegment(newIndex) {
-      current = newIndex;
-      renderSegment(current);
-    }
-    function nextSegment() { if (current < segments.length - 1) changeSegment(current + 1); }
-    function prevSegment() { if (current > 0) changeSegment(current - 1); }
-
-    document.addEventListener("DOMContentLoaded", () => renderSegment(0));
-  </script>
-</body>
-</html>
+toh main hamesha pehla
