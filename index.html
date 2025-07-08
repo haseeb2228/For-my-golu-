@@ -4,91 +4,152 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>For My Golu 💜</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
-      background-color: lavenderblush;
-      font-family: 'Segoe UI', sans-serif;
-      text-align: center;
-      padding: 50px;
+      background: linear-gradient(135deg, #fbefff 0%, #e0c3fc 100%);
+      font-family: 'Montserrat', 'Segoe UI', sans-serif;
       color: #4b0082;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
     }
-
+    .main-card {
+      margin-top: 50px;
+      background: rgba(255,255,255,0.95);
+      border-radius: 28px;
+      box-shadow: 0 8px 32px 0 rgba(31,38,135,0.18);
+      padding: 38px 28px 32px 28px;
+      max-width: 500px;
+      width: 94vw;
+      text-align: center;
+      backdrop-filter: blur(7px);
+      border: 1.5px solid #e0c3fc;
+      position: relative;
+      animation: fadeIn 1s;
+    }
     h1 {
-      font-size: 2.5rem;
+      font-size: 2.7rem;
+      font-family: 'Dancing Script', cursive;
+      margin-bottom: 14px;
+      color: #a4508b;
+      text-shadow: 1px 2px 8px #fff0f5;
+      letter-spacing: 1px;
     }
-
     .question {
       margin-top: 30px;
-      font-size: 1.8rem;
+      font-size: 1.7rem;
+      font-family: 'Montserrat', sans-serif;
+      color: #4b0082;
+      margin-bottom: 24px;
     }
-
     .btn {
-      margin: 20px;
-      padding: 12px 24px;
-      font-size: 1.2rem;
+      margin: 20px 10px 0 10px;
+      padding: 13px 32px;
+      font-size: 1.25rem;
       border: none;
-      border-radius: 10px;
+      border-radius: 14px;
       cursor: pointer;
-      transition: 0.3s ease;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      box-shadow: 0 3px 12px 0 rgba(160, 80, 139, 0.11);
+      transition: background 0.2s, color 0.2s, transform 0.12s;
+      position: relative;
+      overflow: hidden;
     }
-
     .yes-btn {
-      background-color: mediumseagreen;
-      color: white;
+      background: linear-gradient(90deg, #43e97b 0%, #38f9d7 100%);
+      color: #fff;
     }
-
     .no-btn {
-      background-color: crimson;
-      color: white;
+      background: linear-gradient(90deg, #ff5858 0%, #f09819 100%);
+      color: #fff;
     }
-
+    .next-btn {
+      background: linear-gradient(90deg, #a4508b 0%, #5f0a87 100%);
+      color: #fff;
+      margin-top: 30px;
+    }
+    .btn:hover, .next-btn:hover {
+      transform: scale(1.05);
+      filter: brightness(1.1);
+    }
     #message {
       margin-top: 30px;
       font-size: 1.2rem;
-      color: darkmagenta;
+      color: #a4508b;
       white-space: pre-line;
+      min-height: 40px;
+      transition: color 0.2s;
     }
-
     #intro-section {
       display: none;
-      margin-top: 40px;
-      font-size: 1.3rem;
-      animation: fadeIn 1s ease-in-out;
-    }
-
-    .next-btn {
       margin-top: 30px;
-      background-color: mediumorchid;
-      color: white;
+      font-size: 1.18rem;
+      animation: fadeIn 1s;
     }
-
+    #intro-section h1 {
+      font-size: 2.1rem;
+      color: #5f0a87;
+      font-family: 'Dancing Script', cursive;
+      margin-bottom: 12px;
+      margin-top: 0;
+    }
+    .emoji-float {
+      position: absolute;
+      left: 50%; top: 50%;
+      font-size: 2.1rem;
+      pointer-events: none;
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+      animation: popUp 0.8s cubic-bezier(.17,.67,.83,.67) forwards;
+      z-index: 10;
+    }
+    @keyframes popUp {
+      0% { transform: translate(-50%, -50%) scale(0.2); opacity: 0.7;}
+      60% { transform: translate(-50%, -120%) scale(1.25); opacity: 1;}
+      100% { transform: translate(-50%, -180%) scale(0.7); opacity: 0;}
+    }
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
     }
+    @media (max-width: 600px) {
+      .main-card { padding: 16px 4vw 20px 4vw; }
+      h1 { font-size: 2rem; }
+      .question { font-size: 1.13rem; }
+      .btn, .next-btn { font-size: 1rem; padding: 10px 16px; }
+      #intro-section h1 { font-size: 1.2rem; }
+    }
   </style>
 </head>
 <body>
-  <div id="question-section">
+  <div class="main-card" id="question-section">
     <h1>Ek Sawaal... Sirf Aapke Liye 💜</h1>
     <div class="question">Kya aap meri Golu ho? 🥺💌</div>
 
-    <button class="btn yes-btn" onclick="showIntro()">Yes 💘</button>
-    <button class="btn no-btn" onclick="handleNo()">No 💔</button>
+    <button class="btn yes-btn" onclick="showIntro(event)">Yes 💘</button>
+    <button class="btn no-btn" onclick="handleNo(event)">No 💔</button>
 
     <div id="message"></div>
   </div>
 
-  <div id="intro-section">
+  <div class="main-card" id="intro-section">
     <h1>Chale apni digital duniya mein... 🌸</h1>
     <p>
       Jahan har yaad, har ehsaas sirf aapka hai 💌<br/>
       Is safar mein aapki muskurahat, aapki pasand, aur aapke sapne — sab kuch yahaan hoga.<br/>
-      Har tukda pyaar se likha gaya hai... <strong>sirf aapke liye</strong> 💜 
-
+      Har tukda pyaar se likha gaya hai... <strong>sirf aapke liye</strong> 💜<br><br>
       Ek choti si digital kitaab aapke liyee...👀 Filhaal isse manage karlo agar aap kaho to mai manually bhi likh dunga aapke liye KITAAB😁
     </p>
-    <button class="btn next-btn" onclick="goToMain()">Next ➤</button>
+    <button class="btn next-btn" onclick="goToMain(event)">Next ➤</button>
   </div>
 
   <audio id="bg-music" src="tu-jaane-na.mp3"></audio>
@@ -96,18 +157,34 @@
   <script>
     let noClickCount = 0;
 
-    function showIntro() {
+    function popEmoji(e) {
+      const emojis = ["💜","✨","🥺","🫶🏽","🌸","🤍","💍","🌙","😭","😅","💘","💌"];
+      const btn = e.currentTarget;
+      const emoji = emojis[Math.floor(Math.random()*emojis.length)];
+      const span = document.createElement("span");
+      span.className = "emoji-float";
+      span.textContent = emoji;
+      btn.appendChild(span);
+      setTimeout(()=>{ span.remove(); }, 800);
+    }
+
+    function showIntro(e) {
+      popEmoji(e);
       document.getElementById("question-section").style.display = "none";
       document.getElementById("intro-section").style.display = "block";
       const audio = document.getElementById("bg-music");
       audio.play();
     }
 
-    function goToMain() {
-      window.location.href = "main.html";
+    function goToMain(e) {
+      popEmoji(e);
+      setTimeout(() => {
+        window.location.href = "main.html";
+      }, 350);
     }
 
-    function handleNo() {
+    function handleNo(e) {
+      popEmoji(e);
       const messageBox = document.getElementById('message');
       noClickCount++;
 
@@ -116,7 +193,7 @@
       } else if (noClickCount === 2) {
         messageBox.innerText = "Sach mein No? 😭\nAapke bina ye duniya adhuri lagti hai Designer Sahiba 💔\nPlease maan jao na...";
       } else {
-        showIntro();
+        showIntro(e);
       }
     }
   </script>
