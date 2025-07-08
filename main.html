@@ -469,4 +469,52 @@ Aur Golu,
 Main ye waada karta hoon:
 
 Agar kabhi hummein koi jhagda bhi ho jaaye (jo main hone hi nahi dunga In shaa Allah)...
-toh main hamesha pehla
+toh main hamesha pehla insaan banunga jo “Sorry” bolega —
+chahe galti meri ho ya na ho.
+
+Kyunki mere liye ego, self-respect... sab baad mein aata hai,
+aap sabse pehle ho.
+
+Aur meri duaon mein bhi —
+pehle aap aati ho, baad mein main.
+Main apne liye kam, aapke liye zyada maangta hoon har roz...
+Kyuki agar aap khush ho, toh mujhe aur kuch nahi chahiye. 🌙💫`,
+        song: "tera-banjaunga.mp3",
+        buttonText: "Phir se apni duniya mein laut chalein... 💫"
+      }
+    ];
+
+    let current = 0;
+    const bgm = document.getElementById("bgm");
+
+    function renderSegment(index) {
+      const container = document.getElementById("segments");
+      container.innerHTML = "";
+      const seg = document.createElement("div");
+      seg.className = "segment show";
+      seg.innerHTML = `
+        <h1>${segments[index].title}</h1>
+        ${formatText(segments[index].text)}
+        <div>
+          ${index > 0 ? `<button class="back-button" onclick="prevSegment()">⬅️ Peeche jaayein</button>` : ""}
+          <button class="next-button" onclick="changeSegment(${ (index + 1) % segments.length })">
+            ${segments[index].buttonText}
+          </button>
+        </div>
+      `;
+      container.appendChild(seg);
+      bgm.src = segments[index].song;
+      bgm.load();
+      bgm.play().catch(e => console.warn("Audio autoplay blocked:", e));
+    }
+    function changeSegment(newIndex) {
+      current = newIndex;
+      renderSegment(current);
+    }
+    function nextSegment() { if (current < segments.length - 1) changeSegment(current + 1); }
+    function prevSegment() { if (current > 0) changeSegment(current - 1); }
+
+    document.addEventListener("DOMContentLoaded", () => renderSegment(0));
+  </script>
+</body>
+</html>
