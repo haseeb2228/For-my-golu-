@@ -24,6 +24,12 @@
       margin-bottom: 30px;
     }
 
+    h2 {
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+      color: #5e0080;
+    }
+
     p {
       font-size: 1rem;
       margin-bottom: 25px;
@@ -56,15 +62,21 @@
       background-color: #8a49d3;
     }
 
-    #audioPlayer {
-      margin-top: 20px;
+    #audioPlayer, #videoSection {
+      margin-top: 25px;
       display: none;
+    }
+
+    video {
+      max-width: 90%;
+      border-radius: 15px;
+      margin-top: 15px;
     }
   </style>
 </head>
 <body>
 
-  <h1>💜 Sohaa... bas ek baar padho bhi aur suno bhii 💜</h1>
+  <h1>💜 Sohaa... bas ek baar padho bhi aur suno bhi 💜</h1>
 
   <p>Sohaa,</p>
 
@@ -115,8 +127,10 @@
   Par is awaaz mein mera asli dil hai...<br>
   Aapke liye... sirf aapke liye 💌</em></p>
 
+  <!-- Audio Button -->
   <button onclick="playAudio()">▶️ Suno meri dil se baat...</button>
 
+  <!-- Audio Player -->
   <div id="audioPlayer">
     <audio controls>
       <source src="finalvoice.mp3" type="audio/mpeg" />
@@ -124,9 +138,25 @@
     </audio>
   </div>
 
+  <!-- Video Button -->
+  <button onclick="showVideo()">🎥 Dekho ek chhoti si video...</button>
+
+  <!-- Video Section -->
+  <div id="videoSection">
+    <h2>🎁 Aapke liye ek chhoti si surprise video 💌</h2>
+    <video controls poster="thumbnail.jpg">
+      <source src="soha-bday.mp4" type="video/mp4" />
+      Aapka browser is video ko support nahi karta.
+    </video>
+  </div>
+
   <script>
     function playAudio() {
       document.getElementById('audioPlayer').style.display = 'block';
+    }
+
+    function showVideo() {
+      document.getElementById('videoSection').style.display = 'block';
     }
   </script>
 
